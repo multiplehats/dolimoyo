@@ -25,7 +25,8 @@
     }
   ],
   "vars": {
-    "FROM_EMAIL": "digest@uitagenda.dev",
-    "FROM_NAME": "uitagenda"
+    "AUTOSEND_DEFAULT_FROM_EMAIL": "digest@uitagenda.dev",
+    "AUTOSEND_DEFAULT_FROM_NAME": "uitagenda",
+    "AUTOSEND_REPLY_TO": ""
   }
 }

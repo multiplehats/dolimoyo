@@ -8,7 +8,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import { locationKey as toLocationKey } from '@uitagenda/db'
-import { renderDigest, type DigestCadence } from '@uitagenda/email'
+import { createEmailClient, renderDigest, type DigestCadence } from '@uitagenda/email'
 import { createLLMClient } from '@uitagenda/llm'
 import { curateDigest } from '../src/pipeline/curate-digest.ts'
 import { dedupeEvents } from './lib/dedupe.ts'
@@ -28,6 +28,7 @@ async function main() {
       includeUndated: { type: 'boolean', default: false },
       maxCandidates: { type: 'string', default: '40' },
       maxPicks: { type: 'string', default: '8' },
+      send: { type: 'boolean', default: false },
     },
   })
   if (!values.location) {
@@ -134,6 +135,26 @@ async function main() {
   const totalCount = all.length
   const filteredOut = totalCount - inWindow.length
 
+  // Optional real send via AutoSend.
+  let sentInfo = ''
+  if (values.send) {
+    if (!values.email) throw new Error('--send requires --email')
+    const apiKey = process.env.AUTOSEND_API_KEY
+    const fromEmail = process.env.AUTOSEND_DEFAULT_FROM_EMAIL
+    const fromName = process.env.AUTOSEND_DEFAULT_FROM_NAME
+    const replyTo = process.env.AUTOSEND_REPLY_TO
+    if (!apiKey) throw new Error('AUTOSEND_API_KEY missing — required with --send')
+    if (!fromEmail) throw new Error('AUTOSEND_DEFAULT_FROM_EMAIL missing — required with --send')
+    const email = createEmailClient({ apiKey, fromEmail, fromName, replyTo })
+    const sent = await email.send({
+      to: values.email,
+      subject: rendered.subject,
+      html: rendered.html,
+      text: rendered.text,
+    })
+    sentInfo = `  sent:     ${sent.id ?? '(no id)'} → ${values.email}`
+  }
+
   console.log(`\n✓ digest preview for ${recipientName} <${values.email ?? '—'}> · ${values.location} · ${cadence}`)
   console.log(`  subject:  ${rendered.subject}`)
   console.log(
@@ -142,6 +163,7 @@ async function main() {
   console.log(`  llm:      $${totalCost.toFixed(4)} (curation)`)
   console.log(`  html:     ${htmlPath}`)
   console.log(`  text:     ${textPath}`)
+  if (sentInfo) console.log(sentInfo)
   console.log(`\n  intro: ${curated.intro}\n`)
 
   for (const p of curated.picks) {

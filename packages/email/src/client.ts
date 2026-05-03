@@ -1,9 +1,12 @@
 import { Autosend } from 'autosendjs'
 
+// Mirrors jobboardstarter's structured-from convention. AutoSend rejects
+// RFC-5322 "Name <email>" strings and wants the parts split.
 export interface EmailClientOptions {
   apiKey: string
   fromEmail: string
   fromName?: string
+  replyTo?: string
 }
 
 export interface SendResult { id: string | null }
@@ -22,6 +25,7 @@ export function createEmailClient(options: EmailClientOptions) {
         subject: args.subject,
         html: args.html,
         text: args.text,
+        ...(options.replyTo ? { replyTo: { email: options.replyTo } } : {}),
       })
       const id = (response as { id?: string } | undefined)?.id ?? null
       return { id }

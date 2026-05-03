@@ -8,6 +8,8 @@ declare namespace Cloudflare {
     PARSEW_API_KEY: string
     OPENROUTER_API_KEY: string
     AUTOSEND_API_KEY: string
-    FROM_NAME?: string
+    AUTOSEND_DEFAULT_FROM_EMAIL: string
+    AUTOSEND_DEFAULT_FROM_NAME: string
+    AUTOSEND_REPLY_TO: string
   }
 }

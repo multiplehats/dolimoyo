@@ -45,7 +45,7 @@ export const SCRAPER_GEN_SYSTEM = `You will be given the HTML of an events listi
 
 CONVENTIONS — read carefully, the runner depends on these:
 - itemSelector: a CSS selector matching the REPEATING event container in the listing. Each match becomes one event. Examples: "article.event", "li.agenda-item", ".event-card", "a.event-link"
-- fields.title: CSS selector inside an item, points at the element whose text is the title. Runner reads .text().trim(). Use empty string "" if the title is the item element's OWN text.
+- fields.title: CSS selector inside an item, points at the element whose text is the title. Runner reads .text().trim() and that returns the FULL TEXT of all descendants concatenated. So pick the most specific element that contains ONLY the title — never a wrapper that also contains the date or venue. If the item has <span class="titel">X</span><span class="datum">Y</span>, use ".titel" not "span". Use empty string "" if the title is the item element's OWN text.
 - fields.url: CSS selector inside an item pointing at the <a>. Runner automatically reads its href (do NOT specify "@href" or "[href]"). Use empty string "" if the item element ITSELF is the <a>.
 - fields.startsAt: CSS selector for a date element (optional but ideal).
 - fields.startsAtAttr: if the date lives in an attribute (typically "datetime"), set this to "datetime". Otherwise omit and the runner reads element text.
@@ -87,8 +87,14 @@ export async function generateScraper(args: GenerateArgs): Promise<ScraperResult
     })
     const merged: CSSScraperConfig = { ...config, baseUrl: config.baseUrl ?? args.baseUrl }
     const { events } = runCSSScraper(args.html, merged)
-    if (looksPlausible(events)) {
+    const bleed = detectTitleBleed(events)
+    if (looksPlausible(events) && !bleed) {
       return { kind: 'css', config: merged, sampleEventCount: events.length, requiresDateRescue: false }
+    }
+    if (bleed) {
+      const samples = events.slice(0, 3).map((e) => `"${e.title.slice(0, 80)}"`).join(', ')
+      feedback = `Previous attempt's title selector "${config.fields.title}" produced titles where the date or venue text bled into the title: ${samples}. Pick a more specific title selector — typically a class like ".titel"/".title"/".event-title"/"h2 a"/"h3" that contains ONLY the title text. Don't pick a wrapper element that also contains the date or venue spans.`
+      continue
     }
     // If the structure is right (≥3 unique-titled events) but dates aren't
     // parseable as ISO/RFC strings, try the date-rescue LLM pass. Many
@@ -128,6 +134,26 @@ export async function generateScraper(args: GenerateArgs): Promise<ScraperResult
   }
 
   return { kind: 'extract', reason: `CSS generation failed after ${maxAttempts} attempts` }
+}
+
+// Catch the "title selector picked a wrapper" failure mode: if the title text
+// contains a parseable date pattern (1-2 digit + month name, ISO-ish, etc.)
+// the LLM's selector is reading sibling content. Also flag when the rendered
+// title ends with a known venue token bled in from an adjacent span.
+function detectTitleBleed(events: ReturnType<typeof runCSSScraper>['events']): boolean {
+  if (events.length < 3) return false
+  const datePatterns = [
+    /\b\d{1,2}\s+(jan|feb|mrt|maa|apr|mei|jun|jul|aug|sep|okt|nov|dec)\b/i,
+    /\b\d{1,2}\s+(january|february|march|april|may|june|july|august|september|october|november|december)\b/i,
+    /\b\d{1,2}\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/i,
+    /\b\d{4}-\d{2}-\d{2}\b/,
+    /\.\.\d/, // observed: "title ..3 mei" style smushing
+  ]
+  let polluted = 0
+  for (const e of events) {
+    if (datePatterns.some((re) => re.test(e.title))) polluted++
+  }
+  return polluted / events.length >= 0.4
 }
 
 function hasParseabilityProblemOnly(events: ReturnType<typeof runCSSScraper>['events']): boolean {

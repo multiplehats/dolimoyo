@@ -109,10 +109,15 @@ async function main() {
       }
     }
 
-    // Refresh.
-    console.log(`[${i + 1}/${sources.length}] run  ${s.listingUrl}`)
+    // Refresh. Re-fetch the source by id — the gen step may have called
+    // setSourceScrapeOptions which triggers reload() inside the store and
+    // replaces this.data.sources, leaving our local `s` reference stale
+    // (and refreshSourceLocal would read scrapeOptions=null on the stale
+    // ref, dropping the JS-render flag and getting empty results).
+    const fresh = store.getSourceById(s.id) ?? s
+    console.log(`[${i + 1}/${sources.length}] run  ${fresh.listingUrl}`)
     try {
-      const r = await refreshSourceLocal({ store, source: s, scraper, parsew, llm: llm ?? undefined })
+      const r = await refreshSourceLocal({ store, source: fresh, scraper, parsew, llm: llm ?? undefined })
       const tag = r.path === 'css' ? '⚡ css' : r.path === 'css-fallback-extract' ? '↻ css→extract' : '○ extract'
       console.log(
         `         → ${r.upserted.length} events (${r.perennials.length} perennial) in ${r.elapsedSec}s ${tag}`,
