@@ -96,6 +96,14 @@ export async function generateScraper(args: GenerateArgs): Promise<ScraperResult
     // than <time datetime>). Rescue is cheap (gpt-5-nano) and lets us keep
     // the CSS path for those sites.
     if (events.length >= 3 && hasParseabilityProblemOnly(events)) {
+      // Only attempt rescue if the LLM at least *picked* a date selector and
+      // got non-null rawStartsAt out of it — rescue can't conjure dates from
+      // nothing. With nothing to rescue, give pointed feedback and try again.
+      const withRaw = events.filter((e) => e.rawStartsAt).length
+      if (withRaw === 0) {
+        feedback = `Previous attempt extracted ${events.length} events but startsAt="${config.fields.startsAt ?? '(none)'}" matched 0 date elements. Look harder for a date — common patterns: <time datetime="...">, [data-date], <span class="date">, <p class="when">. Pick the selector that points at an element with a date string in its text or attributes. If the page truly has no inline dates per event, return your best structural config anyway and we'll fall through.`
+        continue
+      }
       const rescued = await rescueDates({
         events,
         language: args.language ?? 'en',
@@ -110,10 +118,11 @@ export async function generateScraper(args: GenerateArgs): Promise<ScraperResult
           requiresDateRescue: true,
         }
       }
-      return {
-        kind: 'extract',
-        reason: `CSS structurally matches ${events.length} events but date rescue only recovered ${rescued.rescuedCount}/${rescued.attemptedCount}; site needs Extract`,
-      }
+      // Rescue had material but couldn't parse it. Last attempt: feed the
+      // raw strings back so the LLM picks a different (cleaner) selector.
+      const sampleRaws = events.filter((e) => e.rawStartsAt).slice(0, 3).map((e) => `"${e.rawStartsAt}"`).join(', ')
+      feedback = `Previous attempt's startsAt="${config.fields.startsAt ?? '(none)'}" produced raw strings like ${sampleRaws} that the date-rescue pass couldn't parse (${rescued.rescuedCount}/${rescued.attemptedCount} recovered). Pick a different date selector — try a <time> element with a datetime attribute (use startsAtAttr="datetime") or a more specific selector that excludes labels like "from"/"until".`
+      continue
     }
     feedback = describeFailure(merged, events)
   }
@@ -154,7 +163,10 @@ function describeFailure(
 
 function buildPrompt(html: string, baseUrl: string, feedback: string): string {
   const cleaned = cleanHtml(html)
-  const trimmed = cleaned.length > 60000 ? cleaned.slice(0, 60000) + '\n<!-- ...truncated -->' : cleaned
+  // 120K chars ≈ 30K tokens — well within sonnet-4.6's 200K context. We were
+  // hitting 60K too tight on event-rich pages (indexberlin had 371KB cleaned),
+  // and the date markup often lives further down in the tree than 60K.
+  const trimmed = cleaned.length > 120000 ? cleaned.slice(0, 120000) + '\n<!-- ...truncated -->' : cleaned
   return [
     `Base URL: ${baseUrl}`,
     feedback ? `\nFeedback from previous attempt:\n${feedback}\n` : '',
