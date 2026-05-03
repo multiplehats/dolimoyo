@@ -12,8 +12,14 @@ describe('llm package', () => {
     expect(typeof client.generateText).toBe('function')
   })
 
-  it('uses dotted Anthropic model IDs (not dashed)', () => {
-    expect(MODELS.scoring).toMatch(/^anthropic\/claude-haiku-\d+\.\d+$/)
+  it('uses dotted Anthropic model IDs for scraper tasks', () => {
     expect(MODELS.scraperGen).toMatch(/^anthropic\/claude-sonnet-\d+\.\d+$/)
+    expect(MODELS.scraperRegen).toMatch(/^anthropic\/claude-sonnet-\d+\.\d+$/)
+  })
+
+  it('uses cheap models for high-volume structured-output tasks', () => {
+    expect(MODELS.scoring).toBe('openai/gpt-5-nano')
+    expect(MODELS.tagging).toBe('openai/gpt-5-nano')
+    expect(MODELS.dateRescue).toBe('openai/gpt-5-nano')
   })
 })

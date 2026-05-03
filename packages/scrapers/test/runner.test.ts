@@ -30,6 +30,7 @@ describe('runCSSScraper', () => {
       title: 'Festival One',
       url: 'https://example.com/events/one',
       startsAt: new Date('2026-06-01T20:00:00Z'),
+      rawStartsAt: '2026-06-01T20:00:00Z',
       venueName: 'Stadsweide',
       description: 'A great show',
       imageUrl: null,

@@ -19,7 +19,7 @@ export function runCSSScraper(html: string, config: CSSScraperConfig): RunResult
       return
     }
     const url = absolutize(urlRaw, config.baseUrl)
-    const startsAt = parseStartsAt(item, config)
+    const { date: startsAt, raw: rawStartsAt } = parseStartsAt(item, config)
     const venueName = config.fields.venueName ? pickText(item, config.fields.venueName) || null : null
     const description = config.fields.description ? pickText(item, config.fields.description) || null : null
     const imageUrl = config.fields.imageUrl
@@ -27,7 +27,7 @@ export function runCSSScraper(html: string, config: CSSScraperConfig): RunResult
       : null
     const priceText = config.fields.priceText ? pickText(item, config.fields.priceText) || null : null
 
-    events.push({ title, url, startsAt, venueName, description, imageUrl, priceText })
+    events.push({ title, url, startsAt, rawStartsAt, venueName, description, imageUrl, priceText })
   })
 
   return { events, warnings }
@@ -44,15 +44,19 @@ function pickText(item: Cheerio<CheerioNode>, selector: string): string {
 function pickAttr(item: Cheerio<CheerioNode>, selector: string, attr: string): string {
   return (resolveNode(item, selector).attr(attr) ?? '').trim()
 }
-function parseStartsAt(item: Cheerio<CheerioNode>, config: CSSScraperConfig): Date | null {
+function parseStartsAt(
+  item: Cheerio<CheerioNode>,
+  config: CSSScraperConfig,
+): { date: Date | null; raw: string | null } {
   const sel = config.fields.startsAt
-  if (sel == null) return null
+  if (sel == null) return { date: null, raw: null }
   const node = resolveNode(item, sel)
-  if (!node.length) return null
-  const raw = config.fields.startsAtAttr ? node.attr(config.fields.startsAtAttr) : node.text()
-  if (!raw) return null
-  const ms = Date.parse(raw.trim())
-  return Number.isNaN(ms) ? null : new Date(ms)
+  if (!node.length) return { date: null, raw: null }
+  const rawValue = config.fields.startsAtAttr ? node.attr(config.fields.startsAtAttr) : node.text()
+  const raw = rawValue ? rawValue.trim() : null
+  if (!raw) return { date: null, raw: null }
+  const ms = Date.parse(raw)
+  return { date: Number.isNaN(ms) ? null : new Date(ms), raw }
 }
 function absolutize(href: string, base?: string): string {
   if (!href) return ''

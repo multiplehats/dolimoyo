@@ -172,6 +172,7 @@ export class LocalStore {
     sourceId: string
     kind: ScraperRecord['kind']
     config: unknown
+    requiresDateRescue?: boolean
     generatedByModel?: string | null
   }): ScraperRecord {
     // Mirror the partial unique index (active=true) — at most one active per source.
@@ -187,6 +188,7 @@ export class LocalStore {
       sourceId: input.sourceId,
       kind: input.kind,
       config: input.config,
+      requiresDateRescue: input.requiresDateRescue ?? false,
       version,
       active: true,
       generatedByModel: input.generatedByModel ?? null,

@@ -62,12 +62,14 @@ async function main() {
       sourceId: source.id,
       kind: 'css',
       config: result.config,
+      requiresDateRescue: result.requiresDateRescue,
       generatedByModel: MODELS.scraperGen,
     })
     console.log(`\n✓ CSS config generated and validated against ${result.sampleEventCount} sample events`)
     console.log(`  scraper id: ${scraper.id}  (v${scraper.version})`)
     console.log(`  itemSelector: ${result.config.itemSelector}`)
     console.log(`  fields: ${Object.keys(result.config.fields).join(', ')}`)
+    if (result.requiresDateRescue) console.log(`  ⚡ requires date-rescue pass on every refresh`)
   } else {
     const scraper = store.insertScraper({
       sourceId: source.id,

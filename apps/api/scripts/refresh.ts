@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
+import { createLLMClient } from '@uitagenda/llm'
 import { createParsewClient } from '@uitagenda/parsew'
 import { refreshSourceLocal } from './lib/refresh.ts'
 import { LocalStore } from './lib/store.ts'
@@ -26,10 +27,17 @@ async function main() {
 
   const scraper = store.getActiveScraper(source.id)
   const parsew = createParsewClient({ apiKey: parsewKey, baseUrl: process.env.PARSEW_BASE_URL })
+  const orKey = process.env.OPENROUTER_API_KEY
+  const llm =
+    scraper?.requiresDateRescue && orKey
+      ? createLLMClient({ apiKey: orKey, appName: 'uitagenda-refresh' })
+      : undefined
 
   console.log(`\n→ refreshing ${source.listingUrl}`)
-  console.log(`   path: ${scraper ? `${scraper.kind} (v${scraper.version})` : 'extract (no scraper)'}\n`)
-  const r = await refreshSourceLocal({ store, source, scraper, parsew })
+  console.log(
+    `   path: ${scraper ? `${scraper.kind} (v${scraper.version}${scraper.requiresDateRescue ? ', + date rescue' : ''})` : 'extract (no scraper)'}\n`,
+  )
+  const r = await refreshSourceLocal({ store, source, scraper, parsew, llm })
 
   console.log(`✓ ${r.upserted.length} events in ${r.elapsedSec}s via ${r.path}`)
   console.log(`  one-off: ${r.oneoffs.length} · perennial: ${r.perennials.length} · parsew calls: ${r.parsewCalls}`)

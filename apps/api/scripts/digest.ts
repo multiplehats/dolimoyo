@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import { locationKey as toLocationKey } from '@uitagenda/db'
 import { renderDigest } from '@uitagenda/email'
+import { dedupeEvents } from './lib/dedupe.ts'
 import { LocalStore } from './lib/store.ts'
 
 async function main() {
@@ -38,7 +39,10 @@ async function main() {
     const t = new Date(e.startsAt)
     return t >= from && t < to
   })
-  inWindow.sort((a, b) => {
+
+  const sources = store.listSources({ locationKey: key })
+  const { canonical: deduped, duplicatesRemoved } = dedupeEvents({ events: inWindow, sources })
+  deduped.sort((a, b) => {
     const ta = a.startsAt ? new Date(a.startsAt).getTime() : Number.POSITIVE_INFINITY
     const tb = b.startsAt ? new Date(b.startsAt).getTime() : Number.POSITIVE_INFINITY
     return ta - tb
@@ -47,7 +51,7 @@ async function main() {
   const rendered = await renderDigest({
     locationLabel: values.location,
     windowLabel: label,
-    events: inWindow.map((e) => ({
+    events: deduped.map((e) => ({
       title: e.title,
       url: e.url,
       startsAt: e.startsAt ? new Date(e.startsAt) : null,
@@ -68,16 +72,16 @@ async function main() {
   const totalCount = all.length
   const filteredOut = totalCount - inWindow.length
   console.log(`\n✓ digest preview for ${values.location} (${label})`)
-  console.log(`  events:   ${inWindow.length} of ${totalCount} (${filteredOut} filtered: out-of-window/perennial/undated)`)
+  console.log(`  events:   ${deduped.length} (${inWindow.length} in-window before dedup, ${duplicatesRemoved} cross-source duplicates removed, ${filteredOut} out-of-window/perennial/undated)`)
   console.log(`  subject:  ${rendered.subject}`)
   console.log(`  html:     ${htmlPath}`)
   console.log(`  text:     ${textPath}\n`)
 
-  for (const e of inWindow.slice(0, 10)) {
+  for (const e of deduped.slice(0, 10)) {
     const when = e.startsAt ? new Date(e.startsAt).toISOString().slice(0, 16).replace('T', ' ') : '(undated)'
     console.log(`  ${when}  ${e.title}`)
   }
-  if (inWindow.length > 10) console.log(`  …and ${inWindow.length - 10} more`)
+  if (deduped.length > 10) console.log(`  …and ${deduped.length - 10} more`)
   console.log()
 }
 

@@ -59,14 +59,24 @@ async function main() {
       console.log(`[${i + 1}/${sources.length}] gen  ${s.listingUrl}`)
       try {
         const { html } = await parsew.scrape(s.listingUrl)
-        const result = await generateScraper({ html, baseUrl: s.listingUrl, llm, maxAttempts: 2 })
+        const result = await generateScraper({
+          html,
+          baseUrl: s.listingUrl,
+          llm,
+          maxAttempts: 2,
+          language: s.language,
+        })
         scraper = store.insertScraper({
           sourceId: s.id,
           kind: result.kind,
           config: result.kind === 'css' ? result.config : null,
+          requiresDateRescue: result.kind === 'css' ? result.requiresDateRescue : false,
           generatedByModel: MODELS.scraperGen,
         })
-        const tag = result.kind === 'css' ? `css (${result.sampleEventCount} sample events)` : `extract (${result.reason})`
+        const tag =
+          result.kind === 'css'
+            ? `css (${result.sampleEventCount} events${result.requiresDateRescue ? ', + date rescue' : ''})`
+            : `extract (${result.reason})`
         console.log(`         → ${tag}`)
       } catch (err) {
         console.log(`         ⚠ gen failed: ${err instanceof Error ? err.message : String(err)}`)
@@ -77,7 +87,7 @@ async function main() {
     // Refresh.
     console.log(`[${i + 1}/${sources.length}] run  ${s.listingUrl}`)
     try {
-      const r = await refreshSourceLocal({ store, source: s, scraper, parsew })
+      const r = await refreshSourceLocal({ store, source: s, scraper, parsew, llm: llm ?? undefined })
       const tag = r.path === 'css' ? '⚡ css' : r.path === 'css-fallback-extract' ? '↻ css→extract' : '○ extract'
       console.log(
         `         → ${r.upserted.length} events (${r.perennials.length} perennial) in ${r.elapsedSec}s ${tag}`,

@@ -51,6 +51,16 @@ export function createLLMClient(options: LLMClientOptions): LLMClient {
   const model = (task: Task) =>
     openrouter(MODELS[task], { usage: { include: true } })
 
+  // GPT-5 series spends output tokens on reasoning by default. For our cheap
+  // structured-output tasks we want the model to skip reasoning and emit
+  // JSON directly — otherwise small maxOutputTokens budgets get consumed
+  // entirely by reasoning and the API returns finishReason='length'.
+  const isGPT5 = (slug: string) => slug.startsWith('openai/gpt-5')
+  const providerOptionsForTask = (task: Task) =>
+    isGPT5(MODELS[task])
+      ? { openrouter: { reasoning: { effort: 'minimal' as const } } }
+      : undefined
+
   const recordUsage = (
     task: Task,
     usage: { inputTokens?: number; outputTokens?: number; totalTokens?: number } | undefined,
@@ -78,6 +88,7 @@ export function createLLMClient(options: LLMClientOptions): LLMClient {
         prompt,
         system,
         maxOutputTokens: maxOutputTokens ?? MAX_OUTPUT_TOKENS[task],
+        providerOptions: providerOptionsForTask(task),
       })
       recordUsage(task, result.usage, result.providerMetadata as never)
       return result.object as never
@@ -88,6 +99,7 @@ export function createLLMClient(options: LLMClientOptions): LLMClient {
         prompt,
         system,
         maxOutputTokens: maxOutputTokens ?? MAX_OUTPUT_TOKENS[task],
+        providerOptions: providerOptionsForTask(task),
       })
       recordUsage(task, result.usage, result.providerMetadata as never)
       return result.text

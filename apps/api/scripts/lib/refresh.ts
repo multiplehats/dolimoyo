@@ -10,7 +10,9 @@ import {
   type CSSScraperConfig,
   type ScrapedEvent,
 } from '@uitagenda/scrapers'
+import type { LLMClient } from '@uitagenda/llm'
 import type { ParsewClient } from '@uitagenda/parsew'
+import { rescueDates } from '../../src/pipeline/rescue-dates.ts'
 import { EXTRACT_PROMPT, eventsSchema } from './extract.ts'
 import type { LocalStore } from './store.ts'
 import type { EventRecord, ScraperRecord, SourceRecord } from './types.ts'
@@ -32,6 +34,9 @@ export async function refreshSourceLocal(args: {
   source: SourceRecord
   scraper: ScraperRecord | null
   parsew: ParsewClient
+  // Required when scraper.requiresDateRescue is true. Optional otherwise —
+  // refresh path doesn't need it for plain CSS or Extract.
+  llm?: Pick<LLMClient, 'generateObject'>
 }): Promise<RefreshResult> {
   let parsewCalls = 0
   const t0 = Date.now()
@@ -57,10 +62,23 @@ export async function refreshSourceLocal(args: {
     const { html } = await args.parsew.scrape(args.source.listingUrl)
     parsewCalls++
     const r = runCSSScraper(html, args.scraper.config as CSSScraperConfig)
-    if (looksPlausible(r.events)) {
+    let events = r.events
+    // Date-rescue pass: scrapers flagged at gen time as needing rescue run a
+    // cheap LLM pass to convert localized date strings to ISO before
+    // plausibility check.
+    if (args.scraper.requiresDateRescue && events.length > 0 && args.llm) {
+      const rescued = await rescueDates({
+        events,
+        language: args.source.language,
+        referenceDate: new Date(),
+        llm: args.llm,
+      })
+      events = rescued.events
+    }
+    if (looksPlausible(events)) {
       path = 'css'
       scraperStatus = 'ok'
-      parsedEvents = r.events.map(toLocalEvent)
+      parsedEvents = events.map(toLocalEvent)
     } else {
       // Fall back to Extract on the same URL.
       path = 'css-fallback-extract'

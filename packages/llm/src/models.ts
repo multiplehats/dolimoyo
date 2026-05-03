@@ -1,10 +1,14 @@
-// OpenRouter model IDs use dots, not dashes (verified 2026-05-03 via openrouter.ai docs).
-// Example: anthropic/claude-haiku-4.5, NOT anthropic/claude-haiku-4-5.
+// OpenRouter model slugs (verified via openrouter.ai/api/v1/models 2026-05-03).
+// gpt-5-nano: $0.05/M input, $0.40/M output — used for cheap structured-output
+// tasks (scoring URLs, tagging perennials, parsing localized dates).
+// claude-sonnet-4.6: $3/M input, $15/M output — reserved for the harder CSS
+// scraper-generation task that benefits from stronger reasoning.
 export const MODELS = {
-  scoring: 'anthropic/claude-haiku-4.5',
+  scoring: 'openai/gpt-5-nano',
   scraperGen: 'anthropic/claude-sonnet-4.6',
   scraperRegen: 'anthropic/claude-sonnet-4.6',
-  tagging: 'anthropic/claude-haiku-4.5',
+  tagging: 'openai/gpt-5-nano',
+  dateRescue: 'openai/gpt-5-nano',
 } as const
 
 export type Task = keyof typeof MODELS
@@ -17,4 +21,5 @@ export const MAX_OUTPUT_TOKENS: Record<Task, number> = {
   scraperGen: 4096,
   scraperRegen: 4096,
   tagging: 2048,
+  dateRescue: 2048,
 }

@@ -1,9 +1,18 @@
 import { z } from 'zod'
 import { cleanHtml, runCSSScraper, looksPlausible, type CSSScraperConfig } from '@uitagenda/scrapers'
 import type { LLMClient } from '@uitagenda/llm'
+import { rescueDates } from './rescue-dates'
 
 export type ScraperResult =
-  | { kind: 'css'; config: CSSScraperConfig; sampleEventCount: number }
+  | {
+      kind: 'css'
+      config: CSSScraperConfig
+      sampleEventCount: number
+      // True if the CSS structurally extracted events but their dates needed
+      // a date-rescue LLM pass to be parseable. Refresh callers should plan
+      // to run rescueDates on every refresh too, or the data won't have dates.
+      requiresDateRescue: boolean
+    }
   | { kind: 'extract'; reason: string }
 
 const cssConfigSchema = z.object({
@@ -27,6 +36,9 @@ export interface GenerateArgs {
   baseUrl: string
   llm: Pick<LLMClient, 'generateObject'>
   maxAttempts?: number
+  // Defaults to 'en'. Used by the date-rescue pass to interpret localized
+  // date strings (e.g. "3 mei" → 2026-05-03 for nl).
+  language?: string
 }
 
 export const SCRAPER_GEN_SYSTEM = `You will be given the HTML of an events listing page. Return a JSON object describing CSS selectors that a cheerio-based runner will use to extract events.
@@ -76,15 +88,31 @@ export async function generateScraper(args: GenerateArgs): Promise<ScraperResult
     const merged: CSSScraperConfig = { ...config, baseUrl: config.baseUrl ?? args.baseUrl }
     const { events } = runCSSScraper(args.html, merged)
     if (looksPlausible(events)) {
-      return { kind: 'css', config: merged, sampleEventCount: events.length }
+      return { kind: 'css', config: merged, sampleEventCount: events.length, requiresDateRescue: false }
     }
-    // Fast-fail: if the structure is right (≥3 unique-titled events) but dates
-    // simply aren't parseable, the site doesn't surface machine-readable dates
-    // — no CSS retry will fix that. Go straight to Extract.
+    // If the structure is right (≥3 unique-titled events) but dates aren't
+    // parseable as ISO/RFC strings, try the date-rescue LLM pass. Many
+    // non-English sites surface dates as localized text ("3 mei" rather
+    // than <time datetime>). Rescue is cheap (gpt-5-nano) and lets us keep
+    // the CSS path for those sites.
     if (events.length >= 3 && hasParseabilityProblemOnly(events)) {
+      const rescued = await rescueDates({
+        events,
+        language: args.language ?? 'en',
+        referenceDate: new Date(),
+        llm: args.llm,
+      })
+      if (looksPlausible(rescued.events)) {
+        return {
+          kind: 'css',
+          config: merged,
+          sampleEventCount: rescued.events.length,
+          requiresDateRescue: true,
+        }
+      }
       return {
         kind: 'extract',
-        reason: `CSS structurally matches ${events.length} events but dates are not machine-parseable; site needs Extract`,
+        reason: `CSS structurally matches ${events.length} events but date rescue only recovered ${rescued.rescuedCount}/${rescued.attemptedCount}; site needs Extract`,
       }
     }
     feedback = describeFailure(merged, events)

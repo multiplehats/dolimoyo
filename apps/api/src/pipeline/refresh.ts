@@ -98,6 +98,7 @@ async function runExtract(args: RefreshArgs): Promise<ScrapedEvent[]> {
     title: e.title,
     url: e.url,
     startsAt: parseDate(e.startsAt),
+    rawStartsAt: e.startsAt,
     venueName: e.venueName ?? null,
     description: e.description ?? null,
     imageUrl: e.imageUrl ?? null,

@@ -79,6 +79,9 @@ export interface ScraperRecord {
   // CSSScraperConfig when kind='css'; null when kind='extract'.
   // Stored as `unknown` here to avoid an import cycle with @uitagenda/scrapers.
   config: unknown
+  // True when CSS extracts events but their dates need an LLM rescue pass to
+  // be parseable. Refresh path runs rescueDates() when this is set.
+  requiresDateRescue: boolean
   version: number
   active: boolean
   generatedByModel: string | null
