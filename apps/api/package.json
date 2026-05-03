@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "dotenvx get --format eval | grep -v DOTENV_PUBLIC_KEY > .dev.vars",
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "deploy": "dotenvx get -f .env.production --format json | jq 'del(.DOTENV_PUBLIC_KEY, .DOTENV_PUBLIC_KEY_PRODUCTION)' | wrangler secret bulk && wrangler deploy",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build": "echo no-build-needed",
