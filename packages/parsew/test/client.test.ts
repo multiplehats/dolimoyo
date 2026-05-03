@@ -42,7 +42,7 @@ describe('createParsewClient', () => {
     const onCall = vi.fn()
     try {
       const client = createParsewClient({ apiKey: 'sr_test', onCall })
-      const r = await client.search('events Enschede', { limit: 5, language: 'nl' })
+      const r = await client.search('events Enschede', { limit: 5, lang: 'nl' })
       expect(r.results).toHaveLength(1)
       const call = fetchMock.mock.calls[0]
       const url = String(call?.[0])

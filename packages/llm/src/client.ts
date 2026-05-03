@@ -1,7 +1,7 @@
 import { createOpenRouter } from '@openrouter/ai-sdk-provider'
 import { generateObject, generateText } from 'ai'
 import type { z } from 'zod'
-import { MODELS, type Task } from './models'
+import { MAX_OUTPUT_TOKENS, MODELS, type Task } from './models'
 
 export interface LLMLedgerEvent {
   task: Task
@@ -25,8 +25,14 @@ export interface LLMClient {
     schema: z.ZodSchema<T>
     prompt: string
     system?: string
+    maxOutputTokens?: number
   }): Promise<T>
-  generateText(args: { task: Task; prompt: string; system?: string }): Promise<string>
+  generateText(args: {
+    task: Task
+    prompt: string
+    system?: string
+    maxOutputTokens?: number
+  }): Promise<string>
 }
 
 interface OpenRouterUsageMeta {
@@ -65,21 +71,23 @@ export function createLLMClient(options: LLMClientOptions): LLMClient {
   }
 
   return {
-    async generateObject({ task, schema, prompt, system }) {
+    async generateObject({ task, schema, prompt, system, maxOutputTokens }) {
       const result = await generateObject({
         model: model(task),
         schema,
         prompt,
         system,
+        maxOutputTokens: maxOutputTokens ?? MAX_OUTPUT_TOKENS[task],
       })
       recordUsage(task, result.usage, result.providerMetadata as never)
       return result.object as never
     },
-    async generateText({ task, prompt, system }) {
+    async generateText({ task, prompt, system, maxOutputTokens }) {
       const result = await generateText({
         model: model(task),
         prompt,
         system,
+        maxOutputTokens: maxOutputTokens ?? MAX_OUTPUT_TOKENS[task],
       })
       recordUsage(task, result.usage, result.providerMetadata as never)
       return result.text

@@ -46,7 +46,7 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
   const seenDomains = new Map<string, { url: string; title: string }>()
 
   for (const q of queries) {
-    const r = await parsew.search(q, { language, limit: 10 })
+    const r = await parsew.search(q, { lang: language, limit: 10 })
     for (const hit of r.results) {
       const domain = safeDomain(hit.url)
       if (!domain || BLOCKLIST.has(domain)) continue
@@ -57,13 +57,19 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
   if (seenDomains.size === 0) return []
 
   // For each candidate domain, ask Parsew Map to find listing-shaped URLs.
-  // If none, drop the candidate.
+  // Drop candidates whose map fails or yields no listing-shaped URL — one bad
+  // site shouldn't abort the whole discovery run.
   const candidates: { domain: string; listingUrl: string; title: string }[] = []
   for (const [domain, hit] of seenDomains) {
-    const map = await parsew.map(hit.url, {
-      search: 'agenda OR events OR uitagenda OR concert',
-      limit: 20,
-    })
+    let map: { links: string[] }
+    try {
+      map = await parsew.map(hit.url, {
+        search: 'agenda OR events OR uitagenda OR concert',
+        limit: 20,
+      })
+    } catch {
+      continue
+    }
     const listingUrl = pickListingUrl(map.links, hit.url) ?? null
     if (!listingUrl) continue
     candidates.push({ domain, listingUrl, title: hit.title })
@@ -74,8 +80,8 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
   const scoringSchema = z.object({
     scores: z.array(
       z.object({
-        url: z.string().url(),
-        score: z.number().min(0).max(10),
+        url: z.string(),
+        score: z.number().describe('Integer 0–10 inclusive. 10 = best fit, 0 = unrelated.'),
       }),
     ),
   })

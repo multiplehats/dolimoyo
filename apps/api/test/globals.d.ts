@@ -1,4 +1,5 @@
 /// <reference path="../node_modules/@cloudflare/vitest-pool-workers/types/cloudflare-test.d.ts" />
+/// <reference path="../worker-configuration.d.ts" />
 
 // ADMIN_SECRET is set via .dev.vars (gitignored); declare it here for test type-checking.
 declare namespace Cloudflare {

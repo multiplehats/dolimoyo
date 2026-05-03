@@ -4,20 +4,12 @@ import {
   type ScrapeResult,
   type ExtractResult,
   type MapResult,
+  type SearchResult,
   type ScrapeOptions,
   type ExtractOptions,
   type MapOptions,
+  type SearchOptions,
 } from '@parsew/sdk/server'
-
-export interface SearchOptions {
-  limit?: number
-  language?: string
-  country?: string
-}
-
-export interface SearchResult {
-  results: { url: string; title: string; description?: string }[]
-}
 
 export interface ParsewLedgerEvent {
   endpoint: 'scrape' | 'extract' | 'map' | 'search'
@@ -55,7 +47,6 @@ export function createParsewClient(options: ParsewClientOptions): ParsewClient {
     timeout: options.timeout,
   })
 
-  const baseUrl = (options.baseUrl ?? 'https://api.parsew.com').replace(/\/$/, '')
   const maxRetries = options.maxRetries ?? 2
   const onCall = options.onCall
 
@@ -84,33 +75,7 @@ export function createParsewClient(options: ParsewClientOptions): ParsewClient {
     scrape: wrap('scrape', inner.scrape.bind(inner)),
     extract: wrap('extract', inner.extract.bind(inner)) as ParsewClient['extract'],
     map: wrap('map', inner.map.bind(inner)),
-    search: wrap('search', searchFor(baseUrl, options.apiKey, options.timeout ?? 60_000)),
-  }
-}
-
-function searchFor(baseUrl: string, apiKey: string, timeout: number) {
-  return async (query: string, options?: SearchOptions): Promise<SearchResult> => {
-    const body: Record<string, unknown> = { query }
-    if (options?.limit) body.limit = options.limit
-    if (options?.language) body.lang = options.language
-    if (options?.country) body.country = options.country
-    const controller = new AbortController()
-    const timer = setTimeout(() => controller.abort(), timeout)
-    try {
-      const res = await fetch(`${baseUrl}/v1/search`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
-        body: JSON.stringify(body),
-        signal: controller.signal,
-      })
-      if (!res.ok) {
-        const json = (await res.json().catch(() => ({}))) as { error?: string }
-        throw new ParsewError(json.error ?? res.statusText, res.status, `HTTP_${res.status}`)
-      }
-      return res.json() as Promise<SearchResult>
-    } finally {
-      clearTimeout(timer)
-    }
+    search: wrap('search', inner.search.bind(inner)),
   }
 }
 
@@ -123,5 +88,5 @@ function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms))
 }
 
-export type { ScrapeResult, ExtractResult, MapResult }
+export type { ScrapeResult, ExtractResult, MapResult, SearchResult, SearchOptions }
 export { ParsewError }

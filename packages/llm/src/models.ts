@@ -8,3 +8,13 @@ export const MODELS = {
 } as const
 
 export type Task = keyof typeof MODELS
+
+// Hard ceiling on output tokens per task. Caps runaway generations and
+// caps cost-per-call regardless of provider behavior. Override per-call
+// via the `maxOutputTokens` arg if a specific call needs more headroom.
+export const MAX_OUTPUT_TOKENS: Record<Task, number> = {
+  scoring: 1024,
+  scraperGen: 4096,
+  scraperRegen: 4096,
+  tagging: 2048,
+}
