@@ -8,7 +8,7 @@ export default defineConfig({
         // Pipeline unit tests — pure Node, no Cloudflare bindings needed
         test: {
           name: 'pipeline',
-          include: ['test/discover.test.ts', 'test/generate-scraper.test.ts'],
+          include: ['test/discover.test.ts', 'test/generate-scraper.test.ts', 'test/refresh.test.ts', 'test/digest.test.ts'],
           environment: 'node',
         },
       },
@@ -22,7 +22,7 @@ export default defineConfig({
         test: {
           name: 'worker',
           include: ['test/**/*.test.ts'],
-          exclude: ['test/discover.test.ts', 'test/generate-scraper.test.ts'],
+          exclude: ['test/discover.test.ts', 'test/generate-scraper.test.ts', 'test/refresh.test.ts', 'test/digest.test.ts'],
         },
       },
     ],
