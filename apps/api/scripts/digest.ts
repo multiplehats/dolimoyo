@@ -103,7 +103,7 @@ async function main() {
       const e = eventById.get(p.eventId)
       if (!e) return null
       return {
-        title: e.title,
+        title: p.displayTitle?.trim() || e.title,
         url: e.url,
         startsAt: e.startsAt ? new Date(e.startsAt) : null,
         venueName: e.venueName,
@@ -172,7 +172,11 @@ async function main() {
     const when = e.startsAt
       ? new Date(e.startsAt).toISOString().slice(0, 16).replace('T', ' ')
       : '(undated)'
-    console.log(`  ${when}  ${e.title}`)
+    const titleShown = p.displayTitle?.trim() || e.title
+    const titleNote = p.displayTitle?.trim() && p.displayTitle.trim() !== e.title
+      ? `  (was: "${e.title.slice(0, 60)}")`
+      : ''
+    console.log(`  ${when}  ${titleShown}${titleNote}`)
     console.log(`              ↳ ${p.blurb}`)
   }
   console.log(`\n  closer: ${curated.closer}\n`)

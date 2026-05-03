@@ -53,6 +53,7 @@ const curationSchema = z.object({
     z.object({
       eventId: z.string().describe('Must match a candidate id exactly.'),
       blurb: z.string().describe('One short sentence explaining why this fits the recipient. Concrete, no marketing fluff.'),
+      displayTitle: z.string().describe('Cleaned-up title — almost always EMPTY STRING. Set ONLY when the candidate title is visibly broken (e.g. dates or city smushed in: "Twentse Vlooienmarkt3 meiEnschede" → "Twentse Vlooienmarkt"). Empty string for clean titles.'),
     }),
   ).describe('Selected events in display order. Skip the candidates that don\'t actually match this person; quality over quantity.'),
   closer: z.string().describe('One short closing sentence (≤120 chars). Friendly. No emojis. No "Cheers".'),
@@ -77,6 +78,11 @@ Blurb rules:
 - Reference WHY this fits the recipient. Use their words ("modern arts", "jazz") when it's honest.
 - One sentence. Concrete. No "you'll love this", no "amazing".
 - If the event description is in another language, the blurb is still in English.
+
+Title cleanup:
+- Most titles are clean — leave displayTitle unset.
+- Only set displayTitle when the candidate title is visibly broken: dates or city names smushed in without spaces, ASCII soup like "..3 mei", or trailing venue-string fragments. Strip those, return the actual event name.
+- Never paraphrase a clean title. If in doubt, leave it.
 
 Each pick's eventId MUST exactly match one of the provided candidate ids.`
 
