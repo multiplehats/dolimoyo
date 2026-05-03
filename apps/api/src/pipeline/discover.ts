@@ -132,15 +132,35 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
 }
 
 function buildSearchQueries(location: string, interests: string[], language: string): string[] {
-  const stems =
-    language === 'nl'
-      ? ['uitagenda', 'evenementen agenda', 'wat te doen', 'concerten']
-      : ['events', 'whats on', 'event listings', 'concerts']
+  const stems = STEMS[language] ?? STEMS.en!
   const base = stems.map((s) => `${s} ${location}`)
+  const interestSuffix = INTEREST_SUFFIX[language] ?? INTEREST_SUFFIX.en!
   const interestQs = interests.flatMap((i) =>
-    [`${i} ${location} agenda`, `${i} ${location} events`],
+    interestSuffix.map((suf) => `${i} ${location} ${suf}`),
   )
   return [...new Set([...base, ...interestQs])].slice(0, 8)
+}
+
+// Localized search stems per language. The point is to include native words
+// the local listing sites actually rank on — Google search results vary by
+// query language, so an English query often misses local agenda sites.
+const STEMS: Record<string, string[]> = {
+  nl: ['uitagenda', 'evenementen agenda', 'wat te doen', 'concerten'],
+  de: ['veranstaltungen', 'was ist los', 'konzerte', 'kulturkalender'],
+  es: ['agenda cultural', 'qué hacer', 'conciertos', 'eventos'],
+  pt: ['agenda cultural', 'o que fazer', 'concertos', 'eventos'],
+  fr: ['agenda culturel', 'que faire', 'concerts', 'sortir'],
+  it: ['agenda eventi', 'cosa fare', 'concerti', 'eventi'],
+  en: ['events', 'whats on', 'event listings', 'concerts'],
+}
+const INTEREST_SUFFIX: Record<string, string[]> = {
+  nl: ['agenda', 'evenementen'],
+  de: ['veranstaltungen', 'agenda'],
+  es: ['agenda', 'eventos'],
+  pt: ['agenda', 'eventos'],
+  fr: ['agenda', 'événements'],
+  it: ['agenda', 'eventi'],
+  en: ['agenda', 'events'],
 }
 
 function pickListingUrl(links: string[], fallback: string): string | null {
