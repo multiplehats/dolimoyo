@@ -41,10 +41,13 @@ const COST: Record<ParsewLedgerEvent['endpoint'], number> = {
 export function createParsewClient(options: ParsewClientOptions): ParsewClient {
   if (!options.apiKey?.trim()) throw new Error('Parsew api key is required')
 
+  // SDK default is 60s. Extract on JS-rendered listings (waitFor=3000 +
+  // server-side scrape + LLM pass) can exceed that, so default to 120s.
+  // Caller can still override.
   const inner = new Parsew({
     apiKey: options.apiKey,
     baseUrl: options.baseUrl,
-    timeout: options.timeout,
+    timeout: options.timeout ?? 120_000,
   })
 
   const maxRetries = options.maxRetries ?? 2
