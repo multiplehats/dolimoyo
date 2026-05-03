@@ -92,7 +92,7 @@ function searchFor(baseUrl: string, apiKey: string, timeout: number) {
   return async (query: string, options?: SearchOptions): Promise<SearchResult> => {
     const body: Record<string, unknown> = { query }
     if (options?.limit) body.limit = options.limit
-    if (options?.language) body.language = options.language
+    if (options?.language) body.lang = options.language
     if (options?.country) body.country = options.country
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), timeout)

@@ -52,7 +52,7 @@ describe('createParsewClient', () => {
       const body = JSON.parse(String(init.body))
       expect(body.query).toBe('events Enschede')
       expect(body.limit).toBe(5)
-      expect(body.language).toBe('nl')
+      expect(body.lang).toBe('nl')
       expect(onCall).toHaveBeenCalledWith({ endpoint: 'search', costUnits: 1 })
     } finally {
       globalThis.fetch = original
