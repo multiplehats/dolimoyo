@@ -11,10 +11,10 @@ dist
 # dotenvx private keys (NEVER commit)
 .env.keys
 
-# Local overrides (gitignored)
-.env*.local
-
 # Conductor workspace overrides
 .env.conductor
 
-# Encrypted .env / .env.production / .env.example files ARE safe to commit.
+# Encrypted .env files (.env, .env.local, .env.production, .env.example)
+# ARE safe to commit — dotenvx encrypts values at rest. Don't add a
+# blanket .env*.local rule here; we want .env.local committed so the
+# whole team picks up the same dev secrets after a clone.
