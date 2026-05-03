@@ -10,8 +10,10 @@ export const MODELS = {
   tagging: 'openai/gpt-5-nano',
   dateRescue: 'openai/gpt-5-nano',
   // Per-digest curation: pick + order + write intro/blurbs/closer for one
-  // recipient. Cheap model is fine here — task is short and structured.
-  digestCuration: 'openai/gpt-5-nano',
+  // recipient. mini > nano here — nano was crossing blurbs with the wrong
+  // eventId (observed: blurb said "Bas Kosters" while title was a flea
+  // market). Still well under $0.001 per digest with our typical input size.
+  digestCuration: 'openai/gpt-5-mini',
 } as const
 
 export type Task = keyof typeof MODELS
