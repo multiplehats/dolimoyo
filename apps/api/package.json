@@ -16,6 +16,7 @@
     "debug-css": "dotenvx run -f ../../.env -- tsx scripts/debug-css.ts",
     "refresh": "dotenvx run -f ../../.env -- tsx scripts/refresh.ts",
     "refresh-top": "dotenvx run -f ../../.env -- tsx scripts/refresh-top.ts",
+    "probe-spa": "dotenvx run -f ../../.env -- tsx scripts/probe-spa.ts",
     "digest": "tsx scripts/digest.ts",
     "filter-perennials": "dotenvx run -f ../../.env -- tsx scripts/filter-perennials.ts",
     "db:show": "tsx scripts/db-show.ts"

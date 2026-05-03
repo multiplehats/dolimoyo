@@ -3,6 +3,7 @@ import { parseArgs } from 'node:util'
 import { MODELS, createLLMClient } from '@uitagenda/llm'
 import { createParsewClient } from '@uitagenda/parsew'
 import { generateScraper } from '../src/pipeline/generate-scraper.ts'
+import { scrapeWithSpa } from './lib/scrape-with-spa.ts'
 import { LocalStore } from './lib/store.ts'
 
 async function main() {
@@ -45,15 +46,40 @@ async function main() {
 
   console.log(`\n→ generating CSS scraper for ${source.listingUrl}\n`)
   const t0 = Date.now()
-  const { html } = await parsew.scrape(source.listingUrl)
+  const probe = await scrapeWithSpa(parsew, source.listingUrl, source.scrapeOptions)
+  if (probe.spaDetected) {
+    store.setSourceScrapeOptions(source.id, probe.scrapeOptions)
+    console.log(`  ⚡ SPA detected — persisting waitFor=${probe.scrapeOptions?.waitFor}ms`)
+  }
+  let html = probe.html
   console.log(`  fetched ${html.length} bytes of HTML`)
 
-  const result = await generateScraper({
+  let result = await generateScraper({
     html,
     baseUrl: source.listingUrl,
     llm,
     maxAttempts: Number(values.maxAttempts),
+    language: source.language,
   })
+  // CSS-gen failsafe: if structural gen failed and we haven't paid for a
+  // JS-rendered scrape yet, try one more time with waitFor=3000.
+  if (result.kind === 'extract' && !source.scrapeOptions) {
+    console.log(`  ↻ CSS failed; retrying with waitFor=3000ms`)
+    const jsScrape = await parsew.scrape(source.listingUrl, { waitFor: 3000 })
+    html = jsScrape.html
+    const jsResult = await generateScraper({
+      html,
+      baseUrl: source.listingUrl,
+      llm,
+      maxAttempts: Number(values.maxAttempts),
+      language: source.language,
+    })
+    if (jsResult.kind === 'css') {
+      store.setSourceScrapeOptions(source.id, { waitFor: 3000 })
+      result = jsResult
+      console.log(`  ⚡ JS-render unlocked CSS path`)
+    }
+  }
   const elapsed = ((Date.now() - t0) / 1000).toFixed(1)
   const totalCost = llmCalls.reduce((a, b) => a + b.costUSD, 0)
 

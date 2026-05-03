@@ -6,6 +6,7 @@ import type {
   DiscoveryRun,
   EventRecord,
   ExtractRun,
+  ScrapeOptions,
   ScraperRecord,
   SourceRecord,
 } from './types.ts'
@@ -39,6 +40,10 @@ export class LocalStore {
       ? (JSON.parse(readFileSync(this.path, 'utf-8')) as Partial<StoreShape>)
       : {}
     this.data = { ...structuredClone(EMPTY), ...loaded }
+    // Backfill scrapeOptions on sources persisted before this field existed.
+    for (const s of this.data.sources) {
+      if (!('scrapeOptions' in s)) (s as SourceRecord).scrapeOptions = null
+    }
   }
 
   private save(): void {
@@ -100,6 +105,7 @@ export class LocalStore {
       consecutiveFailures: 0,
       discoveryScore: input.discoveryScore ?? null,
       discoveryRunIds: input.discoveryRunId ? [input.discoveryRunId] : [],
+      scrapeOptions: null,
     }
     this.data.sources.push(row)
     this.save()
@@ -111,6 +117,13 @@ export class LocalStore {
     if (!s) return
     s.lastOkAt = new Date().toISOString()
     s.consecutiveFailures = 0
+    this.save()
+  }
+
+  setSourceScrapeOptions(id: string, opts: ScrapeOptions | null): void {
+    const s = this.getSourceById(id)
+    if (!s) return
+    s.scrapeOptions = opts
     this.save()
   }
 

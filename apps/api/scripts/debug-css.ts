@@ -36,6 +36,8 @@ async function main() {
       url: { type: 'string' },
       maxChars: { type: 'string', default: '60000' },
       attempts: { type: 'string', default: '3' },
+      waitFor: { type: 'string' },
+      waitForSelector: { type: 'string' },
     },
   })
 
@@ -65,9 +67,18 @@ async function main() {
   const slug = `${source.locationKey}-${source.domain.replace(/\./g, '_')}`
   const ts = new Date().toISOString().replace(/[:.]/g, '-')
 
+  const overrideOpts =
+    values.waitFor || values.waitForSelector
+      ? {
+          ...(values.waitFor ? { waitFor: Number(values.waitFor) } : {}),
+          ...(values.waitForSelector ? { waitForSelector: values.waitForSelector } : {}),
+        }
+      : source.scrapeOptions ?? undefined
+
   console.log(`\n→ debug CSS gen for ${source.listingUrl}`)
+  if (overrideOpts) console.log(`  scrapeOptions: ${JSON.stringify(overrideOpts)}`)
   const t0 = Date.now()
-  const { html, markdown, links } = await parsew.scrape(source.listingUrl)
+  const { html, markdown, links } = await parsew.scrape(source.listingUrl, overrideOpts)
   console.log(`  fetched: ${html.length} bytes html, ${markdown?.length ?? 0} bytes markdown, ${links?.length ?? 0} links`)
   writeFileSync(resolve(outDir, `${slug}-${ts}.html`), html)
 

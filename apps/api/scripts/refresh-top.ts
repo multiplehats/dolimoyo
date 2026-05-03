@@ -8,6 +8,7 @@ import { MODELS, createLLMClient } from '@uitagenda/llm'
 import { createParsewClient } from '@uitagenda/parsew'
 import { generateScraper } from '../src/pipeline/generate-scraper.ts'
 import { refreshSourceLocal } from './lib/refresh.ts'
+import { scrapeWithSpa } from './lib/scrape-with-spa.ts'
 import { LocalStore } from './lib/store.ts'
 
 async function main() {
@@ -58,14 +59,38 @@ async function main() {
     if (!scraper && !values.skipGen && llm) {
       console.log(`[${i + 1}/${sources.length}] gen  ${s.listingUrl}`)
       try {
-        const { html } = await parsew.scrape(s.listingUrl)
-        const result = await generateScraper({
-          html,
+        // First try with current options (initially null).
+        const probe = await scrapeWithSpa(parsew, s.listingUrl, s.scrapeOptions)
+        if (probe.spaDetected) {
+          store.setSourceScrapeOptions(s.id, probe.scrapeOptions)
+          console.log(`         ⚡ probe: empty body, persisting waitFor=${probe.scrapeOptions?.waitFor}ms`)
+        }
+        let result = await generateScraper({
+          html: probe.html,
           baseUrl: s.listingUrl,
           llm,
           maxAttempts: 2,
           language: s.language,
         })
+        // If CSS gen failed and we haven't tried JS rendering yet, retry once
+        // with waitFor=3000. Many sites have plausible-looking HTML on first
+        // byte but the actual event list only mounts after hydration.
+        if (result.kind === 'extract' && !s.scrapeOptions) {
+          console.log(`         ↻ CSS failed; retrying with waitFor=3000ms`)
+          const jsScrape = await parsew.scrape(s.listingUrl, { waitFor: 3000 })
+          const jsResult = await generateScraper({
+            html: jsScrape.html,
+            baseUrl: s.listingUrl,
+            llm,
+            maxAttempts: 2,
+            language: s.language,
+          })
+          if (jsResult.kind === 'css') {
+            store.setSourceScrapeOptions(s.id, { waitFor: 3000 })
+            result = jsResult
+            console.log(`         ⚡ JS-render unlocked CSS path`)
+          }
+        }
         scraper = store.insertScraper({
           sourceId: s.id,
           kind: result.kind,

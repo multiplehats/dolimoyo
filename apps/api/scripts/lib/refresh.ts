@@ -59,7 +59,10 @@ export async function refreshSourceLocal(args: {
 
   // Try CSS first if we have an active CSS scraper.
   if (args.scraper?.kind === 'css' && args.scraper.config) {
-    const { html } = await args.parsew.scrape(args.source.listingUrl)
+    const { html } = await args.parsew.scrape(
+      args.source.listingUrl,
+      args.source.scrapeOptions ?? undefined,
+    )
     parsewCalls++
     const r = runCSSScraper(html, args.scraper.config as CSSScraperConfig)
     let events = r.events
@@ -83,7 +86,11 @@ export async function refreshSourceLocal(args: {
       // Fall back to Extract on the same URL.
       path = 'css-fallback-extract'
       scraperStatus = 'fell-back'
-      parsedEvents = await runExtract(args.parsew, args.source.listingUrl).then((r) => {
+      parsedEvents = await runExtract(
+        args.parsew,
+        args.source.listingUrl,
+        args.source.scrapeOptions ?? undefined,
+      ).then((r) => {
         parsewCalls++
         warning = r.warning
         return r.events
@@ -91,7 +98,11 @@ export async function refreshSourceLocal(args: {
     }
   } else {
     path = 'extract'
-    parsedEvents = await runExtract(args.parsew, args.source.listingUrl).then((r) => {
+    parsedEvents = await runExtract(
+      args.parsew,
+      args.source.listingUrl,
+      args.source.scrapeOptions ?? undefined,
+    ).then((r) => {
       parsewCalls++
       warning = r.warning
       return r.events
@@ -163,10 +174,12 @@ function toLocalEvent(e: ScrapedEvent) {
 async function runExtract(
   parsew: ParsewClient,
   url: string,
+  scrapeOptions?: { waitFor?: number; waitForSelector?: string },
 ): Promise<{ events: ReturnType<typeof toLocalEvent>[]; warning: string | null }> {
   const result = await parsew.extract(url, {
     schema: eventsSchema,
     prompt: EXTRACT_PROMPT,
+    ...(scrapeOptions ?? {}),
   })
   const data = result.data as z.infer<typeof eventsSchema>
   return {

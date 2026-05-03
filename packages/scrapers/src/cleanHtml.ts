@@ -25,3 +25,12 @@ export function cleanHtml(html: string): string {
   // Collapse whitespace runs that don't change selector semantics.
   return $.html().replace(/\s+\n/g, '\n').replace(/\n{3,}/g, '\n\n')
 }
+
+// Visible <body> text length after noise is stripped. Used to detect SPA
+// shells: server-rendered listings have many KB of text (event titles, dates,
+// venue names); SPA shells have a few nav items and a loader (<1KB).
+export function bodyTextLength(html: string): number {
+  const $ = cheerio.load(html)
+  $('script, style, noscript, svg, iframe, link, meta').remove()
+  return $('body').text().replace(/\s+/g, ' ').trim().length
+}

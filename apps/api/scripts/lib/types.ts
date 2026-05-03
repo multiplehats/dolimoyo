@@ -1,6 +1,11 @@
 // Mirrors packages/db/src/schema.ts field-for-field. Swap LocalStore for a
 // Drizzle-backed store later without changing call sites.
 
+export interface ScrapeOptions {
+  waitFor?: number
+  waitForSelector?: string
+}
+
 export interface SourceRecord {
   id: string
   domain: string
@@ -17,6 +22,9 @@ export interface SourceRecord {
   consecutiveFailures: number
   discoveryScore: number | null
   discoveryRunIds: string[]
+  // Persistent Parsew scrape options needed to render this site (SPAs).
+  // null when the site renders server-side and a plain scrape works.
+  scrapeOptions: ScrapeOptions | null
 }
 
 export interface EventRecord {
