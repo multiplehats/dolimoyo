@@ -18,7 +18,7 @@
     "refresh": "dotenvx run -f .env.local -- tsx scripts/refresh.ts",
     "refresh-top": "dotenvx run -f .env.local -- tsx scripts/refresh-top.ts",
     "probe-spa": "dotenvx run -f .env.local -- tsx scripts/probe-spa.ts",
-    "digest": "tsx scripts/digest.ts",
+    "digest": "dotenvx run -f .env.local -- tsx scripts/digest.ts",
     "filter-perennials": "dotenvx run -f .env.local -- tsx scripts/filter-perennials.ts",
     "db:show": "tsx scripts/db-show.ts"
   },

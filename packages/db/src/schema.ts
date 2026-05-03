@@ -17,7 +17,9 @@ import {
 
 export const subscriptionKind = pgEnum('subscription_kind', ['home', 'trip'])
 export const subscriptionStatus = pgEnum('subscription_status', ['active', 'paused', 'expired'])
-export const cadence = pgEnum('cadence', ['daily', 'weekly'])
+// `bidaily` = one digest every other day (≈ 3.5/week). The middle ground when
+// daily feels noisy and weekly feels stale.
+export const cadence = pgEnum('cadence', ['daily', 'bidaily', 'weekly'])
 export const sourceStatus = pgEnum('source_status', ['active', 'broken', 'dead'])
 export const scraperKind = pgEnum('scraper_kind', ['css', 'extract'])
 export const deliveryStatus = pgEnum('delivery_status', ['queued', 'sent', 'failed'])

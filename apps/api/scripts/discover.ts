@@ -20,6 +20,7 @@ async function main() {
       language: { type: 'string', default: 'nl' },
       topN: { type: 'string', default: '8' },
       radiusKm: { type: 'string', default: '25' },
+      nearbyAreas: { type: 'string' },
     },
   })
 
@@ -56,6 +57,9 @@ async function main() {
     interests: values.interests!.split(',').map((s) => s.trim()).filter(Boolean),
     language: values.language!,
     topN: Number(values.topN),
+    nearbyAreas: values.nearbyAreas
+      ? values.nearbyAreas.split(',').map((s) => s.trim()).filter(Boolean)
+      : undefined,
     parsew,
     llm,
   }

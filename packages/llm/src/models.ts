@@ -9,6 +9,9 @@ export const MODELS = {
   scraperRegen: 'anthropic/claude-sonnet-4.6',
   tagging: 'openai/gpt-5-nano',
   dateRescue: 'openai/gpt-5-nano',
+  // Per-digest curation: pick + order + write intro/blurbs/closer for one
+  // recipient. Cheap model is fine here — task is short and structured.
+  digestCuration: 'openai/gpt-5-nano',
 } as const
 
 export type Task = keyof typeof MODELS
@@ -22,4 +25,6 @@ export const MAX_OUTPUT_TOKENS: Record<Task, number> = {
   scraperRegen: 4096,
   tagging: 2048,
   dateRescue: 2048,
+  // Headroom for intro + ~12 picks each with a blurb + closer.
+  digestCuration: 3072,
 }

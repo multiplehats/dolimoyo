@@ -23,6 +23,11 @@ export interface DiscoverArgs {
   parsew: Pick<ParsewClient, 'search' | 'map'>
   llm: Pick<LLMClient, 'generateObject'>
   topN?: number
+  // Optional. When set, the discovery search expands beyond the primary
+  // location label to include neighboring areas the subscriber cares about
+  // (Enschede → ['Twente', 'Hengelo', 'Bad Bentheim']). Pulls in regional
+  // listing sites that wouldn't surface on a literal "Enschede" query.
+  nearbyAreas?: string[]
 }
 
 // Match by base domain regardless of TLD — catches eventbrite.es,
@@ -58,7 +63,7 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
   const { location, interests, language, parsew, llm } = args
   const topN = args.topN ?? 5
 
-  const queries = buildSearchQueries(location.label, interests, language)
+  const queries = buildSearchQueries(location.label, interests, language, args.nearbyAreas ?? [])
   const seenDomains = new Map<string, { url: string; title: string }>()
 
   for (const q of queries) {
@@ -131,14 +136,23 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
     .slice(0, topN)
 }
 
-function buildSearchQueries(location: string, interests: string[], language: string): string[] {
+function buildSearchQueries(
+  location: string,
+  interests: string[],
+  language: string,
+  nearbyAreas: string[],
+): string[] {
   const stems = STEMS[language] ?? STEMS.en!
-  const base = stems.map((s) => `${s} ${location}`)
   const interestSuffix = INTEREST_SUFFIX[language] ?? INTEREST_SUFFIX.en!
+  const places = [location, ...nearbyAreas]
+  // Prioritize the primary location's stems; nearby areas only get the top 1-2
+  // stems so we don't blow the 8-query budget on regional noise.
+  const primary = stems.map((s) => `${s} ${location}`)
+  const secondary = nearbyAreas.flatMap((area) => stems.slice(0, 2).map((s) => `${s} ${area}`))
   const interestQs = interests.flatMap((i) =>
-    interestSuffix.map((suf) => `${i} ${location} ${suf}`),
+    places.flatMap((p) => interestSuffix.map((suf) => `${i} ${p} ${suf}`)),
   )
-  return [...new Set([...base, ...interestQs])].slice(0, 8)
+  return [...new Set([...primary, ...secondary, ...interestQs])].slice(0, 12)
 }
 
 // Localized search stems per language. The point is to include native words

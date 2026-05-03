@@ -1,15 +1,24 @@
-import { renderDigest, type DigestEvent } from '@uitagenda/email'
+import { renderDigest, type DigestCadence, type DigestEvent } from '@uitagenda/email'
 
 export interface SubscriptionLite {
   id: string
   userEmail: string
   locationLabel: string
-  cadence: 'daily' | 'weekly'
+  cadence: DigestCadence
   lastDigestAt: Date | null
 }
 
-export interface UpcomingEvent extends DigestEvent {
+// Worker-side query result shape. `description` is the raw scraped text;
+// callers fold it into a `blurb` for the email template. Until the worker
+// pipeline gains LLM curation (mirroring the local script), the synthesized
+// blurb is just a truncated description — good enough for an MVP send loop.
+export interface UpcomingEvent {
   eventId: string
+  title: string
+  url: string
+  startsAt: Date
+  venueName: string | null
+  description: string | null
 }
 
 export interface SendDigestArgs {
@@ -28,16 +37,22 @@ export interface SendDigestArgs {
 }
 
 export async function sendDigestForSubscription(args: SendDigestArgs): Promise<void> {
-  const { from, to, label } = digestWindow(args.subscription.cadence, args.now)
+  const { from, to } = digestWindow(args.subscription.cadence, args.now)
   const events = await args.queryEvents({ from, to })
+
+  const digestEvents: DigestEvent[] = events.map((e) => ({
+    title: e.title,
+    url: e.url,
+    startsAt: e.startsAt,
+    venueName: e.venueName,
+    blurb: e.description ? truncate(e.description, 220) : '',
+  }))
 
   const rendered = await renderDigest({
     locationLabel: args.subscription.locationLabel,
-    windowLabel: label,
-    events: events.map((e) => ({
-      title: e.title, url: e.url, startsAt: e.startsAt,
-      venueName: e.venueName, description: e.description,
-    })),
+    cadence: args.subscription.cadence,
+    referenceDate: args.now,
+    events: digestEvents,
   })
 
   let sent: { id: string | null } = { id: null }
@@ -65,21 +80,22 @@ export async function sendDigestForSubscription(args: SendDigestArgs): Promise<v
 }
 
 export function digestWindow(
-  cadence: 'daily' | 'weekly',
+  cadence: DigestCadence,
   now: Date,
-): { from: Date; to: Date; label: string } {
-  if (cadence === 'daily') {
-    const from = quantizeDay(now)
-    const to = new Date(from.getTime() + 36 * 60 * 60 * 1000)
-    return { from, to, label: 'today' }
-  }
+): { from: Date; to: Date } {
   const from = quantizeDay(now)
-  const to = new Date(from.getTime() + 7 * 24 * 60 * 60 * 1000)
-  return { from, to, label: 'this week' }
+  if (cadence === 'daily') return { from, to: new Date(from.getTime() + 36 * 60 * 60 * 1000) }
+  if (cadence === 'bidaily') return { from, to: new Date(from.getTime() + 2 * 24 * 60 * 60 * 1000) }
+  return { from, to: new Date(from.getTime() + 7 * 24 * 60 * 60 * 1000) }
 }
 
 export function quantizeDay(d: Date): Date {
   const c = new Date(d)
   c.setUTCHours(0, 0, 0, 0)
   return c
+}
+
+function truncate(s: string, n: number): string {
+  if (s.length <= n) return s
+  return s.slice(0, n - 1).trimEnd() + '…'
 }

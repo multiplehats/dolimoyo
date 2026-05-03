@@ -13,7 +13,7 @@ const createSubSchema = z.object({
   locationLng: z.number(),
   locationRadiusKm: z.number().positive().default(25),
   interests: z.array(z.string()).min(1),
-  cadence: z.enum(['daily', 'weekly']).optional(),
+  cadence: z.enum(['daily', 'bidaily', 'weekly']).optional(),
   endsAt: z.string().datetime().optional(),
 })
 

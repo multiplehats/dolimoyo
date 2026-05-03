@@ -1,11 +1,18 @@
-// Render a digest preview to tmp/digest-<location>-<ts>.html. No email sent.
+// Render a personalised digest preview to tmp/. Pipeline:
+//   1. pull deduped events for location, in cadence window
+//   2. keyword pre-filter by interests (cheap)
+//   3. LLM curates: writes intro, picks + blurbs, closer, subject
+//   4. render React email + plain text → tmp/
 
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import { locationKey as toLocationKey } from '@uitagenda/db'
-import { renderDigest } from '@uitagenda/email'
+import { renderDigest, type DigestCadence } from '@uitagenda/email'
+import { createLLMClient } from '@uitagenda/llm'
+import { curateDigest } from '../src/pipeline/curate-digest.ts'
 import { dedupeEvents } from './lib/dedupe.ts'
+import { rankByInterests } from './lib/relevance.ts'
 import { LocalStore } from './lib/store.ts'
 
 async function main() {
@@ -14,23 +21,42 @@ async function main() {
     options: {
       location: { type: 'string' },
       cadence: { type: 'string', default: 'weekly' },
+      interests: { type: 'string' },
+      email: { type: 'string' },
+      name: { type: 'string' },
       includeRecurring: { type: 'boolean', default: false },
       includeUndated: { type: 'boolean', default: false },
+      maxCandidates: { type: 'string', default: '40' },
+      maxPicks: { type: 'string', default: '8' },
     },
   })
-  if (!values.location) throw new Error('usage: digest --location X [--cadence daily|weekly] [--includeRecurring] [--includeUndated]')
-  const cadence = values.cadence === 'daily' ? 'daily' : 'weekly'
+  if (!values.location) {
+    throw new Error(
+      'usage: digest --location X [--cadence daily|bidaily|weekly] [--interests a,b,c] [--email me@x.com] [--name Chris] [--maxCandidates 40] [--maxPicks 8] [--includeRecurring] [--includeUndated]',
+    )
+  }
+  const cadence = parseCadence(values.cadence)
+  const interests = (values.interests ?? '').split(',').map((s) => s.trim()).filter(Boolean)
+  const recipientName = values.name ?? deriveName(values.email)
+  const maxCandidates = Number(values.maxCandidates)
+  const maxPicks = Number(values.maxPicks)
+
+  const orKey = process.env.OPENROUTER_API_KEY
+  if (!orKey) throw new Error('OPENROUTER_API_KEY missing — needed for digest curation')
+
+  const llmCalls: { task: string; costUSD: number }[] = []
+  const llm = createLLMClient({
+    apiKey: orKey,
+    appName: 'uitagenda-digest',
+    onCall: (e) => llmCalls.push({ task: e.task, costUSD: e.costUSD }),
+  })
 
   const store = new LocalStore(resolve(import.meta.dirname, '../tmp/store'))
   const key = toLocationKey(values.location)
 
   const now = new Date()
   const from = quantizeDay(now)
-  const to =
-    cadence === 'daily'
-      ? new Date(from.getTime() + 36 * 60 * 60 * 1000)
-      : new Date(from.getTime() + 7 * 24 * 60 * 60 * 1000)
-  const label = cadence === 'daily' ? 'today' : 'this week'
+  const to = endOfWindow(from, cadence)
 
   const all = store.listEvents({ locationKey: key })
   const inWindow = all.filter((e) => {
@@ -42,47 +68,114 @@ async function main() {
 
   const sources = store.listSources({ locationKey: key })
   const { canonical: deduped, duplicatesRemoved } = dedupeEvents({ events: inWindow, sources })
-  deduped.sort((a, b) => {
-    const ta = a.startsAt ? new Date(a.startsAt).getTime() : Number.POSITIVE_INFINITY
-    const tb = b.startsAt ? new Date(b.startsAt).getTime() : Number.POSITIVE_INFINITY
-    return ta - tb
-  })
 
-  const rendered = await renderDigest({
+  // Keyword pre-filter — keeps the LLM input small + skips events with zero
+  // interest overlap. If no interests provided, pass everything through.
+  const ranked = interests.length > 0
+    ? rankByInterests({ events: deduped, interests })
+    : deduped.map((e) => ({ ...e, score: 0, matched: [] }))
+  const candidates = ranked.slice(0, maxCandidates)
+
+  // Curate with the LLM.
+  const curated = await curateDigest({
+    recipientName,
     locationLabel: values.location,
-    windowLabel: label,
-    events: deduped.map((e) => ({
+    interests,
+    cadence,
+    referenceDate: now,
+    candidates: candidates.map((e) => ({
+      id: e.id,
       title: e.title,
-      url: e.url,
-      startsAt: e.startsAt ? new Date(e.startsAt) : null,
+      startsAt: e.startsAt,
       venueName: e.venueName,
       description: e.description,
+      matched: 'matched' in e ? (e as { matched: string[] }).matched : [],
     })),
+    llm,
+    maxPicks,
+  })
+
+  // Stitch curated picks back to event records (preserves curator's order).
+  const eventById = new Map(candidates.map((c) => [c.id, c]))
+  const display = curated.picks
+    .map((p) => {
+      const e = eventById.get(p.eventId)
+      if (!e) return null
+      return {
+        title: e.title,
+        url: e.url,
+        startsAt: e.startsAt ? new Date(e.startsAt) : null,
+        venueName: e.venueName,
+        blurb: p.blurb,
+      }
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null)
+
+  const rendered = await renderDigest({
+    subject: curated.subject,
+    locationLabel: values.location,
+    cadence,
+    referenceDate: now,
+    intro: curated.intro,
+    closer: curated.closer,
+    events: display,
   })
 
   const outDir = resolve(import.meta.dirname, '../tmp')
   mkdirSync(outDir, { recursive: true })
   const ts = new Date().toISOString().replace(/[:.]/g, '-')
   const slug = key || 'digest'
-  const htmlPath = resolve(outDir, `digest-${slug}-${ts}.html`)
-  const textPath = resolve(outDir, `digest-${slug}-${ts}.txt`)
+  const htmlPath = resolve(outDir, `digest-${slug}-${cadence}-${ts}.html`)
+  const textPath = resolve(outDir, `digest-${slug}-${cadence}-${ts}.txt`)
   writeFileSync(htmlPath, rendered.html)
   writeFileSync(textPath, rendered.text)
 
+  const totalCost = llmCalls.reduce((a, b) => a + b.costUSD, 0)
   const totalCount = all.length
   const filteredOut = totalCount - inWindow.length
-  console.log(`\n✓ digest preview for ${values.location} (${label})`)
-  console.log(`  events:   ${deduped.length} (${inWindow.length} in-window before dedup, ${duplicatesRemoved} cross-source duplicates removed, ${filteredOut} out-of-window/perennial/undated)`)
-  console.log(`  subject:  ${rendered.subject}`)
-  console.log(`  html:     ${htmlPath}`)
-  console.log(`  text:     ${textPath}\n`)
 
-  for (const e of deduped.slice(0, 10)) {
-    const when = e.startsAt ? new Date(e.startsAt).toISOString().slice(0, 16).replace('T', ' ') : '(undated)'
+  console.log(`\n✓ digest preview for ${recipientName} <${values.email ?? '—'}> · ${values.location} · ${cadence}`)
+  console.log(`  subject:  ${rendered.subject}`)
+  console.log(
+    `  events:   ${display.length} picked / ${candidates.length} candidates / ${deduped.length} canonical / ${inWindow.length} in-window / ${duplicatesRemoved} dups / ${filteredOut} out-of-window`,
+  )
+  console.log(`  llm:      $${totalCost.toFixed(4)} (curation)`)
+  console.log(`  html:     ${htmlPath}`)
+  console.log(`  text:     ${textPath}`)
+  console.log(`\n  intro: ${curated.intro}\n`)
+
+  for (const p of curated.picks) {
+    const e = eventById.get(p.eventId)
+    if (!e) continue
+    const when = e.startsAt
+      ? new Date(e.startsAt).toISOString().slice(0, 16).replace('T', ' ')
+      : '(undated)'
     console.log(`  ${when}  ${e.title}`)
+    console.log(`              ↳ ${p.blurb}`)
   }
-  if (deduped.length > 10) console.log(`  …and ${deduped.length - 10} more`)
-  console.log()
+  console.log(`\n  closer: ${curated.closer}\n`)
+}
+
+function parseCadence(s: string | undefined): DigestCadence {
+  if (s === 'daily' || s === 'bidaily' || s === 'weekly') return s
+  throw new Error(`invalid cadence "${s}" — use daily | bidaily | weekly`)
+}
+
+function endOfWindow(from: Date, cadence: DigestCadence): Date {
+  const ms = from.getTime()
+  if (cadence === 'daily') return new Date(ms + 36 * 60 * 60 * 1000)
+  if (cadence === 'bidaily') return new Date(ms + 2 * 24 * 60 * 60 * 1000)
+  return new Date(ms + 7 * 24 * 60 * 60 * 1000)
+}
+
+function deriveName(email?: string): string {
+  if (!email) return 'there'
+  const local = email.split('@')[0] ?? ''
+  // hi@chrisjayden.com → "Chris" via the domain prefix; fallback to local part.
+  const domain = (email.split('@')[1] ?? '').split('.')[0] ?? ''
+  const candidate = (domain || local).split(/[-._]/)[0] ?? ''
+  if (!candidate) return 'there'
+  return candidate.charAt(0).toUpperCase() + candidate.slice(1)
 }
 
 function quantizeDay(d: Date): Date {
