@@ -19,7 +19,9 @@
   "hyperdrive": [
     {
       "binding": "HYPERDRIVE",
-      "id": "REPLACE_WITH_HYPERDRIVE_ID"
+      "id": "REPLACE_WITH_HYPERDRIVE_ID",
+      // Used by miniflare/vitest-pool-workers; overridden in prod by Hyperdrive id above.
+      "localConnectionString": "postgres://test:test@localhost/uitagenda_dev"
     }
   ],
   "vars": {
