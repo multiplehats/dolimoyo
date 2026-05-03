@@ -1,0 +1,29 @@
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "uitagenda-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      { "name": "SUBSCRIPTION_ACTOR", "class_name": "SubscriptionActor" },
+      { "name": "SOURCE_ACTOR", "class_name": "SourceActor" }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["SubscriptionActor", "SourceActor"]
+    }
+  ],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "REPLACE_WITH_HYPERDRIVE_ID"
+    }
+  ],
+  "vars": {
+    "FROM_EMAIL": "digest@uitagenda.dev",
+    "FROM_NAME": "uitagenda"
+  }
+}

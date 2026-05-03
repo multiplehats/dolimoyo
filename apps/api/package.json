@@ -1,0 +1,31 @@
+{
+  "name": "@uitagenda/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "echo no-build-needed"
+  },
+  "dependencies": {
+    "@uitagenda/db": "workspace:*",
+    "@uitagenda/email": "workspace:*",
+    "@uitagenda/llm": "workspace:*",
+    "@uitagenda/parsew": "workspace:*",
+    "@uitagenda/scrapers": "workspace:*",
+    "drizzle-orm": "^0.45.0",
+    "hono": "^4.12.0",
+    "postgres": "^3.4.5",
+    "zod": "^4.4.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.15.0",
+    "@cloudflare/workers-types": "^4.20251101.0",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.0",
+    "wrangler": "^4.0.0"
+  }
+}
