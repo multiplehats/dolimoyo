@@ -1,0 +1,14 @@
+{
+  "name": "@uitagenda/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": { "uitagenda-subscribe": "./src/subscribe.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "echo no-tests-yet",
+    "build": "echo no-build-needed"
+  },
+  "dependencies": { "tsx": "^4.19.2" },
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.7.3" }
+}
