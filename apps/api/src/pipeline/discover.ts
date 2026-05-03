@@ -25,16 +25,32 @@ export interface DiscoverArgs {
   topN?: number
 }
 
-const BLOCKLIST = new Set([
-  'eventbrite.com', 'eventbrite.nl', 'eventbrite.co.uk',
-  'facebook.com', 'fb.me', 'm.facebook.com',
-  'instagram.com',
-  'ticketmaster.com', 'ticketmaster.nl',
-  'meetup.com',
-  'reddit.com',
-  'youtube.com', 'tiktok.com',
-  'tripadvisor.com', 'tripadvisor.nl',
+// Match by base domain regardless of TLD — catches eventbrite.es,
+// ticketmaster.de, tripadvisor.fr, etc. without per-region maintenance.
+const BLOCKLIST_BASES = new Set([
+  'eventbrite',
+  'facebook',
+  'fb',
+  'instagram',
+  'ticketmaster',
+  'meetup',
+  'reddit',
+  'youtube',
+  'tiktok',
+  'tripadvisor',
 ])
+
+function isBlocked(domain: string): boolean {
+  // hostname like "www.eventbrite.es" → base "eventbrite"
+  const parts = domain.split('.')
+  // Skip a leading "www." or "m." or "es." etc. Treat the rightmost
+  // non-TLD segment as the base.
+  if (parts.length < 2) return false
+  // base = second-to-last for x.y; for w.x.y use x; subdomains: m.facebook.com
+  // → parts = ['m', 'facebook', 'com'], take parts[length-2] = 'facebook'.
+  const base = parts[parts.length - 2]
+  return base ? BLOCKLIST_BASES.has(base.toLowerCase()) : false
+}
 
 const LISTING_HINTS = ['agenda', 'event', 'evenement', 'uitagenda', 'concert', 'whats-on', 'whatson']
 
@@ -49,7 +65,7 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
     const r = await parsew.search(q, { lang: language, limit: 10 })
     for (const hit of r.results) {
       const domain = safeDomain(hit.url)
-      if (!domain || BLOCKLIST.has(domain)) continue
+      if (!domain || isBlocked(domain)) continue
       if (!seenDomains.has(domain)) seenDomains.set(domain, { url: hit.url, title: hit.title })
     }
   }
