@@ -5,12 +5,18 @@
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "pnpm db:up && turbo run dev",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "subscribe": "dotenvx run -f apps/api/.env -- pnpm --filter @uitagenda/cli exec uitagenda-subscribe"
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d postgres && docker compose exec -T postgres sh -c 'until pg_isready -U test -d uitagenda_dev; do sleep 0.5; done' && pnpm db:migrate",
+    "db:generate": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:generate",
+    "db:migrate": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:migrate",
+    "db:studio": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:studio",
+    "subscribe": "dotenvx run -f apps/api/.env.local -- pnpm --filter @uitagenda/cli exec uitagenda-subscribe"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
