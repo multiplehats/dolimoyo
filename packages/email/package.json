@@ -1,0 +1,26 @@
+{
+  "name": "@uitagenda/email",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "echo no-build-needed"
+  },
+  "dependencies": {
+    "autosendjs": "^1.0.3",
+    "@react-email/components": "^1.0.12",
+    "@react-email/render": "^2.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.0"
+  }
+}
