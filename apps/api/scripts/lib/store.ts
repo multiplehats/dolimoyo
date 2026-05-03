@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { randomUUID } from 'node:crypto'
 import { locationKey as toLocationKey } from '@uitagenda/db'
@@ -36,9 +36,20 @@ export class LocalStore {
     this.dir = resolve(dir)
     this.path = resolve(this.dir, 'store.json')
     mkdirSync(this.dir, { recursive: true })
-    const loaded = existsSync(this.path)
-      ? (JSON.parse(readFileSync(this.path, 'utf-8')) as Partial<StoreShape>)
-      : {}
+    this.data = structuredClone(EMPTY)
+    this.reload()
+  }
+
+  // Re-read the store file before each mutation. Two processes hitting the
+  // store concurrently (e.g. discovering different cities in parallel) would
+  // otherwise lose updates: each loads at start, mutates in memory, and the
+  // last writer overwrites the other's changes. With reload-before-mutate,
+  // mutations on disjoint records (different sources / events / runs) merge
+  // safely on disk. Mutations on the *same* record still race, but our
+  // workflow doesn't do that.
+  private reload(): void {
+    if (!existsSync(this.path)) return
+    const loaded = JSON.parse(readFileSync(this.path, 'utf-8')) as Partial<StoreShape>
     this.data = { ...structuredClone(EMPTY), ...loaded }
     // Backfill scrapeOptions on sources persisted before this field existed.
     for (const s of this.data.sources) {
@@ -46,8 +57,11 @@ export class LocalStore {
     }
   }
 
+  // Write atomically: temp file + rename. Avoids partial writes on crash.
   private save(): void {
-    writeFileSync(this.path, JSON.stringify(this.data, null, 2))
+    const tmp = `${this.path}.tmp`
+    writeFileSync(tmp, JSON.stringify(this.data, null, 2))
+    renameSync(tmp, this.path)
   }
 
   // ── sources ────────────────────────────────────────────────────────────
@@ -79,6 +93,7 @@ export class LocalStore {
     discoveryScore?: number | null
     discoveryRunId?: string
   }): SourceRecord {
+    this.reload()
     const existing = this.getSourceByUrl(input.listingUrl)
     const locationKey = toLocationKey(input.locationLabel)
     if (existing) {
@@ -113,6 +128,7 @@ export class LocalStore {
   }
 
   markSourceOk(id: string): void {
+    this.reload()
     const s = this.getSourceById(id)
     if (!s) return
     s.lastOkAt = new Date().toISOString()
@@ -121,6 +137,7 @@ export class LocalStore {
   }
 
   setSourceScrapeOptions(id: string, opts: ScrapeOptions | null): void {
+    this.reload()
     const s = this.getSourceById(id)
     if (!s) return
     s.scrapeOptions = opts
@@ -151,6 +168,7 @@ export class LocalStore {
   }
 
   upsertEvent(e: Omit<EventRecord, 'id' | 'fetchedAt'>): EventRecord {
+    this.reload()
     const existing = this.data.events.find(
       (x) => x.sourceId === e.sourceId && x.contentHash === e.contentHash,
     )
@@ -188,6 +206,7 @@ export class LocalStore {
     requiresDateRescue?: boolean
     generatedByModel?: string | null
   }): ScraperRecord {
+    this.reload()
     // Mirror the partial unique index (active=true) — at most one active per source.
     for (const s of this.data.scrapers) {
       if (s.sourceId === input.sourceId && s.active) s.active = false
@@ -215,6 +234,7 @@ export class LocalStore {
   }
 
   markScraperRun(id: string, status: ScraperRecord['lastRunStatus']): void {
+    this.reload()
     const s = this.data.scrapers.find((x) => x.id === id)
     if (!s) return
     s.lastRunAt = new Date().toISOString()
@@ -225,6 +245,7 @@ export class LocalStore {
   // ── runs ───────────────────────────────────────────────────────────────
 
   recordDiscoveryRun(r: Omit<DiscoveryRun, 'id' | 'occurredAt'>): DiscoveryRun {
+    this.reload()
     const run: DiscoveryRun = { ...r, id: randomUUID(), occurredAt: new Date().toISOString() }
     this.data.discoveryRuns.push(run)
     this.save()
@@ -232,6 +253,7 @@ export class LocalStore {
   }
 
   recordExtractRun(r: Omit<ExtractRun, 'id' | 'occurredAt'>): ExtractRun {
+    this.reload()
     const run: ExtractRun = { ...r, id: randomUUID(), occurredAt: new Date().toISOString() }
     this.data.extractRuns.push(run)
     this.save()
