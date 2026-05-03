@@ -6,17 +6,25 @@ import type {
   DiscoveryRun,
   EventRecord,
   ExtractRun,
+  ScraperRecord,
   SourceRecord,
 } from './types.ts'
 
 interface StoreShape {
   sources: SourceRecord[]
   events: EventRecord[]
+  scrapers: ScraperRecord[]
   discoveryRuns: DiscoveryRun[]
   extractRuns: ExtractRun[]
 }
 
-const EMPTY: StoreShape = { sources: [], events: [], discoveryRuns: [], extractRuns: [] }
+const EMPTY: StoreShape = {
+  sources: [],
+  events: [],
+  scrapers: [],
+  discoveryRuns: [],
+  extractRuns: [],
+}
 
 export class LocalStore {
   private dir: string
@@ -27,9 +35,10 @@ export class LocalStore {
     this.dir = resolve(dir)
     this.path = resolve(this.dir, 'store.json')
     mkdirSync(this.dir, { recursive: true })
-    this.data = existsSync(this.path)
-      ? (JSON.parse(readFileSync(this.path, 'utf-8')) as StoreShape)
-      : structuredClone(EMPTY)
+    const loaded = existsSync(this.path)
+      ? (JSON.parse(readFileSync(this.path, 'utf-8')) as Partial<StoreShape>)
+      : {}
+    this.data = { ...structuredClone(EMPTY), ...loaded }
   }
 
   private save(): void {
@@ -147,6 +156,57 @@ export class LocalStore {
     return row
   }
 
+  // ── scrapers ───────────────────────────────────────────────────────────
+
+  getActiveScraper(sourceId: string): ScraperRecord | null {
+    return this.data.scrapers.find((s) => s.sourceId === sourceId && s.active) ?? null
+  }
+
+  listScrapersForSource(sourceId: string): ScraperRecord[] {
+    return this.data.scrapers
+      .filter((s) => s.sourceId === sourceId)
+      .sort((a, b) => b.version - a.version)
+  }
+
+  insertScraper(input: {
+    sourceId: string
+    kind: ScraperRecord['kind']
+    config: unknown
+    generatedByModel?: string | null
+  }): ScraperRecord {
+    // Mirror the partial unique index (active=true) — at most one active per source.
+    for (const s of this.data.scrapers) {
+      if (s.sourceId === input.sourceId && s.active) s.active = false
+    }
+    const previousVersions = this.data.scrapers
+      .filter((s) => s.sourceId === input.sourceId)
+      .map((s) => s.version)
+    const version = previousVersions.length > 0 ? Math.max(...previousVersions) + 1 : 1
+    const row: ScraperRecord = {
+      id: randomUUID(),
+      sourceId: input.sourceId,
+      kind: input.kind,
+      config: input.config,
+      version,
+      active: true,
+      generatedByModel: input.generatedByModel ?? null,
+      generatedAt: new Date().toISOString(),
+      lastRunAt: null,
+      lastRunStatus: null,
+    }
+    this.data.scrapers.push(row)
+    this.save()
+    return row
+  }
+
+  markScraperRun(id: string, status: ScraperRecord['lastRunStatus']): void {
+    const s = this.data.scrapers.find((x) => x.id === id)
+    if (!s) return
+    s.lastRunAt = new Date().toISOString()
+    s.lastRunStatus = status
+    this.save()
+  }
+
   // ── runs ───────────────────────────────────────────────────────────────
 
   recordDiscoveryRun(r: Omit<DiscoveryRun, 'id' | 'occurredAt'>): DiscoveryRun {
@@ -166,15 +226,23 @@ export class LocalStore {
   // ── summary ────────────────────────────────────────────────────────────
 
   summary() {
-    const byLocation = new Map<string, { label: string; sources: number; events: number; perennials: number }>()
+    const cssBySource = new Set(
+      this.data.scrapers.filter((s) => s.active && s.kind === 'css').map((s) => s.sourceId),
+    )
+    const byLocation = new Map<
+      string,
+      { label: string; sources: number; cssScrapers: number; events: number; perennials: number }
+    >()
     for (const s of this.data.sources) {
       const e = byLocation.get(s.locationKey) ?? {
         label: s.locationLabel,
         sources: 0,
+        cssScrapers: 0,
         events: 0,
         perennials: 0,
       }
       e.sources++
+      if (cssBySource.has(s.id)) e.cssScrapers++
       byLocation.set(s.locationKey, e)
     }
     const sourceLocByid = new Map(this.data.sources.map((s) => [s.id, s.locationKey]))
@@ -198,6 +266,8 @@ export class LocalStore {
       path: this.path,
       sources: this.data.sources.length,
       events: this.data.events.length,
+      activeScrapers: this.data.scrapers.filter((s) => s.active).length,
+      cssScrapers: this.data.scrapers.filter((s) => s.active && s.kind === 'css').length,
       discoveryRuns: this.data.discoveryRuns.length,
       extractRuns: this.data.extractRuns.length,
       llmCostUSD: Number(totalLLMCost.toFixed(4)),

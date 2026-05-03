@@ -33,16 +33,21 @@ export function runCSSScraper(html: string, config: CSSScraperConfig): RunResult
   return { events, warnings }
 }
 
+// Empty selector means "the item element itself" — useful when the item
+// element IS the anchor (<a class="event-card">) rather than a container.
+function resolveNode(item: Cheerio<CheerioNode>, selector: string): Cheerio<CheerioNode> {
+  return selector === '' ? item : item.find(selector).first()
+}
 function pickText(item: Cheerio<CheerioNode>, selector: string): string {
-  return item.find(selector).first().text().trim()
+  return resolveNode(item, selector).text().trim()
 }
 function pickAttr(item: Cheerio<CheerioNode>, selector: string, attr: string): string {
-  return (item.find(selector).first().attr(attr) ?? '').trim()
+  return (resolveNode(item, selector).attr(attr) ?? '').trim()
 }
 function parseStartsAt(item: Cheerio<CheerioNode>, config: CSSScraperConfig): Date | null {
   const sel = config.fields.startsAt
-  if (!sel) return null
-  const node = item.find(sel).first()
+  if (sel == null) return null
+  const node = resolveNode(item, sel)
   if (!node.length) return null
   const raw = config.fields.startsAtAttr ? node.attr(config.fields.startsAtAttr) : node.text()
   if (!raw) return null

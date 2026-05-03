@@ -12,6 +12,11 @@
     "discover": "dotenvx run -f ../../.env -- tsx scripts/discover.ts",
     "extract": "dotenvx run -f ../../.env -- tsx scripts/extract-events.ts",
     "extract-top": "dotenvx run -f ../../.env -- tsx scripts/extract-top.ts",
+    "gen-scraper": "dotenvx run -f ../../.env -- tsx scripts/gen-scraper.ts",
+    "debug-css": "dotenvx run -f ../../.env -- tsx scripts/debug-css.ts",
+    "refresh": "dotenvx run -f ../../.env -- tsx scripts/refresh.ts",
+    "refresh-top": "dotenvx run -f ../../.env -- tsx scripts/refresh-top.ts",
+    "digest": "tsx scripts/digest.ts",
     "filter-perennials": "dotenvx run -f ../../.env -- tsx scripts/filter-perennials.ts",
     "db:show": "tsx scripts/db-show.ts"
   },

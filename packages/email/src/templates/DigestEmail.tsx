@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { Body, Container, Head, Heading, Hr, Html, Link, Section, Text } from '@react-email/components'
 
 export interface DigestEvent {

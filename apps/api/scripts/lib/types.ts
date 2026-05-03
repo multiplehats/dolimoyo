@@ -68,5 +68,21 @@ export interface ExtractRun {
   llmCostUSD: number
   eventCount: number
   recurringCount: number
+  path: 'css' | 'extract' | 'css-fallback-extract'
   warning: string | null
+}
+
+export interface ScraperRecord {
+  id: string
+  sourceId: string
+  kind: 'css' | 'extract'
+  // CSSScraperConfig when kind='css'; null when kind='extract'.
+  // Stored as `unknown` here to avoid an import cycle with @uitagenda/scrapers.
+  config: unknown
+  version: number
+  active: boolean
+  generatedByModel: string | null
+  generatedAt: string
+  lastRunAt: string | null
+  lastRunStatus: 'ok' | 'fell-back' | 'failed' | null
 }
