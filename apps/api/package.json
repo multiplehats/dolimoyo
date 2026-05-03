@@ -11,7 +11,9 @@
     "build": "echo no-build-needed",
     "discover": "dotenvx run -f ../../.env -- tsx scripts/discover.ts",
     "extract": "dotenvx run -f ../../.env -- tsx scripts/extract-events.ts",
-    "filter-perennials": "dotenvx run -f ../../.env -- tsx scripts/filter-perennials.ts"
+    "extract-top": "dotenvx run -f ../../.env -- tsx scripts/extract-top.ts",
+    "filter-perennials": "dotenvx run -f ../../.env -- tsx scripts/filter-perennials.ts",
+    "db:show": "tsx scripts/db-show.ts"
   },
   "dependencies": {
     "@uitagenda/db": "workspace:*",

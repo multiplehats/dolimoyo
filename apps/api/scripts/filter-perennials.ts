@@ -24,6 +24,7 @@ const verdictSchema = z.object({
 
 async function main() {
   const { values, positionals } = parseArgs({
+    args: process.argv.slice(2).filter((a) => a !== '--'),
     allowPositionals: true,
     options: {
       input: { type: 'string' },
