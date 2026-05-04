@@ -9,9 +9,9 @@ import {
   runCSSScraper,
   type CSSScraperConfig,
   type ScrapedEvent,
-} from '@uitagenda/scrapers'
-import type { LLMClient } from '@uitagenda/llm'
-import type { ParsewClient } from '@uitagenda/parsew'
+} from '@dolimoyo/scrapers'
+import type { LLMClient } from '@dolimoyo/llm'
+import type { ParsewClient } from '@dolimoyo/parsew'
 import { rescueDates } from '../../src/pipeline/rescue-dates.ts'
 import { EXTRACT_PROMPT, eventsSchema } from './extract.ts'
 import type { LocalStore } from './store.ts'

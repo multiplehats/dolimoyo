@@ -6,6 +6,7 @@ const ev = (overrides: Partial<ScrapedEvent> = {}): ScrapedEvent => ({
   title: 'Some Event',
   url: 'https://example.com/x',
   startsAt: new Date('2026-06-01T00:00:00Z'),
+  rawStartsAt: null,
   venueName: 'Some Venue',
   description: null,
   imageUrl: null,

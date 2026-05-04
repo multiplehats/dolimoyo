@@ -23,19 +23,19 @@ importers:
 
   apps/api:
     dependencies:
-      '@uitagenda/db':
+      '@dolimoyo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@uitagenda/email':
+      '@dolimoyo/email':
         specifier: workspace:*
         version: link:../../packages/email
-      '@uitagenda/llm':
+      '@dolimoyo/llm':
         specifier: workspace:*
         version: link:../../packages/llm
-      '@uitagenda/parsew':
+      '@dolimoyo/parsew':
         specifier: workspace:*
         version: link:../../packages/parsew
-      '@uitagenda/scrapers':
+      '@dolimoyo/scrapers':
         specifier: workspace:*
         version: link:../../packages/scrapers
       drizzle-orm:

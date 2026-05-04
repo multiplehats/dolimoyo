@@ -3,9 +3,9 @@
 
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { locationKey as toLocationKey } from '@uitagenda/db'
-import { MODELS, createLLMClient } from '@uitagenda/llm'
-import { createParsewClient } from '@uitagenda/parsew'
+import { locationKey as toLocationKey } from '@dolimoyo/db'
+import { MODELS, createLLMClient } from '@dolimoyo/llm'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { generateScraper } from '../src/pipeline/generate-scraper.ts'
 import { refreshSourceLocal } from './lib/refresh.ts'
 import { scrapeWithSpa } from './lib/scrape-with-spa.ts'
@@ -45,7 +45,7 @@ async function main() {
   const llm = orKey
     ? createLLMClient({
         apiKey: orKey,
-        appName: 'uitagenda-refresh-top',
+        appName: 'dolimoyo-refresh-top',
         onCall: (e) => llmCalls.push({ task: e.task, costUSD: e.costUSD }),
       })
     : null

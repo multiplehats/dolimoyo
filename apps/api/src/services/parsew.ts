@@ -1,4 +1,4 @@
-import { createParsewClient, type ParsewClient } from '@uitagenda/parsew'
+import { createParsewClient, type ParsewClient } from '@dolimoyo/parsew'
 import type { Env } from '../env'
 import type { createLedger } from './ledger'
 

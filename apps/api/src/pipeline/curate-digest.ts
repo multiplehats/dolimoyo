@@ -12,7 +12,7 @@
 // already match at least one of the recipient's interests.
 
 import { z } from 'zod'
-import type { LLMClient } from '@uitagenda/llm'
+import type { LLMClient } from '@dolimoyo/llm'
 
 export interface CandidateEvent {
   id: string

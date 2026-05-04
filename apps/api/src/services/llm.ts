@@ -1,4 +1,4 @@
-import { createLLMClient, type LLMClient } from '@uitagenda/llm'
+import { createLLMClient, type LLMClient } from '@dolimoyo/llm'
 import type { Env } from '../env'
 import type { createLedger } from './ledger'
 
@@ -9,7 +9,7 @@ export function createLLMForEnv(
 ): LLMClient {
   return createLLMClient({
     apiKey: env.OPENROUTER_API_KEY,
-    appName: 'uitagenda',
+    appName: 'dolimoyo',
     onCall: (e) => {
       ledger.record({
         provider: 'openrouter',

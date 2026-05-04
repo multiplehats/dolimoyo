@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { MODELS, createLLMClient } from '@uitagenda/llm'
-import { createParsewClient } from '@uitagenda/parsew'
+import { MODELS, createLLMClient } from '@dolimoyo/llm'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { generateScraper } from '../src/pipeline/generate-scraper.ts'
 import { scrapeWithSpa } from './lib/scrape-with-spa.ts'
 import { LocalStore } from './lib/store.ts'
@@ -40,7 +40,7 @@ async function main() {
   const llmCalls: { task: string; costUSD: number }[] = []
   const llm = createLLMClient({
     apiKey: orKey,
-    appName: 'uitagenda-gen-scraper',
+    appName: 'dolimoyo-gen-scraper',
     onCall: (e) => llmCalls.push({ task: e.task, costUSD: e.costUSD }),
   })
 

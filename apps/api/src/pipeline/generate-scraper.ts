@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { cleanHtml, runCSSScraper, looksPlausible, type CSSScraperConfig } from '@uitagenda/scrapers'
-import type { LLMClient } from '@uitagenda/llm'
+import { cleanHtml, runCSSScraper, looksPlausible, type CSSScraperConfig } from '@dolimoyo/scrapers'
+import type { LLMClient } from '@dolimoyo/llm'
 import { rescueDates } from './rescue-dates'
 
 export type ScraperResult =

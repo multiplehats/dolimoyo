@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import { z } from 'zod'
-import { createLLMClient } from '@uitagenda/llm'
+import { createLLMClient } from '@dolimoyo/llm'
 
 interface InputEvent {
   title: string
@@ -40,7 +40,7 @@ async function main() {
   const events = raw.events
   if (!events?.length) throw new Error('no events in input file')
 
-  const llm = createLLMClient({ apiKey: orKey, appName: 'uitagenda-perennial-filter' })
+  const llm = createLLMClient({ apiKey: orKey, appName: 'dolimoyo-perennial-filter' })
 
   console.log(`\n→ classifying ${events.length} events for perennial/recurring noise\n`)
   const t0 = Date.now()

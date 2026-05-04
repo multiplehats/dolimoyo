@@ -1,5 +1,5 @@
 {
-  "name": "@uitagenda/api",
+  "name": "@dolimoyo/api",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -23,11 +23,11 @@
     "db:show": "tsx scripts/db-show.ts"
   },
   "dependencies": {
-    "@uitagenda/db": "workspace:*",
-    "@uitagenda/email": "workspace:*",
-    "@uitagenda/llm": "workspace:*",
-    "@uitagenda/parsew": "workspace:*",
-    "@uitagenda/scrapers": "workspace:*",
+    "@dolimoyo/db": "workspace:*",
+    "@dolimoyo/email": "workspace:*",
+    "@dolimoyo/llm": "workspace:*",
+    "@dolimoyo/parsew": "workspace:*",
+    "@dolimoyo/scrapers": "workspace:*",
     "drizzle-orm": "^0.45.0",
     "hono": "^4.12.0",
     "postgres": "^3.4.5",

@@ -1,4 +1,4 @@
-import { createEmailClient } from '@uitagenda/email'
+import { createEmailClient } from '@dolimoyo/email'
 import type { Env } from '../env'
 
 export function createEmailForEnv(env: Env) {

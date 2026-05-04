@@ -4,8 +4,8 @@
 // datetime>. Cheap (gpt-5-nano), runs only on the events that need it.
 
 import { z } from 'zod'
-import type { ScrapedEvent } from '@uitagenda/scrapers'
-import type { LLMClient } from '@uitagenda/llm'
+import type { ScrapedEvent } from '@dolimoyo/scrapers'
+import type { LLMClient } from '@dolimoyo/llm'
 
 const schema = z.object({
   parsed: z.array(

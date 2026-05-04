@@ -6,11 +6,11 @@ services:
     environment:
       POSTGRES_USER: test
       POSTGRES_PASSWORD: test
-      POSTGRES_DB: uitagenda_dev
+      POSTGRES_DB: dolimoyo_dev
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U test -d uitagenda_dev"]
+      test: ["CMD-SHELL", "pg_isready -U test -d dolimoyo_dev"]
       interval: 2s
       timeout: 3s
       retries: 10

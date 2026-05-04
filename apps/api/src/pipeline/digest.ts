@@ -1,4 +1,4 @@
-import { renderDigest, type DigestCadence, type DigestEvent } from '@uitagenda/email'
+import { renderDigest, type DigestCadence, type DigestEvent } from '@dolimoyo/email'
 
 export interface SubscriptionLite {
   id: string

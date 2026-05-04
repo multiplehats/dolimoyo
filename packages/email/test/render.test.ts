@@ -5,13 +5,13 @@ describe('renderDigest', () => {
   it('produces html, text, subject', async () => {
     const out = await renderDigest({
       locationLabel: 'Enschede',
-      windowLabel: 'today',
+      cadence: 'daily',
       events: [{
         title: 'Festival One',
         url: 'https://x/y',
         startsAt: new Date('2026-06-01T20:00:00Z'),
         venueName: 'Stadsweide',
-        description: 'A great show',
+        blurb: 'A great show',
       }],
     })
     expect(out.subject).toContain('Enschede')
@@ -21,7 +21,7 @@ describe('renderDigest', () => {
   })
 
   it('handles zero events with a graceful subject', async () => {
-    const out = await renderDigest({ locationLabel: 'Enschede', windowLabel: 'today', events: [] })
+    const out = await renderDigest({ locationLabel: 'Enschede', cadence: 'daily', events: [] })
     expect(out.subject.toLowerCase()).toContain('quiet')
     expect(out.html).toContain('Nothing')
   })

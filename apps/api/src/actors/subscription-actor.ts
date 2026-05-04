@@ -1,6 +1,6 @@
 import { DurableObject } from 'cloudflare:workers'
 import { and, eq, gte, lte, sql } from 'drizzle-orm'
-import { schema, type Database } from '@uitagenda/db'
+import { schema, type Database } from '@dolimoyo/db'
 import type { Env } from '../env'
 import { createDbForEnv } from '../services/db'
 import { createLedger } from '../services/ledger'

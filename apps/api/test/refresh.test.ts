@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { refreshSource } from '../src/pipeline/refresh'
-import type { CSSScraperConfig } from '@uitagenda/scrapers'
+import type { CSSScraperConfig } from '@dolimoyo/scrapers'
 
 const cssConfig: CSSScraperConfig = {
   itemSelector: '.event',

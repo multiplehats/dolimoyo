@@ -1,4 +1,4 @@
-import { schema, type Database } from '@uitagenda/db'
+import { schema, type Database } from '@dolimoyo/db'
 
 export interface LedgerEntry {
   provider: 'parsew' | 'openrouter' | 'autosend'

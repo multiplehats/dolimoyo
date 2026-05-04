@@ -1,8 +1,8 @@
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { locationKey } from '@uitagenda/db'
-import { createLLMClient } from '@uitagenda/llm'
-import { createParsewClient } from '@uitagenda/parsew'
+import { locationKey } from '@dolimoyo/db'
+import { createLLMClient } from '@dolimoyo/llm'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { discoverSources } from '../src/pipeline/discover.ts'
 import { LocalStore } from './lib/store.ts'
 
@@ -38,7 +38,7 @@ async function main() {
   })
   const llm = createLLMClient({
     apiKey: orKey,
-    appName: 'uitagenda-discover-script',
+    appName: 'dolimoyo-discover-script',
     onCall: (e) => llmLog.push({
       task: e.task, model: e.model,
       inputTokens: e.inputTokens, outputTokens: e.outputTokens, costUSD: e.costUSD,

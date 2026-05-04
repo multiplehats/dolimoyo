@@ -1,1 +1,1 @@
-export { locationKey } from '@uitagenda/db'
+export { locationKey } from '@dolimoyo/db'

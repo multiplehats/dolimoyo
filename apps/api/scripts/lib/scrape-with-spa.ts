@@ -7,8 +7,8 @@
 // the page in a headless browser and wait 3s for content. Costs the same
 // (1 unit) but is slower (~5-8s instead of ~1s), so we only do it when needed.
 
-import { bodyTextLength } from '@uitagenda/scrapers'
-import type { ParsewClient, ScrapeResult } from '@uitagenda/parsew'
+import { bodyTextLength } from '@dolimoyo/scrapers'
+import type { ParsewClient, ScrapeResult } from '@dolimoyo/parsew'
 import type { ScrapeOptions } from './types.ts'
 
 export interface ScrapeWithSpaResult extends ScrapeResult {

@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { createLLMClient } from '@uitagenda/llm'
-import { createParsewClient } from '@uitagenda/parsew'
+import { createLLMClient } from '@dolimoyo/llm'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { refreshSourceLocal } from './lib/refresh.ts'
 import { LocalStore } from './lib/store.ts'
 
@@ -30,7 +30,7 @@ async function main() {
   const orKey = process.env.OPENROUTER_API_KEY
   const llm =
     scraper?.requiresDateRescue && orKey
-      ? createLLMClient({ apiKey: orKey, appName: 'uitagenda-refresh' })
+      ? createLLMClient({ apiKey: orKey, appName: 'dolimoyo-refresh' })
       : undefined
 
   console.log(`\n→ refreshing ${source.listingUrl}`)

@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
-  "name": "uitagenda-api",
+  "name": "dolimoyo-api",
   "main": "src/index.ts",
   "compatibility_date": "2025-11-01",
   "compatibility_flags": ["nodejs_compat"],
@@ -21,12 +21,12 @@
       "binding": "HYPERDRIVE",
       "id": "REPLACE_WITH_HYPERDRIVE_ID",
       // Used by miniflare/vitest-pool-workers; overridden in prod by Hyperdrive id above.
-      "localConnectionString": "postgres://test:test@localhost:5434/uitagenda_dev"
+      "localConnectionString": "postgres://test:test@localhost:5434/dolimoyo_dev"
     }
   ],
   "vars": {
-    "AUTOSEND_DEFAULT_FROM_EMAIL": "digest@uitagenda.dev",
-    "AUTOSEND_DEFAULT_FROM_NAME": "uitagenda",
+    "AUTOSEND_DEFAULT_FROM_EMAIL": "digest@dolimoyo.dev",
+    "AUTOSEND_DEFAULT_FROM_NAME": "dolimoyo",
     "AUTOSEND_REPLY_TO": ""
   }
 }

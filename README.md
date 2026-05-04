@@ -1,4 +1,4 @@
-# uitagenda
+# dolimoyo
 
 Local events digest. Phase 0 — magic from day one for a single hardcoded user.
 

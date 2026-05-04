@@ -1,9 +1,9 @@
 {
-  "name": "@uitagenda/cli",
+  "name": "@dolimoyo/cli",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "bin": { "uitagenda-subscribe": "./src/subscribe.ts" },
+  "bin": { "dolimoyo-subscribe": "./src/subscribe.ts" },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "echo no-tests-yet",

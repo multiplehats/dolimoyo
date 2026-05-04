@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { runCSSScraper, looksPlausible, type CSSScraperConfig, type ScrapedEvent } from '@uitagenda/scrapers'
-import type { ParsewClient } from '@uitagenda/parsew'
+import { runCSSScraper, looksPlausible, type CSSScraperConfig, type ScrapedEvent } from '@dolimoyo/scrapers'
+import type { ParsewClient } from '@dolimoyo/parsew'
 
 export type StoredScraper =
   | { kind: 'css'; config: CSSScraperConfig }

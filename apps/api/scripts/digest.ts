@@ -7,9 +7,9 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { locationKey as toLocationKey } from '@uitagenda/db'
-import { createEmailClient, renderDigest, type DigestCadence } from '@uitagenda/email'
-import { createLLMClient } from '@uitagenda/llm'
+import { locationKey as toLocationKey } from '@dolimoyo/db'
+import { createEmailClient, renderDigest, type DigestCadence } from '@dolimoyo/email'
+import { createLLMClient } from '@dolimoyo/llm'
 import { curateDigest } from '../src/pipeline/curate-digest.ts'
 import { dedupeEvents } from './lib/dedupe.ts'
 import { rankByInterests } from './lib/relevance.ts'
@@ -48,7 +48,7 @@ async function main() {
   const llmCalls: { task: string; costUSD: number }[] = []
   const llm = createLLMClient({
     apiKey: orKey,
-    appName: 'uitagenda-digest',
+    appName: 'dolimoyo-digest',
     onCall: (e) => llmCalls.push({ task: e.task, costUSD: e.costUSD }),
   })
 

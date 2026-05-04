@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import type { LLMClient } from '@uitagenda/llm'
-import type { ParsewClient } from '@uitagenda/parsew'
+import type { LLMClient } from '@dolimoyo/llm'
+import type { ParsewClient } from '@dolimoyo/parsew'
 
 export interface Location {
   label: string

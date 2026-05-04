@@ -77,7 +77,7 @@ export function DigestEmail({ locationLabel, cadence, events, referenceDate, int
             </>
           ) : null}
           <Text style={{ color: '#999', fontSize: '12px', marginTop: '20px' }}>
-            uitagenda · {locationLabel} · {labelForCadence(cadence)}
+            dolimoyo · {locationLabel} · {labelForCadence(cadence)}
           </Text>
         </Container>
       </Body>

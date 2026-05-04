@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import { z } from 'zod'
 import { eq } from 'drizzle-orm'
-import { schema, locationKey } from '@uitagenda/db'
+import { schema, locationKey } from '@dolimoyo/db'
 import { createDbForEnv } from '../services/db'
 import type { Env } from '../env'
 

@@ -8,8 +8,8 @@ declare namespace Cloudflare {
 	}
 	interface Env {
 		HYPERDRIVE: Hyperdrive;
-		FROM_EMAIL: "digest@uitagenda.dev";
-		FROM_NAME: "uitagenda";
+		FROM_EMAIL: "digest@dolimoyo.dev";
+		FROM_NAME: "dolimoyo";
 		ADMIN_SECRET: string;
 		CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE: string;
 		SUBSCRIPTION_ACTOR: DurableObjectNamespace<import("./src/index").SubscriptionActor>;

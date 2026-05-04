@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { z } from 'zod'
-import type { ParsewClient } from '@uitagenda/parsew'
+import type { ParsewClient } from '@dolimoyo/parsew'
 import type { LocalStore } from './store.ts'
 import type { EventRecord, SourceRecord } from './types.ts'
 

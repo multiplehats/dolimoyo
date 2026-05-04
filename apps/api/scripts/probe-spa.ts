@@ -2,8 +2,8 @@
 // Used to validate the SPA-shell heuristic against real sites.
 
 import { parseArgs } from 'node:util'
-import { bodyTextLength } from '@uitagenda/scrapers'
-import { createParsewClient } from '@uitagenda/parsew'
+import { bodyTextLength } from '@dolimoyo/scrapers'
+import { createParsewClient } from '@dolimoyo/parsew'
 
 async function main() {
   const { values } = parseArgs({

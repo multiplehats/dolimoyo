@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { createParsewClient } from '@uitagenda/parsew'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { extractFromSource } from './lib/extract.ts'
 import { LocalStore } from './lib/store.ts'
 

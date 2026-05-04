@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { randomUUID } from 'node:crypto'
-import { locationKey as toLocationKey } from '@uitagenda/db'
+import { locationKey as toLocationKey } from '@dolimoyo/db'
 import type {
   DiscoveryRun,
   EventRecord,

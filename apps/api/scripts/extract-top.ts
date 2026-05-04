@@ -3,8 +3,8 @@
 
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import { locationKey as toLocationKey } from '@uitagenda/db'
-import { createParsewClient } from '@uitagenda/parsew'
+import { locationKey as toLocationKey } from '@dolimoyo/db'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { extractFromSource } from './lib/extract.ts'
 import { LocalStore } from './lib/store.ts'
 

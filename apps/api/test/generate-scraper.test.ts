@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { generateScraper } from '../src/pipeline/generate-scraper'
-import type { CSSScraperConfig } from '@uitagenda/scrapers'
+import type { CSSScraperConfig } from '@dolimoyo/scrapers'
 
 const fixtureHtml = `
   <html><body>

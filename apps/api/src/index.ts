@@ -4,7 +4,7 @@ import { subscriptionsRoute } from './routes/subscriptions'
 
 const app = new Hono<{ Bindings: Env }>()
 
-app.get('/', (c) => c.text('uitagenda api ok'))
+app.get('/', (c) => c.text('dolimoyo api ok'))
 app.get('/healthz', (c) => c.json({ ok: true }))
 
 app.route('/subscriptions', subscriptionsRoute)

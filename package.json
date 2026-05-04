@@ -1,5 +1,5 @@
 {
-  "name": "uitagenda",
+  "name": "dolimoyo",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@9.12.0",
@@ -12,11 +12,11 @@
     "format": "biome format --write .",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down",
-    "db:reset": "docker compose down -v && docker compose up -d postgres && docker compose exec -T postgres sh -c 'until pg_isready -U test -d uitagenda_dev; do sleep 0.5; done' && pnpm db:migrate",
-    "db:generate": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:generate",
-    "db:migrate": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:migrate",
-    "db:studio": "DATABASE_URL='postgres://test:test@localhost:5434/uitagenda_dev' pnpm --filter @uitagenda/db db:studio",
-    "subscribe": "dotenvx run -f apps/api/.env.local -- pnpm --filter @uitagenda/cli exec uitagenda-subscribe"
+    "db:reset": "docker compose down -v && docker compose up -d postgres && docker compose exec -T postgres sh -c 'until pg_isready -U test -d dolimoyo_dev; do sleep 0.5; done' && pnpm db:migrate",
+    "db:generate": "DATABASE_URL='postgres://test:test@localhost:5434/dolimoyo_dev' pnpm --filter @dolimoyo/db db:generate",
+    "db:migrate": "DATABASE_URL='postgres://test:test@localhost:5434/dolimoyo_dev' pnpm --filter @dolimoyo/db db:migrate",
+    "db:studio": "DATABASE_URL='postgres://test:test@localhost:5434/dolimoyo_dev' pnpm --filter @dolimoyo/db db:studio",
+    "subscribe": "dotenvx run -f apps/api/.env.local -- pnpm --filter @dolimoyo/cli exec dolimoyo-subscribe"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

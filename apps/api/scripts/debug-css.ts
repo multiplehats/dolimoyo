@@ -6,9 +6,9 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { parseArgs } from 'node:util'
 import { z } from 'zod'
-import { cleanHtml, runCSSScraper, type CSSScraperConfig } from '@uitagenda/scrapers'
-import { createLLMClient } from '@uitagenda/llm'
-import { createParsewClient } from '@uitagenda/parsew'
+import { cleanHtml, runCSSScraper, type CSSScraperConfig } from '@dolimoyo/scrapers'
+import { createLLMClient } from '@dolimoyo/llm'
+import { createParsewClient } from '@dolimoyo/parsew'
 import { SCRAPER_GEN_SYSTEM } from '../src/pipeline/generate-scraper.ts'
 import { LocalStore } from './lib/store.ts'
 
@@ -58,7 +58,7 @@ async function main() {
   const llmCalls: { task: string; costUSD: number; inputTokens: number; outputTokens: number }[] = []
   const llm = createLLMClient({
     apiKey: orKey,
-    appName: 'uitagenda-debug-css',
+    appName: 'dolimoyo-debug-css',
     onCall: (e) => llmCalls.push({ task: e.task, costUSD: e.costUSD, inputTokens: e.inputTokens, outputTokens: e.outputTokens }),
   })
 
