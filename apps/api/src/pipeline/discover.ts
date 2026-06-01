@@ -139,9 +139,13 @@ export async function discoverSources(args: DiscoverArgs): Promise<DiscoveredSou
     }
   }
 
-  const candidates = parseCandidates(textChunks.join(''))
-  if (candidates.length === 0 && timedOut) {
-    throw new Error('CMA discovery timed out before emitting candidates')
+  const rawText = textChunks.join('')
+  const candidates = parseCandidates(rawText)
+  if (candidates.length === 0) {
+    console.log(
+      `[discover] no candidates parsed. timedOut=${timedOut} textLen=${rawText.length} sessionId=${session.id} tail=${JSON.stringify(rawText.slice(-800))}`,
+    )
+    if (timedOut) throw new Error('CMA discovery timed out before emitting candidates')
   }
 
   return candidates

@@ -65,6 +65,23 @@ ${COMMON_RULES}`,
     },
   },
   {
+    id: 'barcelona-events',
+    label: 'Barcelona local events (ES/CA)',
+    pathA: {
+      location: { label: 'Barcelona', lat: 41.3851, lng: 2.1734, radiusKm: 25 },
+      interests: ['music', 'arts', 'food'],
+      language: 'es',
+      topN: 10,
+    },
+    pathB: {
+      prompt: `You are helping build a personalised local-events digest.
+
+TASK: Find the best, most-current event-listing websites for Barcelona, Spain (Catalonia), focused on interests: music, arts, food. Greater Barcelona counts — Hospitalet, Badalona, Sabadell are fair game. Search in Spanish AND Catalan, not just English.
+
+${COMMON_RULES}`,
+    },
+  },
+  {
     id: 'lisbon-events',
     label: 'Lisbon local events (PT)',
     pathA: {
