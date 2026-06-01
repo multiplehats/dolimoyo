@@ -20,9 +20,13 @@
     "probe-spa": "dotenvx run -f .env.local -- tsx scripts/probe-spa.ts",
     "digest": "dotenvx run -f .env.local -- tsx scripts/digest.ts",
     "filter-perennials": "dotenvx run -f .env.local -- tsx scripts/filter-perennials.ts",
+    "cma-test": "dotenvx run -f .env.local -- tsx scripts/cma-discovery-test/run.ts",
+    "cma-compare": "tsx scripts/cma-discovery-test/compare.ts",
+    "cma-scrape-test": "dotenvx run -f .env.local -- tsx scripts/cma-scrape-test/run.ts",
     "db:show": "tsx scripts/db-show.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
     "@dolimoyo/db": "workspace:*",
     "@dolimoyo/email": "workspace:*",
     "@dolimoyo/llm": "workspace:*",

@@ -1,0 +1,14 @@
+{
+  "scenarioId": "fashionworkplace-jobs",
+  "itemCount": 20,
+  "sampleTitles": [
+    "Creatieve Vormgever / Content Creator",
+    "Project Manager, Generative AI",
+    "Fashion & Marketing Intern",
+    "Marketer (Creative & Performance)",
+    "Stage Creative Production"
+  ],
+  "elapsedSec": 7.804,
+  "parsewCalls": 1,
+  "parsewCostUSDEstimate": 0.025
+}

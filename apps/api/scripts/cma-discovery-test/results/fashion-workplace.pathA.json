@@ -1,0 +1,64 @@
+{
+  "scenarioId": "fashion-workplace",
+  "sources": [
+    {
+      "listingUrl": "https://www.europeanbestdestinations.com/top/best-events-in-europe/",
+      "domain": "europeanbestdestinations.com",
+      "title": "Best Events in Europe in 2025 - Europe's Best Destinations",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://culture.ec.europa.eu/whats-new/events",
+      "domain": "culture.ec.europa.eu",
+      "title": "Events - Culture and Creativity",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.forbes.com/sites/joanneshurvell/2026/02/06/best-events-in-europe-2026-according-to-european-best-destinations/",
+      "domain": "forbes.com",
+      "title": "Best Events In Europe 2026, According To European Best ... - Forbes",
+      "score": 5
+    },
+    {
+      "listingUrl": "https://www.euronews.com/culture/2025/01/27/agenda-the-best-things-to-do-hear-see-or-watch-in-europe-this-week",
+      "domain": "euronews.com",
+      "title": "Agenda: The best things to do, hear, see or watch in Europe ... - Euronews",
+      "score": 5
+    },
+    {
+      "listingUrl": "https://liveurope.eu/concerts",
+      "domain": "liveurope.eu",
+      "title": "Concerts | Liveurope",
+      "score": 5
+    },
+    {
+      "listingUrl": "https://guides.ticketmaster.co.uk/concerts-and-tours-guide/",
+      "domain": "guides.ticketmaster.co.uk",
+      "title": "Concerts, Gigs & Tours | Your 2026-27 Music Guide | Ticketmaster UK",
+      "score": 5
+    },
+    {
+      "listingUrl": "https://www.dezeen.com/eventsguide/",
+      "domain": "dezeen.com",
+      "title": "Dezeen Events Guide | Architecture and design events",
+      "score": 5
+    }
+  ],
+  "parsewCalls": 71,
+  "parsewBreakdown": {
+    "search": 12,
+    "map": 59
+  },
+  "llmCalls": [
+    {
+      "task": "scoring",
+      "model": "openai/gpt-5-nano",
+      "inputTokens": 925,
+      "outputTokens": 589,
+      "costUSD": 0.00028185
+    }
+  ],
+  "llmCostUSD": 0.00028185,
+  "parsewCostUSDEstimate": 0.6500000000000004,
+  "elapsedSec": 908.66
+}

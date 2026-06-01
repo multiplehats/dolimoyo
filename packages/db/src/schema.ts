@@ -23,7 +23,7 @@ export const cadence = pgEnum('cadence', ['daily', 'bidaily', 'weekly'])
 export const sourceStatus = pgEnum('source_status', ['active', 'broken', 'dead'])
 export const scraperKind = pgEnum('scraper_kind', ['css', 'extract'])
 export const deliveryStatus = pgEnum('delivery_status', ['queued', 'sent', 'failed'])
-export const apiProvider = pgEnum('api_provider', ['parsew', 'openrouter', 'autosend'])
+export const apiProvider = pgEnum('api_provider', ['parsew', 'openrouter', 'autosend', 'anthropic'])
 
 export const subscriptions = pgTable(
   'subscriptions',

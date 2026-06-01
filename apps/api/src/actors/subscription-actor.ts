@@ -4,8 +4,7 @@ import { schema, type Database } from '@dolimoyo/db'
 import type { Env } from '../env'
 import { createDbForEnv } from '../services/db'
 import { createLedger } from '../services/ledger'
-import { createParsewForEnv } from '../services/parsew'
-import { createLLMForEnv } from '../services/llm'
+import { createAnthropicForEnv } from '../services/anthropic'
 import { createEmailForEnv } from '../services/email'
 import { discoverSources } from '../pipeline/discover'
 import { sendDigestForSubscription, type UpcomingEvent } from '../pipeline/digest'
@@ -82,8 +81,7 @@ export class SubscriptionActor extends DurableObject<Env> {
   private async runDiscovery(subscriptionId: string): Promise<void> {
     const db = createDbForEnv(this.env)
     const ledger = createLedger(db)
-    const parsew = createParsewForEnv(this.env, ledger, { subscriptionId })
-    const llm = createLLMForEnv(this.env, ledger, { subscriptionId })
+    const anthropic = createAnthropicForEnv(this.env, ledger, { subscriptionId })
 
     const sub = await loadSubscription(db, subscriptionId)
     if (!sub) throw new Error(`subscription ${subscriptionId} not found`)
@@ -105,9 +103,7 @@ export class SubscriptionActor extends DurableObject<Env> {
           radiusKm: sub.locationRadiusKm,
         },
         interests: sub.interests,
-        language: 'nl',
-        parsew,
-        llm,
+        anthropic,
         topN: 5,
       })
       sourceIds = []
@@ -122,7 +118,7 @@ export class SubscriptionActor extends DurableObject<Env> {
             locationLat: sub.locationLat,
             locationLng: sub.locationLng,
             locationRadiusKm: sub.locationRadiusKm,
-            language: 'nl',
+            language: d.language,
             discoveryScore: d.score,
           })
           .onConflictDoNothing({ target: schema.sources.listingUrl })

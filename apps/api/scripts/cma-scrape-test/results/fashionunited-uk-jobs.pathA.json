@@ -1,0 +1,14 @@
+{
+  "scenarioId": "fashionunited-uk-jobs",
+  "itemCount": 26,
+  "sampleTitles": [
+    "Sales Assistant (M/F/D) Part-time - London",
+    "Assistant Store Manager - (Assistant Head Coach) Battersea",
+    "Retail Assistant (Athlete) PT 8H - Durham",
+    "Senior Sales Assistant (24h) - Sheffield Meadowhall",
+    "Retail Assistant (Athlete) PT 20H - Teesside"
+  ],
+  "elapsedSec": 17.854,
+  "parsewCalls": 1,
+  "parsewCostUSDEstimate": 0.025
+}

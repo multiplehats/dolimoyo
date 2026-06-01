@@ -1,0 +1,584 @@
+{
+  "scenarioId": "visittwente-agenda",
+  "itemCount": 38,
+  "sampleTitles": [
+    "Sieraden maken workshop",
+    "Zwiep Scott MTB Cup",
+    "Bas Kosters: Many loving arms",
+    "Detectivespel",
+    "Q(Ei)R-Speurtocht!"
+  ],
+  "rawFinalText": "The direct `/agenda/` URL is not fetchable directly. Let me try the alternative agenda route referenced in the navigation.The `/agenda/` URL is inaccessible, but the live agenda is served at `/uitagenda/vandaag/` — which the site's own navigation links to — and I successfully retrieved it. It shows 38 events for today (Easter Sunday, 2026-04-05 based on the page's calendar context and Easter-themed events).\n\n```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sieraden maken workshop\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171714/sieraden-maken-workshop/\",\n      \"startsAt\": \"2026-04-05T09:00:00\",\n      \"venueName\": \"Senang Jewellery, Enschede\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Zwiep Scott MTB Cup\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171938/zwiep-scott-mtb-cup/\",\n      \"startsAt\": \"2026-04-05T09:00:00\",\n      \"venueName\": \"Het Hulsbeek, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Bas Kosters: Many loving arms\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171717/bas-kosters-many-loving-arms/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Rijksmuseum Twenthe, Enschede\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Detectivespel\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173024/detectivespel/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Landgoed Kaamps, Deurningen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Q(Ei)R-Speurtocht!\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173955/q(ei)r-speurtocht!/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Actief Twente, Beuningen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Twickel | Kasteeltuinen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/175382/twickel-kasteeltuinen/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Moestuin kasteel Twickel, Ambt Delden\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Filmhuis: I was a Stranger\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173379/filmhuis-i-was-a-stranger/\",\n      \"startsAt\": \"2026-04-05T10:30:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Ponywandelen ouder-kind\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/167886/ponywandelen-ouder-kind/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"'t Koekhoes-Erve Meinders, Tilligte\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Rondrit met paard en wagen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/172812/rondrit-met-paard-en-wagen/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"Hoeve Springendal, Hezingen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Help, de kuikens zijn ontsnapt\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/175338/help-de-kuikens-zijn-ontsnapt/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"Natuurmuseum Holterberg, Holten\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Koopzondag Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/98872/koopzondag-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Centrum Ootmarsum, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Bezoek park en arboretum Singraven\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/72253/bezoek-park-en-arboretum-singraven/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Park en Arboretum landgoed Singraven, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Koopzondag Woonboulevard\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/110291/koopzondag-woonboulevard/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Woonboulevard Oldenzaal, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie | Luca, may I kiss you?\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/172839/expositie-luca-may-i-kiss-you-/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Drawing Centre Diepenheim, Diepenheim\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie: Kracht met vleugels\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/158193/expositie-kracht-met-vleugels/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Museum Ton Schulten, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasstaakslepen in Denekamp\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/541/paasstaakslepen-in-denekamp/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Huis Singraven, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Brouwerijtour bij Othmarbier\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/71295/brouwerijtour-bij-othmarbier/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Othmar Brouwerij, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Vaar mee met de Buurserpot\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153137/vaar-mee-met-de-buurserpot/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Buurserpot, Haaksbergen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie Mia Dikken\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/165553/expositie-mia-dikken/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Cultureel Podium Bornse Synagoge, Borne\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Verborgen Verbindingen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171814/verborgen-verbindingen/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Kunsthal Almelo, Almelo\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie: Cultuur reist door Europa\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/121858/expositie-cultuur-reist-door-europa/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Museum Huize Keizer, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"The Super Mario Galaxy Movie (NL versie)\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173904/the-super-mario-galaxy-movie-(nl-versie)/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasfeesten Albergen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171683/paasfeesten-albergen/\",\n      \"startsAt\": \"2026-04-05T14:00:00\",\n      \"venueName\": \"Partycentrum Morshuis, Albergen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasmiddag 2026\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173143/paasmiddag-2026/\",\n      \"startsAt\": \"2026-04-05T15:00:00\",\n      \"venueName\": \"Pastorieplein, Hengelo\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Jumpers (NL versie)\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173786/jumpers-(nl-versie)/\",\n      \"startsAt\": \"2026-04-05T16:00:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Vlöggel'n in Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/287/vloggel-n-in-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T17:00:00\",\n      \"venueName\": \"Centrum Ootmarsum, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Oldenzaals Paasvuur\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/108122/oldenzaals-paasvuur/\",\n      \"startsAt\": \"2026-04-05T17:30:00\",\n      \"venueName\": \"Het Hulsbeek, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvurentocht met Oldtimerbus\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/42229/paasvurentocht-met-oldtimerbus/\",\n      \"startsAt\": \"2026-04-05T19:30:00\",\n      \"venueName\": \"Bushalte Molenstraat, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuren rondom Holten\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171322/paasvuren-rondom-holten/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Diverse buurtschappen rondom Holten\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Locaties paasvuren gemeente Tubbergen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171686/locaties-paasvuren-gemeente-tubbergen/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Acht locaties (zie tekstomschrijving)\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Borne\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171771/paasvuur-borne/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Oonksweg, Borne\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Poaske Geesteren\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171680/poaske-geesteren/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"CSI Twente terrein, Geesteren\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Denekamp\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/23950/paasvuur-denekamp/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Recreatieterrein 't Goor, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Egede Hancate Eelen Rhaan\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/174222/paasvuur-egede-hancate-eelen-rhaan/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Hoek Ommerweg, Hellendoorn\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/42081/paasvuur-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T20:30:00\",\n      \"venueName\": \"Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Poasboaken\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/174269/poasboaken/\",\n      \"startsAt\": \"2026-04-05T20:30:00\",\n      \"venueName\": \"Aan de Regge, achter de ijsfabriek, Hellendoorn\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Honesch\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153077/paasvuur-honesch/\",\n      \"startsAt\": \"2026-04-05T21:00:00\",\n      \"venueName\": \"Paasboake Honesch\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Sint Isidorushoeve\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153078/paasvuur-sint-isidorushoeve/\",\n      \"startsAt\": \"2026-04-05T21:00:00\",\n      \"venueName\": \"Sint Isidorushoeve\",\n      \"description\": null\n    }\n  ]\n}\n```\n\n---\n\n**Notes:**\n\n- **`https://www.visittwente.nl/agenda/`** returned `url_not_accessible`. The site's own navigation redirects the agenda to **`https://www.visittwente.nl/uitagenda/vandaag/`**, which was successfully fetched and used as the source.\n- **38 listings** were extracted — all events shown for the current day (\"vandaag\").\n- The **date `2026-04-05`** (Easter Sunday) was inferred from the page's calendar widget (showing April 2026) and the heavy Easter-themed content (Paasvuren, Paasfeesten, Paasstaakslepen, etc.).\n- **`description`** fields are `null` throughout: the listing page only shows title, time, and venue per card — descriptions are only available on individual detail pages (not loaded here).\n- All URLs are absolute and point directly to each event's detail page on visittwente.nl.",
+  "toolUses": 7,
+  "events": [
+    {
+      "id": "sevt_01LEV3YBoV23VXxBP36QzPE4",
+      "processed_at": "2026-06-01T08:52:08.298568Z",
+      "type": "session.status_running"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01MLG5mpSvZgqPU8eab3nBTt",
+      "processed_at": "2026-06-01T08:52:08.298569Z",
+      "session_thread_id": "sthr_01Hj4sc2EGW1dDLzzMgkkK5g",
+      "type": "session.thread_status_running"
+    },
+    {
+      "content": [
+        {
+          "text": "URL: https://www.visittwente.nl/agenda/\n\nSchema (emit fenced JSON exactly like this):\n\n```json\n{\n  \"items\": [\n    { \"title\": \"...\", \"url\": \"...\", \"startsAt\": \"ISO-8601 or null\", \"venueName\": \"...\", \"description\": \"...\" }\n  ]\n}\n```\n\nExtract every event listing on this page. For each: title, absolute URL to detail page, ISO-8601 startsAt if visible, venueName if present, description if present.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01Vs1wyQiCBtm5NXZuBLisNS",
+      "processed_at": "2026-06-01T08:52:10.410534Z",
+      "type": "user.message"
+    },
+    {
+      "id": "sevt_01HQwDob2c3Yx7UBWWhC4Boc",
+      "processed_at": "2026-06-01T08:52:10.410535Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_017tMoyfoXCKr9c8hvu1BEKr",
+      "processed_at": "2026-06-01T08:52:10.410536Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01FAPR3VbtLKcZZGgBkYhATi",
+      "input": {
+        "url": "https://www.visittwente.nl/agenda/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:10.410538Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01KUrsnFic3xqFZcCHpydRF2",
+      "is_error": false,
+      "model_request_start_id": "sevt_01HQwDob2c3Yx7UBWWhC4Boc",
+      "model_usage": {
+        "cache_creation_input_tokens": 5685,
+        "cache_read_input_tokens": 0,
+        "input_tokens": 3,
+        "output_tokens": 89
+      },
+      "processed_at": "2026-06-01T08:52:10.410539Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_018edJTDESe2TmuPHjhqu9EF",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:52:12.683381Z",
+      "tool_use_id": "sevt_01FAPR3VbtLKcZZGgBkYhATi",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_017B3h2rj3vmaLsLiPhixV5n",
+      "processed_at": "2026-06-01T08:52:15.323528Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01N7DZhPKSxWbzQdy2h9ndhV",
+      "processed_at": "2026-06-01T08:52:15.323529Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01TJSQ84wWzDYJXosxFoeeig",
+      "input": {
+        "url": "https://visittwente.nl/agenda/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:15.323531Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_011k56CGuugN2SELRjJuFnHA",
+      "is_error": false,
+      "model_request_start_id": "sevt_017B3h2rj3vmaLsLiPhixV5n",
+      "model_usage": {
+        "cache_creation_input_tokens": 120,
+        "cache_read_input_tokens": 5685,
+        "input_tokens": 1,
+        "output_tokens": 90
+      },
+      "processed_at": "2026-06-01T08:52:15.323532Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01PDfhgiEECkhQUhzFwC4oVd",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:52:19.314582Z",
+      "tool_use_id": "sevt_01TJSQ84wWzDYJXosxFoeeig",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01GXfqRa5u6AXU7EJnQGFjYU",
+      "processed_at": "2026-06-01T08:52:23.866147Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01TyXpJN1YUePqmcMu7k5mNs",
+      "input": {
+        "query": "site:visittwente.nl agenda events 2025"
+      },
+      "name": "web_search",
+      "processed_at": "2026-06-01T08:52:23.866148Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01PxbxiLp5mM8vTNoBP8VdYo",
+      "is_error": false,
+      "model_request_start_id": "sevt_01GXfqRa5u6AXU7EJnQGFjYU",
+      "model_usage": {
+        "cache_creation_input_tokens": 119,
+        "cache_read_input_tokens": 5805,
+        "input_tokens": 1,
+        "output_tokens": 64
+      },
+      "processed_at": "2026-06-01T08:52:23.866149Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "De laatste sfeervolle kermis van Twente, beter bekend als de &#x27;koale kermis&quot; in Ootmarsum. Op vrijdagochtend is er ook een paarden- en kleinveemarkt en een landbouwwerktuigenshow op het kerkplein van Ootmarsum.",
+              "type": "text"
+            },
+            {
+              "text": "Op 7, 8 & 9 november 2025 vindt alweer de derde editie van ‘Winter Heerlijckheid’ plaats op het betoverende Landgoed Warmelo te Diepenheim. Een prachtige gelegenheid om in een sprookjesachtige sfeer inspiratie op te doen en heerlijk te winkelen voor de heerlijke winter waar we zo naar uit kijken! ... Zaterdag 15 november is het weer zo ver, Sinterklaas en zijn Pieten zullen weer naar Nederland komen.",
+              "type": "text"
+            },
+            {
+              "text": "In november is er weer volop te beleven in Twente. De agenda is goed gevuld en voor ieder zit er wat leuks bij! Nieuwsgierig geworden? Wij laten je de leukste evenementen zien in ons tip-lijstje, maar in onze evenementen-kalender vind je er nog veel meer! Bekijk [hier](https://www.visittwente.nl/agenda \"hier\")!",
+              "type": "text"
+            },
+            {
+              "text": "In november is er weer volop te beleven in Twente. De agenda is goed gevuld en voor ieder zit er wat leuks bij! Nieuwsgierig geworden? Wij laten je de leukste evenementen zien in ons tip-lijstje, maar in onze evenementen-kalender vind je er nog veel meer! Bekijk hier! ... De eerste editie van Bok Op Stap De Lutte. Geniet van een gezellige middag in De Lutte met een speciale bokbierwandeling! ... Op zaterdag 1 november aanstaande staat Erfgoed Bossem in het teken van wild en jacht. Fijnproevers die de smaak van wilde eend, haas en hert waarderen kunnen dan aanschuiven aan het WILD belevingsdiner. Vooraf en tijdens het diner zullen jagers, voorjagers en jachthoornblazers de gasten meenemen in ‘de wereld van jagen’ en hen meer vertellen over het hoe en waarom. ... Stap uit je comfortzone en maak je klaar voor de ultieme hardloopervaring tijdens de 4e editie van Loop Esch Door!",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/wat-te-doen/evenementen-november/",
+          "title": "14 leukste uitjes in november. Van alles te beleven! - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Carnavalsoptocht Ootmarsum 2025 · Evenementdata · Locatie · Optocht van praalwagens en grote loopgroepen door het centrum van Ootmarsum. De start is om 13.30 uur. www.othmarridders.nl · vandaag | 13:30 uur · Entreeprijs · gratis · Ootmarsum · 00:00 - 00:00 · vandaag · Het Kunst-Torentje, Almelo · 08:00 - 17:00 · vandaag · Elsenerstraat, Kerkstraat, Schild · 08:30 - 14:00 · vandaag · Weerselose Markt, Weerselo · 09:00 - 15:00 · vandaag · Grote of Oude Blasiuskerk, Delden · 09:30 - 16:00 · vandaag · Kunsthof 26 A, Hengelo · 09:30 - 17:00 · vandaag · Centrum Rijssen · Typisch Twente · Alles over Twente, tips &amp; verhalen · Wat te doen · Activiteiten, culinaire tips &amp; zakelijk bezoek · Overnachten · Alle accommodaties &amp; slaaptips · Routes · Wandelen, fietsen en nog veel meer · Agenda · De leukste activiteiten en events ·",
+              "type": "text"
+            },
+            {
+              "text": "Carnavalsoptocht Ootmarsum 2025 · Evenementdata · Locatie · Optocht van praalwagens en grote loopgroepen door het centrum van Ootmarsum. De start is om 13.30 uur. www.othmarridders.nl · vandaag | 13:30 uur · Entreeprijs · gratis · Ootmarsum · 00:00 - 00:00 · vandaag · Het Kunst-Torentje, Almelo · 08:00 - 17:00 · vandaag · Elsenerstraat, Kerkstraat, Schild · 08:30 - 14:00 · vandaag · Weerselose Markt, Weerselo · 09:00 - 15:00 · vandaag · Grote of Oude Blasiuskerk, Delden · 09:30 - 16:00 · vandaag · Kunsthof 26 A, Hengelo · 09:30 - 17:00 · vandaag · Centrum Rijssen · Typisch Twente · Alles over Twente, tips & verhalen · Wat te doen · Activiteiten, culinaire tips & zakelijk bezoek · Overnachten · Alle accommodaties & slaaptips · Routes · Wandelen, fietsen en nog veel meer · Agenda · De leukste activiteiten en events ·",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/21347/carnavalsoptocht-ootmarsum-2025/",
+          "title": "Carnavalsoptocht Ootmarsum 2025 - 1 mrt 2025 - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Stichting Theater Producties Twente viert in de zomer van 2025 de verjaardag van Enschede met een grootschalig musical waarin we de geschiedenis van Enschede herbeleven. In dit verhaal werken lokaal talent en landelijk gevestigde namen samen.",
+              "type": "text"
+            },
+            {
+              "text": "Ook in de maand juli is er weer genoeg leuks te doen in Twente. Om je een handje te helpen hebben we de aller-leukste evenementen van juli op een rijtje gezet. Waar ben jij bij? Benieuwd naar de complete agenda? Bekijk hier! ... Ontdek In Het Volkspark festival! Want wat ritselt daar toch allemaal tussen de blaadjes? In het hart van Enschede, op loopafstand van het station, ligt het Volkspark. Een stadspark dat uit 1872 stamt en daarmee het oudste park van Nederland is. ... Het wordt weer genieten blazen deze zomer in Hertme tijdens Afrikafestival 2025! Op zaterdag 5 en zondag 6 juli waan je je weer in Afrika, maar dan gewoon in het Openluchttheater in Hertme. ... Het weekend van 3 t/m 6 juli staat De Lutte in het teken van het jaarlijkse dorpsfeest de Hellehondsdagen. Het is de organisatie gelukt om in deze 46e editie een mooi programma neer te zetten waarin jong en oud aan zijn trekken komt.",
+              "type": "text"
+            },
+            {
+              "text": "Stichting Theater Producties Twente viert in de zomer van 2025 de verjaardag van Enschede met een grootschalig musical waarin we de geschiedenis van Enschede herbeleven. In dit verhaal werken lokaal talent en landelijk gevestigde namen samen. Na de successen van “Het Verzet Kraakt” (Almelo) en “STORK!” (Hengelo), presenteren de makers een gloednieuwe theatervoorstelling: DOOR HET STOF. ... Houd jij ook zo van speciaal biertjes? Dan is dit festival echt wat voor jou! Op de markt in Haaksbergen zullen allerlei soorten speciaal biertjes te verkrijgen zijn zoals IPA's, lagers en stouts.",
+              "type": "text"
+            },
+            {
+              "text": "Ook in de maand juli is er weer genoeg leuks te doen in Twente. Om je een handje te helpen hebben we de aller-leukste evenementen van juli op een rijtje gezet. Waar ben jij bij? Benieuwd naar de complete agenda? Bekijk [hier](https://www.visittwente.nl/agenda \"hier\")!",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/wat-te-doen/evenementen-juli/",
+          "title": "Dit zijn de 9 leukste evenementen in juli. Keuze genoeg! - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Vernoemd naar atlete van de eeuw: Fanny Blankers Koen. ’s Werelds meest innovatieve atletiekevenement. Inmiddels al meer dan 44 jaar niet meer weg te denken van de Internationale topsportkalender: ieder jaar trekken Olympisch kampioenen, wereldkampioenen en talenten naar Hengelo om zich met elkaar te meten. Dus zet in je agenda, maandag 9 juni 2025! ... Op de langste dag van het jaar organiseert restaurant Drostes het langste tafeldiner midden in de Twentse natuur. Op zaterdag 21 juni 2026 kan je dan ook ‘buitengewoon’ dineren op het land aan één lange tafel bij de Molen van Frans. ... Begin je zomer goed op het Zunnewendefestival, waar streekcultuur en streektalen elkaar ontmoeten tijdens de zunnewende, de langste dag van het jaar. ... Dit jaar is er natuurlijk ook weer het School en Volksfeest! Uiteraard met de gebruikelijk kermis met veel attracties, muziek, kinderoptocht en op zondag de grote optocht met als afsluiter de Goorse Rellie.",
+              "type": "text"
+            },
+            {
+              "text": "Evenementen en leuke uitjes in juni in Twente. Van festivals tot leuke uitjes.",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/wat-te-doen/evenementen-juni/",
+          "title": "Dit zijn de leukste evenementen in juni. Ga erop uit! - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Andersom is alles leuker! De SVDO Andersomtocht is terug op zondag 10 augustus 2025! De Tourbuffels sluiten de paarse en groene MTB route af en geven je zo een unieke kans om deze routes van 20 of 40 kilometer andersom te fietsen!",
+              "type": "text"
+            },
+            {
+              "text": "Uit in Twente. Want één ding is zeker, er is altijd wat te doen in Twente. Feest mee op één van de vele festivals. Ga kamperen midden in de stad óf laat je meeslepen in Mediterrane sferen in Twente. We hebben de leukste evenementen in augustus voor je op een rijtje gezet. Bekijk [hier](https://www.visittwente.nl/agenda \"hier\")!",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/wat-te-doen/leukste-evenementen-in-augustus/",
+          "title": "Dit zijn de 12 leukste evenementen in augustus. Leef je uit! - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "6 jul 2025 | 09:00 uur · De Lutte · 10:00 - 21:00 · vandaag · Escaperoom Hof te Langelo, Haaksbergen · 10:00 - 15:00 · vandaag · Arboretum Poortbulten, De Lutte · 10:00 - 17:00 · vandaag · Schoolmuseum Educatorium, Ootmarsum · 10:00 - 17:00 · vandaag · Rijksmuseum Twenthe, Enschede · 10:00 - 17:00 · vandaag · Schoolmuseum Educatorium, Ootmarsum · 11:00 - 17:00 · vandaag · Museum Ton Schulten, Ootmarsum · Typisch Twente · Alles over Twente, tips &amp; verhalen · Wat te doen · Activiteiten, culinaire tips &amp; zakelijk bezoek · Overnachten · Alle accommodaties &amp; slaaptips · Routes · Wandelen, fietsen en nog veel meer · Agenda · De leukste activiteiten en events ·",
+              "type": "text"
+            },
+            {
+              "text": "6 jul 2025 | 09:00 uur · De Lutte · 10:00 - 21:00 · vandaag · Escaperoom Hof te Langelo, Haaksbergen · 10:00 - 15:00 · vandaag · Arboretum Poortbulten, De Lutte · 10:00 - 17:00 · vandaag · Schoolmuseum Educatorium, Ootmarsum · 10:00 - 17:00 · vandaag · Rijksmuseum Twenthe, Enschede · 10:00 - 17:00 · vandaag · Schoolmuseum Educatorium, Ootmarsum · 11:00 - 17:00 · vandaag · Museum Ton Schulten, Ootmarsum · Typisch Twente · Alles over Twente, tips & verhalen · Wat te doen · Activiteiten, culinaire tips & zakelijk bezoek · Overnachten · Alle accommodaties & slaaptips · Routes · Wandelen, fietsen en nog veel meer · Agenda · De leukste activiteiten en events ·",
+              "type": "text"
+            },
+            {
+              "text": "T.z.t volgt het programma 2025.",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/150645/hellehondsdagen/",
+          "title": "Hellehondsdagen - 3 jul 2025 - 6 jul 2025 - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Zet het alvast in de agenda want op zaterdag 4 oktober om 19.30 uur vindt het altijd indrukwekkende en klassieke Glasrijk Concert plaats in de prachtige H. Pancratius Basiliek in Tubbergen. Dit jaar werkt het Sint Pancratius Basiliekkoor samen met het Denekamps Mannenkoor. Het repertoire van het Denekamps Mannenkoor ken t o.a. geestelijke, klassieke maar ook romantische muziek. St.-Pancratius Basiliekkoor (opgericht in 1915, ca. 40 leden) – bekend om hun rijke traditie en Gregoriaanse klanken. Denekamps Mannenkoor (48 leden) – veelzijdig repertoire, van klassiek tot lichtvoetig.Beide koren staan onder leiding van Jeroen Hulshof, met pianobegeleiding door Nadine Eman. Soliste: Karin Hertsenberg – sopraan, bekend van Una · Voce Particolare, die opera, musical en filmmuziek tot leven brengt. Verwacht een verrassend en afwisselend programma, met werken als: ...",
+              "type": "text"
+            },
+            {
+              "text": "Glasrijk Concert 2025 · Evenementdata · Locatie · Zet het alvast in de agenda want op zaterdag 4 oktober om 19.30 uur vindt het altijd indrukwekkende en klassieke Glasrijk Concert plaats in de prachtige H. Pancratius Basiliek in Tubbergen. Dit jaar werkt het Sint Pancratius Basiliekkoor samen met het Denekamps Mannenkoor. Het repertoire van het Denekamps Mannenkoor ken t o.a. geestelijke, klassieke maar ook romantische muziek. St.-Pancratius Basiliekkoor (opgericht in 1915, ca. 40 leden) – bekend om hun rijke traditie en Gregoriaanse klanken. Denekamps Mannenkoor (48 leden) – veelzijdig repertoire, van klassiek tot lichtvoetig.Beide koren staan onder leiding van Jeroen Hulshof, met pianobegeleiding door Nadine Eman. Soliste: Karin Hertsenberg – sopraan, bekend van Una · Voce Particolare, die opera, musical en filmmuziek tot leven brengt.",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/157905/glasrijk-concert-2025/",
+          "title": "Glasrijk Concert 2025 - 4 okt 2025 - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Atletiekvereniging Holten organiseert samen met Stichting Viering Nationale Feestdagen (SVNF) een bevrijdingsloop voor basisschoolkinderen.",
+              "type": "text"
+            },
+            {
+              "text": "Speciaal voor basisschoolkinderen op 5 mei",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/153380/bevrijdingsloop/",
+          "title": "Bevrijdingsloop - 5 mei 2025 - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Op 7, 8 &amp; 9 november 2025 vindt alweer de derde editie van ‘Winter Heerlijckheid’ plaats op het betoverende Landgoed Warmelo te Diepenheim. Een prachtige gelegenheid om in een sprookjesachtige sfeer inspiratie op te doen en heerlijk te winkelen voor de heerlijke winter waar we zo naar uit kijken!",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/165122/winter-heerlijckheid/",
+          "title": "Winter Heerlijckheid - 7 nov 2025 - 9 nov 2025 - Visit Twente",
+          "type": "search_result"
+        },
+        {
+          "citations": {
+            "enabled": true
+          },
+          "content": [
+            {
+              "text": "Zin in een dansen met live muziek? Kom dan naar De Vereeniging in De Lutte en beleef een gezellige avond.",
+              "type": "text"
+            }
+          ],
+          "source": "https://www.visittwente.nl/agenda-item/164989/gezellig-dansen-met-2-bands/",
+          "title": "Gezellig dansen met 2 Bands - 25 okt 2025 - Visit Twente",
+          "type": "search_result"
+        }
+      ],
+      "id": "sevt_01CxMP5Wd9qpuepBjYWzeGqu",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:52:24.460373Z",
+      "tool_use_id": "sevt_01TyXpJN1YUePqmcMu7k5mNs",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_013RFzwLESR4xAVBYKNU9Ghz",
+      "processed_at": "2026-06-01T08:52:29.258499Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01TSK1XH48tb8YTyz9tKn8mY",
+      "processed_at": "2026-06-01T08:52:29.258500Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01PVbAk5kbtrD6DER3JNR2WN",
+      "input": {
+        "url": "https://www.visittwente.nl/wat-te-doen/evenementen-juni/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:29.258502Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01NdS7L7hFM5d89UfroCoLA2",
+      "input": {
+        "url": "https://www.visittwente.nl/wat-te-doen/evenementen-juli/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:29.258503Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01JKzgBCnXcwpEKvLUi1AAcg",
+      "is_error": false,
+      "model_request_start_id": "sevt_013RFzwLESR4xAVBYKNU9Ghz",
+      "model_usage": {
+        "cache_creation_input_tokens": 8508,
+        "cache_read_input_tokens": 3382,
+        "input_tokens": 1,
+        "output_tokens": 233
+      },
+      "processed_at": "2026-06-01T08:52:29.258504Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "source": {
+            "data": "---\nbase: https://www.visittwente.nl\ncanonical: https://www.visittwente.nl/wat-te-doen/evenementen-juni/\nmeta-description: Evenementen en leuke uitjes in juni in Twente. Van festivals tot leuke uitjes.\nmeta-google-site-verification: vr_AMt1702003LagAeAKr_qT_o42UqtkGpSRzQ35uPI\nmeta-mobile-web-app-capable: yes\nmeta-og:description: Evenementen en leuke uitjes in juni in Twente. Van festivals tot leuke uitjes.\nmeta-og:image: https://www.touristserver.nl/img/325855-1759481613/B1200X1200/Herfst+De+Lutte+hellehond.jpg\nmeta-og:title: Dit zijn de leukste evenementen in juni. Ga erop uit! - Visit Twente\nmeta-og:url: https://www.visittwente.nl/wat-te-doen/evenementen-juni/\nmeta-viewport: width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\ntitle: Dit zijn de leukste evenementen in juni. Ga erop uit! - Visit Twente\n---\n\n\n[navigatie overslaan](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#contentstart)\n\n[Twente](https://www.visittwente.nl/)\n\n- [**Typisch Twente** Alles over Twente, tips & verhalen](https://www.visittwente.nl/over-twente/)\n- [**Wat te doen** Activiteiten, culinaire tips & zakelijk bezoek](https://www.visittwente.nl/wat-te-doen/)\n- [**Overnachten** Alle accommodaties & slaaptips](https://www.visittwente.nl/overnachten/)\n- [**Routes** Wandelen, fietsen en nog veel meer](https://www.visittwente.nl/routes-Twente/)\n- [**Agenda** De leukste activiteiten en events](https://www.visittwente.nl/uitagenda/vandaag/)\n\nNL\n\n- [Nederlands](http://www.erlebnisroute-nordhorn-almelo.de/wat-te-doen/evenementen-juni/ \"Dit zijn de # leukste evenementen in juni. Ga erop uit!\")\n- [English](https://www.visittwente.com/ \"Visit Twente\")\n- [Deutsch](https://www.visittwente.de/ \"Visit Twente - offizielle Tourist Information\")\n\nZoeken\n\nZoeken\n\n[Home](https://www.visittwente.nl/) [terug](https://www.visittwente.nl/)\n\n**Delen**\n\n- [Facebook Facebook](https://www.facebook.com/sharer.php?u=https://www.visittwente.nl/wat-te-doen/evenementen-juni/&amp;t=Dit zijn de 12 leukste evenementen in juni. Ga erop uit!)\n- [Whatsapp Whatsapp](<whatsapp://send?text=https://www.visittwente.nl/wat-te-doen/evenementen-juni/ Dit zijn de 12 leukste evenementen in juni. Ga erop uit!>)\n- [Twitter](https://x.com/share?text=Dit zijn de 12 leukste evenementen in juni. Ga erop uit!&amp;url=https://www.visittwente.nl/wat-te-doen/evenementen-juni/)\n\n### Inhoud\n\n- \t\t\t\t[Nacht van Hengelo](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15159)\n- \t\t\t\t[Zomerfeesten Hengevelde](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15271)\n- \t\t\t\t[Soundgardens Denekamp](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15304)\n- \t\t\t\t[Lumina Enschede](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip17774)\n- \t\t\t\t[FBK Games](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15364)\n- \t\t\t\t[Langste tafeldiner](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15365)\n- \t\t\t\t[Zunnewendefestival](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15360)\n- \t\t\t\t[Goors Volksfeest](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15341)\n- \t\t\t\t[Festiball](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15342)\n- \t\t\t\t[Regge Survival](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip15155)\n- \t\t\t\t[Zenderse Zomerfeesten](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip13034)\n- \t\t\t\t[Hellehondsdagen](https://www.visittwente.nl/wat-te-doen/evenementen-juni/#tip12950)\n\n### Doe-tips\n\n\n\n# Dit zijn de 12 leukste evenementen in juni. Ga erop uit!\n\n- Leestijd 3 min\n- Gelezen 16842 keer\n\n\nIn Twente is altijd wat te doen. Geen gezeur, gewoon gáán. Juni? Dat is de maand van festivals waar je op los danst, sporthelden die je schreeuwend naar de finish helpt en voorstellingen die je nog lang bijblijven. Of je nou komt voor muziek, kippenvel of pure adrenaline. Twente heeft het. Jij hoeft alleen nog maar te kiezen. Of alles te doen. Ook goed.\n\n\n\n1.\n\n![](<>)\n\n  \n  *12*### Nacht van Hengelo\n  \n      Elk jaar is het één grote reünie tijdens de Nacht van Hengelo! Overal in het centrum kan je genieten van muziek en gezellig tijdens 'de Nacht'.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/155650/nacht-van-hengelo/)\n\n2.\n\n![](<>)\n\n  \n  *11*### Zomerfeesten Hengevelde\n  \n      Twee weekenden met volop zon, gezelligheid, de lekkerste drankjes en tofste artiesten. De zomerfeesten Hengevelde staan weer voor de deur!\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/172514/zomerfeesten-hengevelde-2026/)\n\n3.\n\n![](<>)\n\n  \n  *10*### Soundgardens Denekamp\n  \n      SoundGardens Denekamp is een combinatie van Denekampse gastvrijheid en livemuziek in de tuinen rondom het centrum van het doarp. Op de tweede zaterdag van juni is er van 18.00-22.00 uur voor jong en oud een aanbod van diverse muziekgenres in maar liefst 11 tuinen.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/72618/soundgardens-denekamp-2026/)\n\n4.\n\n![](<>)\n\n  \n  *9*### Lumina Enschede\n  \n      Ontdek de Grote Kerk in Enschede op een manier die je nog niet eerder hebt ervaren. Tijdens Lumina verandert het monumentale gebouw in een indrukwekkend digitaal kunstwerk. Je staat letterlijk midden in de voorstelling, omringd door licht, beeld en geluid die al je zintuigen prikkelen. van 29 mei t/m 28 juni.\n\n[ontdek meer](https://www.lumina-enschede.nl/)\n\n5.\n\n![](<>)\n\n  \n  *8*### FBK Games\n  \n      Vernoemd naar atlete van de eeuw: Fanny Blankers Koen. ’s Werelds meest innovatieve atletiekevenement. Inmiddels al meer dan 44 jaar niet meer weg te denken van de Internationale topsportkalender: ieder jaar trekken Olympisch kampioenen, wereldkampioenen en talenten naar Hengelo om zich met elkaar te meten. Dus zet in je agenda, 21 juni!\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/155653/fbk-games/)\n\n6.\n\n![](<>)\n\n  \n  *7*### Langste tafeldiner\n  \n      Op de langste dag van het jaar organiseert restaurant Drostes het langste tafeldiner midden in de Twentse natuur. Op zaterdag 21 juni 2026 kan je dan ook ‘buitengewoon’ dineren op het land aan één lange tafel bij de Molen van Frans.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/175724/langste-tafeldiner/)\n\n7.\n\n![](<>)\n\n  \n  *6*### Zunnewendefestival\n  \n      Begin je zomer goed op het Zunnewendefestival, waar streekcultuur en streektalen elkaar ontmoeten tijdens de zunnewende, de langste dag van het jaar.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/169172/zunnewendefestival/)\n\n8.\n\n![](<>)\n\n  \n  *5*### Goors Volksfeest\n  \n      Dit jaar is er natuurlijk ook weer het School en Volksfeest! Uiteraard met de gebruikelijk kermis met veel attracties, muziek, kinderoptocht en op zondag de grote optocht met als afsluiter de Goorse Rellie.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/172134/goors-school-en-volksfeest/)\n\n9.\n\n![](<>)\n\n  \n  *4*### Festiball\n  \n      Festiball is groter dan ooit. Vier dagen volleybal competities, een groot festivalterrein op het centrumplein van Tubbergen, een vette mainstage en een line-up met toffe (live)artiesten.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/174219/festiball-2026/)\n\n10.\n\n![](<>)\n\n  \n  *3*### Regge Survival\n  \n      Regge Survival is een jaarlijks sportevenement in Nijverdal met meer dan 2.500 deelnemers. Een grootse actieve dag die je niet mag missen. Geschikt voor inimini tot volwassene.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/177181/regge-survival/)\n\n11.\n\n![](<>)\n\n  \n  *2*### Zenderse Zomerfeesten\n  \n      De Zenderse Zomerfeesten (voorheen Volksfeesten Zenderen) is een jaarlijks feestweekend waarin er voor jong en oud activiteiten en feesten worden georganiseerd. Met leuke bands, sportiviteit (het welbekende foamvolleybaltoernooi), bedrijvenborrel en de wielerronde is het altijd gezellig in Zenderen!\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/171830/zenderse-zomerfeesten-2026/)\n\n12.\n\n![Een standbeeld van een mythische hond, genaamd Helhond, met een informatiebord op een stenen sokkel.](<>)\n\n  \n  *1*### Hellehondsdagen\n  \n      Het weekend van 25 t/m 28 juni staat De Lutte in het teken van het het jaarlijkse dorpsfeest de Hellehondsdagen. Het is de organisatie gelukt om in deze 47e editie een mooi programma neer te zetten waarin jong en oud aan zijn trekken komt.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/176954/hellehondsdagen/)\n\n### Wat vind je van dit artikel?\n\n-\n-\n-\n-\n-\n\n\nVerzenden\n\n#### Deel dit artikel met anderen\n\n- [Facebook](https://www.facebook.com/sharer.php?u=https://www.visittwente.nl/typisch-twente/6031/evenementen-juni/&amp;t=Dit zijn de 12 leukste evenementen in juni. Ga erop uit!)\n- [Whatsapp](<whatsapp://send?text=https://www.visittwente.nl/typisch-twente/6031/evenementen-juni/ Dit zijn de 12 leukste evenementen in juni. Ga erop uit!>)\n- [X](https://x.com/share?text=Dit zijn de 12 leukste evenementen in juni. Ga erop uit!&amp;url=https://www.visittwente.nl/typisch-twente/6031/evenementen-juni/)\n- [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://www.visittwente.nl/typisch-twente/6031/evenementen-juni/)\n- [E-mail](<mailto:?body=https://www.visittwente.nl/typisch-twente/6031/evenementen-juni/&subject=Dit zijn de 12 leukste evenementen in juni. Ga erop uit!>)\n\n### Meer leuke verhalen\n\n[Bekijk alle verhalen](https://www.visittwente.nl/typisch-twente/)\n\n-\n\n[Doe-tipsZwembaden in Twente](https://www.visittwente.nl/wat-te-doen/met-kinderen/zwembaden-twente/)\n\n-\n\n[Slaaptijd!Voor de luxepoes onder ons: 6x glamping in Twente met kinderen](https://www.visittwente.nl/overnachten/campings-twente/glamping-in-twente-met-kinderen/)\n\n-\n\n[Van eigen bodemDe Gault&Millau restaurants in Twente](https://www.visittwente.nl/wat-te-doen/eten-drinken/restaurants-twente/gault-millau/)\n\n-\n\n[Doe-tipsWat te doen in mei? Bekijk deze evenementen](https://www.visittwente.nl/wat-te-doen/evenementen-mei/)\n\n-\n\n[Doe-tipsOntdek Twente tijdens het weekend van Hemelvaart](https://www.visittwente.nl/wat-te-doen/hemelvaart/)\n\n-\n\n[Doe-tipsUitjes in de meivakantie? 6 tips voor plezier in Twente](https://www.visittwente.nl/wat-te-doen/meivakantie/)\n\n### Schrijf je in voor maandelijkse Twentse inspiratie\n\nAanmelden\n\n### Handige links\n\n- [Typisch Twente 2026](https://www.touristserver.nl/file/5509/TypischTwente+nr.10-2026+DEF.pdf)\n- [Over Twente Marketing](https://www.twentemarketing.com/)\n- [Congresregio Twente](https://www.visittwente.nl/congresregiotwente/)\n- [Beeldbank Twente](https://www.marketingoost.nl/aanmelden-beeldbank/)\n- [VisitOost](https://www.visitoost.nl)\n- [Contact](https://www.visittwente.nl/Contact/)\n- [Cookiebeleid](https://www.visittwente.nl/cookiebeleid/)\n- [Cookie instellingen](#cookiesettings)\n\n### Steden en dorpen in Twente\n\n- [Almelo](https://www.visittwente.nl/over-twente/almelo/)\n- [Boekelo](https://www.visittwente.nl/over-twente/boekelo/)\n- [Borne](https://www.visittwente.nl/over-twente/borne/)\n- [De Lutte](https://www.visittwente.nl/over-twente/de-lutte/)\n- [Delden](https://www.visittwente.nl/over-twente/delden/)\n- [Den Ham](https://www.visittwente.nl/over-twente/den-ham/)\n- [Denekamp](https://www.visittwente.nl/over-twente/denekamp/)\n- [Diepenheim](https://www.visittwente.nl/over-twente/diepenheim/)\n- [Enschede](https://www.visittwente.nl/over-twente/enschede/)\n- [Enter](https://www.visittwente.nl/over-twente/enter/)\n- [Goor](https://www.visittwente.nl/over-twente/goor/)\n- [Haaksbergen](https://www.visittwente.nl/over-twente/haaksbergen/)\n- [Hellendoorn](https://www.visittwente.nl/over-twente/hellendoorn/)\n- [Hengelo](https://www.visittwente.nl/over-twente/hengelo/)\n- [Holten](https://www.visittwente.nl/over-twente/holten/)\n- [Losser](https://www.visittwente.nl/over-twente/losser/)\n- [Markelo](https://www.visittwente.nl/over-twente/markelo/)\n- [Nijverdal](https://www.visittwente.nl/over-twente/nijverdal/)\n- [Nordhorn](https://www.visittwente.nl/typisch-twente/nordhorn/)\n- [Oldenzaal](https://www.visittwente.nl/over-twente/oldenzaal/)\n- [Ootmarsum](https://www.visittwente.nl/over-twente/ootmarsum/)\n- [Rijssen](https://www.visittwente.nl/over-twente/rijssen/)\n- [Tubbergen](https://www.visittwente.nl/over-twente/tubbergen/)\n- [Vasse](https://www.visittwente.nl/over-twente/vasse/)\n- [Vriezenveen](https://www.visittwente.nl/over-twente/vriezenveen/)\n- [Wierden](https://www.visittwente.nl/over-twente/wierden/)\n\n© 2026\n\n- [Facebook Facebook](http://facebook.com/visittwente \"visittwente\")\n- [Instagram Instagram](http://instagram.com/visittwente \"/visittwente\")\n- [YoutubeYoutube](http://www.youtube.com/visittwente \"Youtube\")",
+            "media_type": "text/plain",
+            "type": "text"
+          },
+          "title": "Dit zijn de leukste evenementen in juni. Ga erop uit! - Visit Twente",
+          "type": "document"
+        }
+      ],
+      "id": "sevt_01MgoG6u6aRryFYHcpqPUfRc",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:52:34.034067Z",
+      "tool_use_id": "sevt_01PVbAk5kbtrD6DER3JNR2WN",
+      "type": "agent.tool_result"
+    },
+    {
+      "content": [
+        {
+          "source": {
+            "data": "---\nbase: https://www.visittwente.nl\ncanonical: https://www.visittwente.nl/wat-te-doen/evenementen-juli/\nmeta-description: Ook in de maand juli is er weer genoeg leuks te doen in Twente. Om je een handje te helpen hebben we de aller-leukste evenementen van juli op een rijtje gezet. Waar ben jij bij?  Benieuwd naar de complete agenda? Bekijk [hier](https://www.visittwente.nl/agenda &quot;hier&quot;)!\nmeta-google-site-verification: vr_AMt1702003LagAeAKr_qT_o42UqtkGpSRzQ35uPI\nmeta-mobile-web-app-capable: yes\nmeta-og:description: Ook in de maand juli is er weer genoeg leuks te doen in Twente. Om je een handje te helpen hebben we de aller-leukste evenementen van juli op een rijtje gezet. Waar ben jij bij?\nBenieuwd naar de complete agenda? Bekijk [hier](https://www.visittwente.nl/agenda &quot;hier&quot;)!\nmeta-og:image: https://www.touristserver.nl/img/180294-1620771080/B1200X1200/Twents-Speciaalbier-Festival-2020.jpg\nmeta-og:title: Dit zijn de 9 leukste evenementen in juli. Keuze genoeg! - Visit Twente\nmeta-og:url: https://www.visittwente.nl/wat-te-doen/evenementen-juli/\nmeta-viewport: width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover\ntitle: Dit zijn de 9 leukste evenementen in juli. Keuze genoeg! - Visit Twente\n---\n\n\n[navigatie overslaan](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#contentstart)\n\n[Twente](https://www.visittwente.nl/)\n\n- [**Typisch Twente** Alles over Twente, tips & verhalen](https://www.visittwente.nl/over-twente/)\n- [**Wat te doen** Activiteiten, culinaire tips & zakelijk bezoek](https://www.visittwente.nl/wat-te-doen/)\n- [**Overnachten** Alle accommodaties & slaaptips](https://www.visittwente.nl/overnachten/)\n- [**Routes** Wandelen, fietsen en nog veel meer](https://www.visittwente.nl/routes-Twente/)\n- [**Agenda** De leukste activiteiten en events](https://www.visittwente.nl/uitagenda/vandaag/)\n\nNL\n\n- [Nederlands](http://www.erlebnisroute-nordhorn-almelo.de/wat-te-doen/evenementen-juli/ \"Dit zijn de # leukste evenementen in juli. Keuze genoeg!\")\n- [English](https://www.visittwente.com/ \"Visit Twente\")\n- [Deutsch](https://www.visittwente.de/ \"Visit Twente - offizielle Tourist Information\")\n\nZoeken\n\nZoeken\n\n[Home](https://www.visittwente.nl/) [terug](https://www.visittwente.nl/)\n\n**Delen**\n\n- [Facebook Facebook](https://www.facebook.com/sharer.php?u=https://www.visittwente.nl/wat-te-doen/evenementen-juli/&amp;t=Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!)\n- [Whatsapp Whatsapp](<whatsapp://send?text=https://www.visittwente.nl/wat-te-doen/evenementen-juli/ Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!>)\n- [Twitter](https://x.com/share?text=Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!&amp;url=https://www.visittwente.nl/wat-te-doen/evenementen-juli/)\n\n### Inhoud\n\n- \t\t\t\t[In het Volkspark](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15278)\n- \t\t\t\t[Afrikafestival](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15503)\n- \t\t\t\t[Hellehondsdagen](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15279)\n- \t\t\t\t[Grote Insecten](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15280)\n- \t\t\t\t[Smaakevent](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15281)\n- \t\t\t\t[Geurenpop](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15282)\n- \t\t\t\t[Siepelmarkt](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15284)\n- \t\t\t\t[Door het Stof](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip15343)\n- \t\t\t\t[Rigters Speciaalbier Festival](https://www.visittwente.nl/wat-te-doen/evenementen-juli/#tip11186)\n\n### Doe-tips\n\n\n\n# Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!\n\n- Leestijd 3 min\n- Gelezen 7546 keer\n\n\nOok in de maand juli is er weer genoeg leuks te doen in Twente. Om je een handje te helpen hebben we de aller-leukste evenementen van juli op een rijtje gezet. Waar ben jij bij?\nBenieuwd naar de complete agenda? Bekijk [hier](https://www.visittwente.nl/agenda \"hier\")!\n\n\n\n1.\n\n![](<>)\n\n  \n  *9*### In het Volkspark\n  \n      Ontdek In Het Volkspark festival! Want wat ritselt daar toch allemaal tussen de blaadjes? In het hart van Enschede, op loopafstand van het station, ligt het Volkspark. Een stadspark dat uit 1872 stamt en daarmee het oudste park van Nederland is.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/122939/in-het-volkspark/)\n\n2.\n\n![](<>)\n\n  \n  *8*### Afrikafestival\n  \n      Het wordt weer genieten blazen deze zomer in Hertme tijdens Afrikafestival 2025! Op zaterdag 5 en zondag 6 juli waan je je weer in Afrika, maar dan gewoon in het Openluchttheater in Hertme.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/158262/afrikafestival-hertme-2025/)\n\n3.\n\n![](<>)\n\n  \n  *7*### Hellehondsdagen\n  \n      Het weekend van 3 t/m 6 juli staat De Lutte in het teken van het jaarlijkse dorpsfeest de Hellehondsdagen. Het is de organisatie gelukt om in deze 46e editie een mooi programma neer te zetten waarin jong en oud aan zijn trekken komt.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/150645/hellehondsdagen/)\n\n4.\n\n![](<>)\n\n  \n  *6*### Grote Insecten\n  \n      Metersgrote insecten uit verschillende continenten hebben zich deze zomer verzameld in de museumtuin van Natura Docet. Treed toe tot de wereld van de insecten en kom oog in oog te staan met deze gevarieerde beestjes! In het museum ontdek je levende insecten én kun je meedoen aan spannende workshops. Los onderweg raadsels op, leer alles over kriebelbeestjes én test je speurneus.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/157842/grote-insecten-bij-museum-natura-docet/)\n\n5.\n\n![](<>)\n\n  \n  *5*### Smaakevent\n  \n      Proef, proost en swing mee op het smaakvolle foodfestival van Landgoed de Uitkijk. Het wordt een middag vol muziek en lekker & drinken.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/154065/smaakevent/)\n\n6.\n\n![](<>)\n\n  \n  *4*### Geurenpop\n  \n      3 dagen lang je bouwvak inluiden met zon, muziek en gezelligheid, waarvan de vrijdag- en zaterdagavond gratis te bezoeken zijn in Park De Geuren in Hellendoorn!\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/157689/geurenpop/)\n\n7.\n\n![](<>)\n\n  \n  *3*### Siepelmarkt\n  \n      Traditiegetrouw wordt het historische centrum van Ootmarsum op de laatste donderdag van juli en de eerste twee donderdagen van augustus, omgetoverd in een gezellige markt.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/68789/siepelmarkt-2026/)\n\n8.\n\n![](<>)\n\n  \n  *2*### Door het Stof\n  \n      Stichting Theater Producties Twente viert in de zomer van 2025 de verjaardag van Enschede met een grootschalig musical waarin we de geschiedenis van Enschede herbeleven. In dit verhaal werken lokaal talent en landelijk gevestigde namen samen. Na de successen van “Het Verzet Kraakt” (Almelo) en “STORK!” (Hengelo), presenteren de makers een gloednieuwe theatervoorstelling: DOOR HET STOF.\n\n[Meer informatie](https://www.visittwente.nl/agenda-item/158658/door-het-stof/)\n\n9.\n\n![](<>)\n\n  \n  *1*### Rigters Speciaalbier Festival\n  \n      Houd jij ook zo van speciaal biertjes? Dan is dit festival echt wat voor jou! Op de markt in Haaksbergen zullen allerlei soorten speciaal biertjes te verkrijgen zijn zoals IPA's, lagers en stouts. Het belooft een gezellige dag te worden met lekker eten, goede muziek en smaakvolle speciaal biertjes!\n\n[Dat smaakt naar meer!](https://www.visittwente.nl/agenda-item/157697/rigters-speciaalbier-festival/)\n\n### Wat vind je van dit artikel?\n\n-\n-\n-\n-\n-\n\n\nVerzenden\n\n#### Deel dit artikel met anderen\n\n- [Facebook](https://www.facebook.com/sharer.php?u=https://www.visittwente.nl/typisch-twente/6093/evenementen-juli/&amp;t=Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!)\n- [Whatsapp](<whatsapp://send?text=https://www.visittwente.nl/typisch-twente/6093/evenementen-juli/ Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!>)\n- [X](https://x.com/share?text=Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!&amp;url=https://www.visittwente.nl/typisch-twente/6093/evenementen-juli/)\n- [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https://www.visittwente.nl/typisch-twente/6093/evenementen-juli/)\n- [E-mail](<mailto:?body=https://www.visittwente.nl/typisch-twente/6093/evenementen-juli/&subject=Dit zijn de 9 leukste evenementen in juli. Keuze genoeg!>)\n\n### Meer leuke verhalen\n\n[Bekijk alle verhalen](https://www.visittwente.nl/typisch-twente/)\n\n-\n\n[Doe-tipsDit zijn de leukste evenementen in juni. Ga erop uit!](https://www.visittwente.nl/wat-te-doen/evenementen-juni/)\n\n-\n\n[Doe-tipsZwembaden in Twente](https://www.visittwente.nl/wat-te-doen/met-kinderen/zwembaden-twente/)\n\n-\n\n[Slaaptijd!Voor de luxepoes onder ons: 6x glamping in Twente met kinderen](https://www.visittwente.nl/overnachten/campings-twente/glamping-in-twente-met-kinderen/)\n\n-\n\n[Van eigen bodemDe Gault&Millau restaurants in Twente](https://www.visittwente.nl/wat-te-doen/eten-drinken/restaurants-twente/gault-millau/)\n\n-\n\n[Doe-tipsWat te doen in mei? Bekijk deze evenementen](https://www.visittwente.nl/wat-te-doen/evenementen-mei/)\n\n-\n\n[Doe-tipsOntdek Twente tijdens het weekend van Hemelvaart](https://www.visittwente.nl/wat-te-doen/hemelvaart/)\n\n### Schrijf je in voor maandelijkse Twentse inspiratie\n\nAanmelden\n\n### Handige links\n\n- [Typisch Twente 2026](https://www.touristserver.nl/file/5509/TypischTwente+nr.10-2026+DEF.pdf)\n- [Over Twente Marketing](https://www.twentemarketing.com/)\n- [Congresregio Twente](https://www.visittwente.nl/congresregiotwente/)\n- [Beeldbank Twente](https://www.marketingoost.nl/aanmelden-beeldbank/)\n- [VisitOost](https://www.visitoost.nl)\n- [Contact](https://www.visittwente.nl/Contact/)\n- [Cookiebeleid](https://www.visittwente.nl/cookiebeleid/)\n- [Cookie instellingen](#cookiesettings)\n\n### Steden en dorpen in Twente\n\n- [Almelo](https://www.visittwente.nl/over-twente/almelo/)\n- [Boekelo](https://www.visittwente.nl/over-twente/boekelo/)\n- [Borne](https://www.visittwente.nl/over-twente/borne/)\n- [De Lutte](https://www.visittwente.nl/over-twente/de-lutte/)\n- [Delden](https://www.visittwente.nl/over-twente/delden/)\n- [Den Ham](https://www.visittwente.nl/over-twente/den-ham/)\n- [Denekamp](https://www.visittwente.nl/over-twente/denekamp/)\n- [Diepenheim](https://www.visittwente.nl/over-twente/diepenheim/)\n- [Enschede](https://www.visittwente.nl/over-twente/enschede/)\n- [Enter](https://www.visittwente.nl/over-twente/enter/)\n- [Goor](https://www.visittwente.nl/over-twente/goor/)\n- [Haaksbergen](https://www.visittwente.nl/over-twente/haaksbergen/)\n- [Hellendoorn](https://www.visittwente.nl/over-twente/hellendoorn/)\n- [Hengelo](https://www.visittwente.nl/over-twente/hengelo/)\n- [Holten](https://www.visittwente.nl/over-twente/holten/)\n- [Losser](https://www.visittwente.nl/over-twente/losser/)\n- [Markelo](https://www.visittwente.nl/over-twente/markelo/)\n- [Nijverdal](https://www.visittwente.nl/over-twente/nijverdal/)\n- [Nordhorn](https://www.visittwente.nl/typisch-twente/nordhorn/)\n- [Oldenzaal](https://www.visittwente.nl/over-twente/oldenzaal/)\n- [Ootmarsum](https://www.visittwente.nl/over-twente/ootmarsum/)\n- [Rijssen](https://www.visittwente.nl/over-twente/rijssen/)\n- [Tubbergen](https://www.visittwente.nl/over-twente/tubbergen/)\n- [Vasse](https://www.visittwente.nl/over-twente/vasse/)\n- [Vriezenveen](https://www.visittwente.nl/over-twente/vriezenveen/)\n- [Wierden](https://www.visittwente.nl/over-twente/wierden/)\n\n© 2026\n\n- [Facebook Facebook](http://facebook.com/visittwente \"visittwente\")\n- [Instagram Instagram](http://instagram.com/visittwente \"/visittwente\")\n- [YoutubeYoutube](http://www.youtube.com/visittwente \"Youtube\")",
+            "media_type": "text/plain",
+            "type": "text"
+          },
+          "title": "Dit zijn de 9 leukste evenementen in juli. Keuze genoeg! - Visit Twente",
+          "type": "document"
+        }
+      ],
+      "id": "sevt_011HTsjNeJ2MWrM3Z1Ke8iNE",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:52:34.034068Z",
+      "tool_use_id": "sevt_01NdS7L7hFM5d89UfroCoLA2",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01CGHGzYcYeaphRX5pf5oPER",
+      "processed_at": "2026-06-01T08:52:40.163328Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01RmJpQmNUcJTLEsUtdtkGTW",
+      "processed_at": "2026-06-01T08:52:40.163329Z",
+      "type": "agent.thinking"
+    },
+    {
+      "content": [
+        {
+          "text": "The direct `/agenda/` URL is not fetchable directly. Let me try the alternative agenda route referenced in the navigation.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01VJAUw5MSCdCge6oF1xgnAF",
+      "processed_at": "2026-06-01T08:52:40.163331Z",
+      "type": "agent.message"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01HcrrxJfSoLFGFW7SxR2qYo",
+      "input": {
+        "url": "https://www.visittwente.nl/uitagenda/vandaag/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:40.163332Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01VTKxW7jYEAdtVx32GwY3us",
+      "input": {
+        "url": "https://www.visittwente.nl/agenda-item/155650/nacht-van-hengelo/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:52:40.163333Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01FhHfV8eGyx2NyKN2LSQTz9",
+      "is_error": false,
+      "model_request_start_id": "sevt_01CGHGzYcYeaphRX5pf5oPER",
+      "model_usage": {
+        "cache_creation_input_tokens": 9846,
+        "cache_read_input_tokens": 11890,
+        "input_tokens": 1,
+        "output_tokens": 279
+      },
+      "processed_at": "2026-06-01T08:52:40.163334Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "source": {
+            "data": "Uit in Twente: Alle evenementen op één plek - Visit Twente\n\n\n\n[navigatie overslaan](https://www.visittwente.nl/uitagenda/vandaag/#contentstart)\n\n\n\n\n[Twente](https://www.visittwente.nl/)\n\n\n\n* [**Typisch Twente**\n\n  Alles over Twente, tips & verhalen](https://www.visittwente.nl/over-twente/)\n* [**Wat te doen**\n\n  Activiteiten, culinaire tips & zakelijk bezoek](https://www.visittwente.nl/wat-te-doen/)\n* [**Overnachten**\n\n  Alle accommodaties & slaaptips](https://www.visittwente.nl/overnachten/)\n* [**Routes**\n\n  Wandelen, fietsen en nog veel meer](https://www.visittwente.nl/routes-Twente/)\n* [**Agenda**\n\n  De leukste activiteiten en events](https://www.visittwente.nl/uitagenda/vandaag/)\n\nNL\n\n* [Nederlands](https://www.visittwente.nl/uitagenda/vandaag/ \"uitagenda\")* [English](https://www.visittwente.com/agenda/today/ \"uitagenda\")* [Deutsch](https://www.visittwente.de/agenda/heute/ \"uitagenda\")\n\nZoeken\n\nZoeken\n\n\n\n\nFilters\n\n#### Categorieën\n\n* [Actief](https://www.visittwente.nl/uitagenda/actief/vandaag/)* [Educatie](https://www.visittwente.nl/uitagenda/educatie/vandaag/)* [Eten & drinken](https://www.visittwente.nl/uitagenda/eten-drinken/vandaag/)* [Expositie](https://www.visittwente.nl/uitagenda/expositie/vandaag/)* [Festival](https://www.visittwente.nl/uitagenda/festival/vandaag/)* [Film](https://www.visittwente.nl/uitagenda/film/vandaag/)* [Kinderen](https://www.visittwente.nl/uitagenda/kinderen/vandaag/)* [Kunst & cultuur](https://www.visittwente.nl/uitagenda/kunst-cultuur/vandaag/)* [Markt](https://www.visittwente.nl/uitagenda/markt/vandaag/)* [Muziek](https://www.visittwente.nl/uitagenda/muziek/vandaag/)* [Rondleiding](https://www.visittwente.nl/uitagenda/rondleiding/vandaag/)* [Theater](https://www.visittwente.nl/uitagenda/theater/vandaag/)* [Winkelen](https://www.visittwente.nl/uitagenda/winkelen/vandaag/)* [Workshop](https://www.visittwente.nl/uitagenda/workshop/vandaag/)\n\n#### Plaats\n\n* [Almelo](https://www.visittwente.nl/uitagenda/almelo/vandaag/)* [Bentelo](https://www.visittwente.nl/uitagenda/bentelo/vandaag/)* [Boekelo](https://www.visittwente.nl/uitagenda/boekelo/vandaag/)* [Borne](https://www.visittwente.nl/uitagenda/borne/vandaag/)* [Daarle](https://www.visittwente.nl/uitagenda/daarle/vandaag/)* [De Lutte](https://www.visittwente.nl/uitagenda/de lutte/vandaag/)* [Delden](https://www.visittwente.nl/uitagenda/delden/vandaag/)* [Den Ham](https://www.visittwente.nl/uitagenda/den ham/vandaag/)* [Denekamp](https://www.visittwente.nl/uitagenda/denekamp/vandaag/)* [Deurningen](https://www.visittwente.nl/uitagenda/deurningen/vandaag/)* [Diepenheim](https://www.visittwente.nl/uitagenda/diepenheim/vandaag/)* [Enschede](https://www.visittwente.nl/uitagenda/enschede/vandaag/)* [Enter](https://www.visittwente.nl/uitagenda/enter/vandaag/)* [Fleringen](https://www.visittwente.nl/uitagenda/fleringen/vandaag/)* [Geesteren](https://www.visittwente.nl/uitagenda/geesteren/vandaag/)* [Goor](https://www.visittwente.nl/uitagenda/goor/vandaag/)* [Haaksbergen](https://www.visittwente.nl/uitagenda/haaksbergen/vandaag/)* [Hellendoorn](https://www.visittwente.nl/uitagenda/hellendoorn/vandaag/)* [Hengelo](https://www.visittwente.nl/uitagenda/hengelo/vandaag/)* [Hengevelde](https://www.visittwente.nl/uitagenda/hengevelde/vandaag/)* [Hoge Hexel](https://www.visittwente.nl/uitagenda/hoge hexel/vandaag/)* [Holten](https://www.visittwente.nl/uitagenda/holten/vandaag/)* [Losser](https://www.visittwente.nl/uitagenda/losser/vandaag/)* [Markelo](https://www.visittwente.nl/uitagenda/markelo/vandaag/)* [Nijverdal](https://www.visittwente.nl/uitagenda/nijverdal/vandaag/)* [Oldenzaal](https://www.visittwente.nl/uitagenda/oldenzaal/vandaag/)* [Ootmarsum](https://www.visittwente.nl/uitagenda/ootmarsum/vandaag/)* [Rijssen](https://www.visittwente.nl/uitagenda/rijssen/vandaag/)* [Saasveld](https://www.visittwente.nl/uitagenda/saasveld/vandaag/)* [Tubbergen](https://www.visittwente.nl/uitagenda/tubbergen/vandaag/)* [Vriezenveen](https://www.visittwente.nl/uitagenda/vriezenveen/vandaag/)* [Vroomshoop](https://www.visittwente.nl/uitagenda/vroomshoop/vandaag/)* [Westerhaar-Vriezenveensewijk](https://www.visittwente.nl/uitagenda/westerhaar-vriezenveensewijk/vandaag/)* [Wierden](https://www.visittwente.nl/uitagenda/wierden/vandaag/)* [Zuna](https://www.visittwente.nl/uitagenda/zuna/vandaag/)\n\nAl het aanbod in Overijssel zien? [Visit Oost](https://www.visitoost.nl/agenda/).\n\n\n\n# Uit in Twente: Alle evenementen op één plek\n\nUit in Twente, want hier is het nooit saai! Van foodtruckfestivals tot culturele knalfeesten, van muziekfestivals tot nautische spektakels en sportieve uitdagingen. Wij Tukkers weten wel hoe we een feestje moeten bouwen. Pasen en kerst? Die vieren we op z'n Twents. Voor bezoekers én voor Tukkers zelf: dit wil je niet missen. Kom met de fiets of met het OV en beleef de Twentse gastvrijheid.\n\nFilters\n\n\n* [vandaag](https://www.visittwente.nl/uitagenda/vandaag/)* [morgen](https://www.visittwente.nl/uitagenda/morgen/)* [weekend](https://www.visittwente.nl/uitagenda/weekend/)\n\nof\n\nselecteer datum\n\nApril 2026\n\n| ma | di | wo | do | vr | za | zo |\n| [30](https://www.visittwente.nl/uitagenda/30-03-2026/) | [31](https://www.visittwente.nl/uitagenda/31-03-2026/) | [1](https://www.visittwente.nl/uitagenda/01-04-2026/) | [2](https://www.visittwente.nl/uitagenda/02-04-2026/) | [3](https://www.visittwente.nl/uitagenda/03-04-2026/) | [4](https://www.visittwente.nl/uitagenda/04-04-2026/) | [5](https://www.visittwente.nl/uitagenda/05-04-2026/) |\n| [6](https://www.visittwente.nl/uitagenda/06-04-2026/) | [7](https://www.visittwente.nl/uitagenda/07-04-2026/) | [8](https://www.visittwente.nl/uitagenda/08-04-2026/) | [9](https://www.visittwente.nl/uitagenda/09-04-2026/) | [10](https://www.visittwente.nl/uitagenda/10-04-2026/) | [11](https://www.visittwente.nl/uitagenda/11-04-2026/) | [12](https://www.visittwente.nl/uitagenda/12-04-2026/) |\n| [13](https://www.visittwente.nl/uitagenda/13-04-2026/) | [14](https://www.visittwente.nl/uitagenda/14-04-2026/) | [15](https://www.visittwente.nl/uitagenda/15-04-2026/) | [16](https://www.visittwente.nl/uitagenda/16-04-2026/) | [17](https://www.visittwente.nl/uitagenda/17-04-2026/) | [18](https://www.visittwente.nl/uitagenda/18-04-2026/) | [19](https://www.visittwente.nl/uitagenda/19-04-2026/) |\n| [20](https://www.visittwente.nl/uitagenda/20-04-2026/) | [21](https://www.visittwente.nl/uitagenda/21-04-2026/) | [22](https://www.visittwente.nl/uitagenda/22-04-2026/) | [23](https://www.visittwente.nl/uitagenda/23-04-2026/) | [24](https://www.visittwente.nl/uitagenda/24-04-2026/) | [25](https://www.visittwente.nl/uitagenda/25-04-2026/) | [26](https://www.visittwente.nl/uitagenda/26-04-2026/) |\n| [27](https://www.visittwente.nl/uitagenda/27-04-2026/) | [28](https://www.visittwente.nl/uitagenda/28-04-2026/) | [29](https://www.visittwente.nl/uitagenda/29-04-2026/) | [30](https://www.visittwente.nl/uitagenda/30-04-2026/) | [1](https://www.visittwente.nl/uitagenda/01-05-2026/) | [2](https://www.visittwente.nl/uitagenda/02-05-2026/) | [3](https://www.visittwente.nl/uitagenda/03-05-2026/) |\n\n### vandaag\n\n* [![]() 09:00 - 16:00\n\n  vandaag\n\n  ### Sieraden maken workshop\n\n  Senang Jewellery, Enschede](https://www.visittwente.nl/agenda-item/171714/sieraden-maken-workshop/)\n\n  * [![]() 09:00 - 17:00\n\n    vandaag\n\n    ### Zwiep Scott MTB Cup\n\n    Het Hulsbeek, Oldenzaal](https://www.visittwente.nl/agenda-item/171938/zwiep-scott-mtb-cup/)\n\n    * [![]() 10:00 - 17:00\n\n      vandaag\n\n      ### Bas Kosters: Many loving arms\n\n      Rijksmuseum Twenthe, Enschede](https://www.visittwente.nl/agenda-item/171717/bas-kosters-many-loving-arms/)\n\n      * [![]() 10:00 - 18:00\n\n        vandaag\n\n        ### Detectivespel\n\n        Landgoed Kaamps, Deurningen](https://www.visittwente.nl/agenda-item/173024/detectivespel/)\n\n        * [![]() 10:00 - 18:00\n\n          vandaag\n\n          ### Q(Ei)R-Speurtocht!\n\n          Actief Twente, Beuningen](https://www.visittwente.nl/agenda-item/173955/q(ei)r-speurtocht!/)\n\n          * [![]() 10:00 - 17:00\n\n            vandaag\n\n            ### Twickel | Kasteeltuinen\n\n            Moestuin kasteel Twickel, Ambt Delden](https://www.visittwente.nl/agenda-item/175382/twickel-kasteeltuinen/)\n\n            * [![]() 10:30\n\n              vandaag\n\n              ### Filmhuis: I was a Stranger\n\n              ZINema, Nijverdal](https://www.visittwente.nl/agenda-item/173379/filmhuis-i-was-a-stranger/)\n\n              * [![]() 11:00 - 11:30\n\n                vandaag\n\n                ### Ponywandelen ouder-kind\n\n                't Koekhoes-Erve Meinders, Tilligte](https://www.visittwente.nl/agenda-item/167886/ponywandelen-ouder-kind/)\n\n                * [![Twee paarden trekken een huifkar met mensen door een veld met hoog gras en bomen op de achtergrond.]() 11:00 - 13:30\n\n                  vandaag\n\n                  ### Rondrit met paard en wagen\n\n                  Hoeve Springendal, Hezingen](https://www.visittwente.nl/agenda-item/172812/rondrit-met-paard-en-wagen/)\n\n                  * [![]() 11:00 - 17:00\n\n                    vandaag\n\n                    ### Help, de kuikens zijn ontsnapt\n\n                    Natuurmuseum Holterberg, Holten](https://www.visittwente.nl/agenda-item/175338/help-de-kuikens-zijn-ontsnapt/)\n\n                    * [![]() 12:00 - 17:00\n\n                      vandaag\n\n                      ### Koopzondag Ootmarsum\n\n                      Centrum Ootmarsum, Ootmarsum](https://www.visittwente.nl/agenda-item/98872/koopzondag-ootmarsum/)\n\n                      * [![]() 12:00 - 16:30\n\n                        vandaag\n\n                        ### Bezoek park en arboretum Singraven\n\n                        Park en Arboretum landgoed Singraven, Denekamp](https://www.visittwente.nl/agenda-item/72253/bezoek-park-en-arboretum-singraven/)\n\n                        * [![]() 12:00 - 17:00\n\n                          vandaag\n\n                          ### Koopzondag Woonboulevard\n\n                          Woonboulevard Oldenzaal, Oldenzaal](https://www.visittwente.nl/agenda-item/110291/koopzondag-woonboulevard/)\n\n                          * [![]() 12:00 - 17:00\n\n                            vandaag\n\n                            ### Expositie | Luca, may I kiss you?\n\n                            Drawing Centre Diepenheim, Diepenheim](https://www.visittwente.nl/agenda-item/172839/expositie-luca-may-i-kiss-you-/)\n\n                            * [![]() 12:00 - 17:00\n\n                              vandaag\n\n                              ### Expositie: Kracht met vleugels\n\n                              Museum Ton Schulten, Ootmarsum](https://www.visittwente.nl/agenda-item/158193/expositie-kracht-met-vleugels/)\n\n                              * [![]() 13:00\n\n                                vandaag\n\n                                ### Paasstaakslepen in Denekamp\n\n                                Huis Singraven, Denekamp](https://www.visittwente.nl/agenda-item/541/paasstaakslepen-in-denekamp/)\n\n                                * [![]() 13:00\n\n                                  vandaag\n\n                                  ### Brouwerijtour bij Othmarbier\n\n                                  Othmar Brouwerij, Ootmarsum](https://www.visittwente.nl/agenda-item/71295/brouwerijtour-bij-othmarbier/)\n\n                                  * [![]() 13:00 - 17:00\n\n                                    vandaag\n\n                                    ### Vaar mee met de Buurserpot\n\n                                    Buurserpot, Haaksbergen](https://www.visittwente.nl/agenda-item/153137/vaar-mee-met-de-buurserpot/)\n\n                                    * [![]() 13:30 - 16:30\n\n                                      vandaag\n\n                                      ### Expositie Mia Dikken\n\n                                      Cultureel Podium Bornse Synagoge, Borne](https://www.visittwente.nl/agenda-item/165553/expositie-mia-dikken/)\n\n                                      * [![]() 13:30 - 17:00\n\n                                        vandaag\n\n                                        ### Verborgen Verbindingen\n\n                                        Kunsthal Almelo, Almelo](https://www.visittwente.nl/agenda-item/171814/verborgen-verbindingen/)\n\n                                        * [![]() 13:30 - 16:30\n\n                                          vandaag\n\n                                          ### Expositie: Cultuur reist door Europa\n\n                                          Museum Huize Keizer, Denekamp](https://www.visittwente.nl/agenda-item/121858/expositie-cultuur-reist-door-europa/)\n\n                                          * [![]() 13:30\n\n                                            vandaag\n\n                                            ### The Super Mario Galaxy Movie (NL versie)\n\n                                            ZINema, Nijverdal](https://www.visittwente.nl/agenda-item/173904/the-super-mario-galaxy-movie-(nl-versie)/)\n\n                                            * [![]() 14:00 - 23:59\n\n                                              vandaag\n\n                                              ### Paasfeesten Albergen\n\n                                              Partycentrum Morshuis, Albergen](https://www.visittwente.nl/agenda-item/171683/paasfeesten-albergen/)\n\n                                              * [![]() 15:00 - 22:00\n\n                                                vandaag\n\n                                                ### Paasmiddag 2026\n\n                                                Pastorieplein, Hengelo](https://www.visittwente.nl/agenda-item/173143/paasmiddag-2026/)\n\n                                                * [![]() 16:00\n\n                                                  vandaag\n\n                                                  ### Jumpers (NL versie)\n\n                                                  ZINema, Nijverdal](https://www.visittwente.nl/agenda-item/173786/jumpers-(nl-versie)/)\n\n                                                  * [![]() 17:00 - 18:00\n\n                                                    vandaag\n\n                                                    ### Vlöggel’n in Ootmarsum\n\n                                                    Centrum Ootmarsum, Ootmarsum](https://www.visittwente.nl/agenda-item/287/vloggel-n-in-ootmarsum/)\n\n                                                    * [![]() 17:30 - 21:00\n\n                                                      vandaag\n\n                                                      ### Oldenzaals Paasvuur\n\n                                                      Het Hulsbeek, Oldenzaal](https://www.visittwente.nl/agenda-item/108122/oldenzaals-paasvuur/)\n\n                                                      * [![]() 19:30 - 22:00\n\n                                                        vandaag\n\n                                                        ### Paasvurentocht met Oldtimerbus\n\n                                                        Bushalte Molenstraat, Ootmarsum](https://www.visittwente.nl/agenda-item/42229/paasvurentocht-met-oldtimerbus/)\n\n                                                        * [![]() 20:00\n\n                                                          vandaag\n\n                                                          ### Paasvuren rondom Holten\n\n                                                          Diverse buurtschappen rondom Holten](https://www.visittwente.nl/agenda-item/171322/paasvuren-rondom-holten/)\n\n                                                          * [![]() 20:00\n\n                                                            vandaag\n\n                                                            ### Locaties paasvuren gemeente Tubbergen\n\n                                                            Acht locaties (zie tekstomschrijving)](https://www.visittwente.nl/agenda-item/171686/locaties-paasvuren-gemeente-tubbergen/)\n\n                                                            * [![]() 20:00\n\n                                                              vandaag\n\n                                                              ### Paasvuur Borne\n\n                                                              Oonksweg](https://www.visittwente.nl/agenda-item/171771/paasvuur-borne/)\n\n                                                              * [![]() 20:00\n\n                                                                vandaag\n\n                                                                ### Poaske Geesteren\n\n                                                                CSI Twente terrein](https://www.visittwente.nl/agenda-item/171680/poaske-geesteren/)\n\n                                                                * [![]() 20:00\n\n                                                                  vandaag\n\n                                                                  ### Paasvuur Denekamp\n\n                                                                  Recreatieterrein 't Goor, Denekamp](https://www.visittwente.nl/agenda-item/23950/paasvuur-denekamp/)\n\n                                                                  * [![]() 20:00\n\n                                                                    vandaag\n\n                                                                    ### Paasvuur Egede Hancate Eelen Rhaan\n\n                                                                    Hoek Ommerweg, Hellendoorn](https://www.visittwente.nl/agenda-item/174222/paasvuur-egede-hancate-eelen-rhaan/)\n\n                                                                    * [![]() 20:30\n\n                                                                      vandaag\n\n                                                                      ### Paasvuur Ootmarsum\n\n                                                                      , Ootmarsum](https://www.visittwente.nl/agenda-item/42081/paasvuur-ootmarsum/)\n\n                                                                      * [![]() 20:30 - 23:00\n\n                                                                        vandaag\n\n                                                                        ### Poasboaken\n\n                                                                        Aan de Regge, achter de ijsfabriek, Hellendoorn](https://www.visittwente.nl/agenda-item/174269/poasboaken/)\n\n                                                                        * [![]() 21:00 - 23:00\n\n                                                                          vandaag\n\n                                                                          ### Paasvuur Honesch\n\n                                                                          Paasboake Honesch](https://www.visittwente.nl/agenda-item/153077/paasvuur-honesch/)\n\n                                                                          * [![]() 21:00\n\n                                                                            vandaag\n\n                                                                            ### Paasvuur Sint Isidorushoeve\n\n                                                                            Paasvuur](https://www.visittwente.nl/agenda-item/153078/paasvuur-sint-isidorushoeve/)\n\n[morgen](https://www.visittwente.nl/uitagenda/06-04-2026/)\n\n\n\n\n\n\n### Schrijf je in voor maandelijkse Twentse inspiratie\n\nAanmelden\n\n### Handige links\n\n* [Typisch Twente 2025](https://www.touristserver.nl/file/5016/TypischTwente+2025.pdf)* [Over Twente Marketing](https://www.twentemarketing.com/)* [Congresregio Twente](https://www.visittwente.nl/congresregiotwente/)* [Beeldbank Twente](https://www.marketingoost.nl/aanmelden-beeldbank/)* [VisitOost](https://www.visitoost.nl)* [Contact](https://www.visittwente.nl/Contact/)* [Cookiebeleid](https://www.visittwente.nl/cookiebeleid/)* [Cookie instellingen](#cookiesettings)\n\n### Steden en dorpen in Twente\n\n* [Almelo](https://www.visittwente.nl/over-twente/almelo/)\n* [Boekelo](https://www.visittwente.nl/over-twente/boekelo/)\n* [Borne](https://www.visittwente.nl/over-twente/borne/)\n* [De Lutte](https://www.visittwente.nl/over-twente/de-lutte/)\n* [Delden](https://www.visittwente.nl/over-twente/delden/)\n* [Den Ham](https://www.visittwente.nl/over-twente/den-ham/)\n* [Denekamp](https://www.visittwente.nl/over-twente/denekamp/)\n* [Diepenheim](https://www.visittwente.nl/over-twente/diepenheim/)\n* [Enschede](https://www.visittwente.nl/over-twente/enschede/)\n* [Enter](https://www.visittwente.nl/over-twente/enter/)\n* [Goor](https://www.visittwente.nl/over-twente/goor/)\n* [Haaksbergen](https://www.visittwente.nl/over-twente/haaksbergen/)\n* [Hellendoorn](https://www.visittwente.nl/over-twente/hellendoorn/)\n* [Hengelo](https://www.visittwente.nl/over-twente/hengelo/)\n* [Holten](https://www.visittwente.nl/over-twente/holten/)\n* [Losser](https://www.visittwente.nl/over-twente/losser/)\n* [Markelo](https://www.visittwente.nl/over-twente/markelo/)\n* [Nijverdal](https://www.visittwente.nl/over-twente/nijverdal/)\n* [Nordhorn](https://www.visittwente.nl/typisch-twente/nordhorn/)\n* [Oldenzaal](https://www.visittwente.nl/over-twente/oldenzaal/)\n* [Ootmarsum](https://www.visittwente.nl/over-twente/ootmarsum/)\n* [Rijssen](https://www.visittwente.nl/over-twente/rijssen/)\n* [Tubbergen](https://www.visittwente.nl/over-twente/tubbergen/)\n* [Vasse](https://www.visittwente.nl/over-twente/vasse/)\n* [Vriezenveen](https://www.visittwente.nl/over-twente/vriezenveen/)\n* [Wierden](https://www.visittwente.nl/over-twente/wierden/)\n\n© 2026 \n\n\n\n\n#### \n\n* [Facebook Facebook](http://facebook.com/visittwente \"visittwente\")* [Instagram Instagram](http://instagram.com/visittwente \"/visittwente\")* [YoutubeYoutube](http://www.youtube.com/visittwente \"Youtube\")\n\n![](data:image/gif;base64,R0lGODdhAQABAIABAO7u7v///ywAAAAAAQABAAACAkQBADs)\n\n\n\n* [**Typisch Twente**\n\n  Alles over Twente, tips & verhalen](https://www.visittwente.nl/over-twente/)\n* [**Wat te doen**\n\n  Activiteiten, culinaire tips & zakelijk bezoek](https://www.visittwente.nl/wat-te-doen/)\n* [**Overnachten**\n\n  Alle accommodaties & slaaptips](https://www.visittwente.nl/overnachten/)\n* [**Routes**\n\n  Wandelen, fietsen en nog veel meer](https://www.visittwente.nl/routes-Twente/)\n* [**Agenda**\n\n  De leukste activiteiten en events](https://www.visittwente.nl/uitagenda/vandaag/)\n\nTerug",
+            "media_type": "text/plain",
+            "type": "text"
+          },
+          "title": "Uit in Twente: Alle evenementen op één plek - Visit Twente",
+          "type": "document"
+        }
+      ],
+      "id": "sevt_01MQATFsQRetMbQ4xKHvRaCu",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:52:52.233461Z",
+      "tool_use_id": "sevt_01HcrrxJfSoLFGFW7SxR2qYo",
+      "type": "agent.tool_result"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01EHAuh7dn3h4TnSry3q1hZH",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:52:52.233462Z",
+      "tool_use_id": "sevt_01VTKxW7jYEAdtVx32GwY3us",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_016ZdsCnWzVVrYkHYdxuN9Qy",
+      "processed_at": "2026-06-01T08:54:15.809928Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01FxoQ7D1idb6CGeTvm8j4rw",
+      "processed_at": "2026-06-01T08:54:15.809929Z",
+      "type": "agent.thinking"
+    },
+    {
+      "content": [
+        {
+          "text": "The `/agenda/` URL is inaccessible, but the live agenda is served at `/uitagenda/vandaag/` — which the site's own navigation links to — and I successfully retrieved it. It shows 38 events for today (Easter Sunday, 2026-04-05 based on the page's calendar context and Easter-themed events).\n\n```json\n{\n  \"items\": [\n    {\n      \"title\": \"Sieraden maken workshop\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171714/sieraden-maken-workshop/\",\n      \"startsAt\": \"2026-04-05T09:00:00\",\n      \"venueName\": \"Senang Jewellery, Enschede\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Zwiep Scott MTB Cup\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171938/zwiep-scott-mtb-cup/\",\n      \"startsAt\": \"2026-04-05T09:00:00\",\n      \"venueName\": \"Het Hulsbeek, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Bas Kosters: Many loving arms\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171717/bas-kosters-many-loving-arms/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Rijksmuseum Twenthe, Enschede\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Detectivespel\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173024/detectivespel/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Landgoed Kaamps, Deurningen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Q(Ei)R-Speurtocht!\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173955/q(ei)r-speurtocht!/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Actief Twente, Beuningen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Twickel | Kasteeltuinen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/175382/twickel-kasteeltuinen/\",\n      \"startsAt\": \"2026-04-05T10:00:00\",\n      \"venueName\": \"Moestuin kasteel Twickel, Ambt Delden\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Filmhuis: I was a Stranger\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173379/filmhuis-i-was-a-stranger/\",\n      \"startsAt\": \"2026-04-05T10:30:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Ponywandelen ouder-kind\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/167886/ponywandelen-ouder-kind/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"'t Koekhoes-Erve Meinders, Tilligte\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Rondrit met paard en wagen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/172812/rondrit-met-paard-en-wagen/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"Hoeve Springendal, Hezingen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Help, de kuikens zijn ontsnapt\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/175338/help-de-kuikens-zijn-ontsnapt/\",\n      \"startsAt\": \"2026-04-05T11:00:00\",\n      \"venueName\": \"Natuurmuseum Holterberg, Holten\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Koopzondag Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/98872/koopzondag-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Centrum Ootmarsum, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Bezoek park en arboretum Singraven\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/72253/bezoek-park-en-arboretum-singraven/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Park en Arboretum landgoed Singraven, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Koopzondag Woonboulevard\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/110291/koopzondag-woonboulevard/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Woonboulevard Oldenzaal, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie | Luca, may I kiss you?\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/172839/expositie-luca-may-i-kiss-you-/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Drawing Centre Diepenheim, Diepenheim\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie: Kracht met vleugels\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/158193/expositie-kracht-met-vleugels/\",\n      \"startsAt\": \"2026-04-05T12:00:00\",\n      \"venueName\": \"Museum Ton Schulten, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasstaakslepen in Denekamp\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/541/paasstaakslepen-in-denekamp/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Huis Singraven, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Brouwerijtour bij Othmarbier\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/71295/brouwerijtour-bij-othmarbier/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Othmar Brouwerij, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Vaar mee met de Buurserpot\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153137/vaar-mee-met-de-buurserpot/\",\n      \"startsAt\": \"2026-04-05T13:00:00\",\n      \"venueName\": \"Buurserpot, Haaksbergen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie Mia Dikken\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/165553/expositie-mia-dikken/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Cultureel Podium Bornse Synagoge, Borne\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Verborgen Verbindingen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171814/verborgen-verbindingen/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Kunsthal Almelo, Almelo\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Expositie: Cultuur reist door Europa\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/121858/expositie-cultuur-reist-door-europa/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"Museum Huize Keizer, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"The Super Mario Galaxy Movie (NL versie)\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173904/the-super-mario-galaxy-movie-(nl-versie)/\",\n      \"startsAt\": \"2026-04-05T13:30:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasfeesten Albergen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171683/paasfeesten-albergen/\",\n      \"startsAt\": \"2026-04-05T14:00:00\",\n      \"venueName\": \"Partycentrum Morshuis, Albergen\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasmiddag 2026\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173143/paasmiddag-2026/\",\n      \"startsAt\": \"2026-04-05T15:00:00\",\n      \"venueName\": \"Pastorieplein, Hengelo\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Jumpers (NL versie)\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/173786/jumpers-(nl-versie)/\",\n      \"startsAt\": \"2026-04-05T16:00:00\",\n      \"venueName\": \"ZINema, Nijverdal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Vlöggel'n in Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/287/vloggel-n-in-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T17:00:00\",\n      \"venueName\": \"Centrum Ootmarsum, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Oldenzaals Paasvuur\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/108122/oldenzaals-paasvuur/\",\n      \"startsAt\": \"2026-04-05T17:30:00\",\n      \"venueName\": \"Het Hulsbeek, Oldenzaal\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvurentocht met Oldtimerbus\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/42229/paasvurentocht-met-oldtimerbus/\",\n      \"startsAt\": \"2026-04-05T19:30:00\",\n      \"venueName\": \"Bushalte Molenstraat, Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuren rondom Holten\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171322/paasvuren-rondom-holten/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Diverse buurtschappen rondom Holten\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Locaties paasvuren gemeente Tubbergen\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171686/locaties-paasvuren-gemeente-tubbergen/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Acht locaties (zie tekstomschrijving)\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Borne\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171771/paasvuur-borne/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Oonksweg, Borne\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Poaske Geesteren\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/171680/poaske-geesteren/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"CSI Twente terrein, Geesteren\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Denekamp\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/23950/paasvuur-denekamp/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Recreatieterrein 't Goor, Denekamp\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Egede Hancate Eelen Rhaan\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/174222/paasvuur-egede-hancate-eelen-rhaan/\",\n      \"startsAt\": \"2026-04-05T20:00:00\",\n      \"venueName\": \"Hoek Ommerweg, Hellendoorn\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Ootmarsum\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/42081/paasvuur-ootmarsum/\",\n      \"startsAt\": \"2026-04-05T20:30:00\",\n      \"venueName\": \"Ootmarsum\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Poasboaken\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/174269/poasboaken/\",\n      \"startsAt\": \"2026-04-05T20:30:00\",\n      \"venueName\": \"Aan de Regge, achter de ijsfabriek, Hellendoorn\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Honesch\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153077/paasvuur-honesch/\",\n      \"startsAt\": \"2026-04-05T21:00:00\",\n      \"venueName\": \"Paasboake Honesch\",\n      \"description\": null\n    },\n    {\n      \"title\": \"Paasvuur Sint Isidorushoeve\",\n      \"url\": \"https://www.visittwente.nl/agenda-item/153078/paasvuur-sint-isidorushoeve/\",\n      \"startsAt\": \"2026-04-05T21:00:00\",\n      \"venueName\": \"Sint Isidorushoeve\",\n      \"description\": null\n    }\n  ]\n}\n```\n\n---\n\n**Notes:**\n\n- **`https://www.visittwente.nl/agenda/`** returned `url_not_accessible`. The site's own navigation redirects the agenda to **`https://www.visittwente.nl/uitagenda/vandaag/`**, which was successfully fetched and used as the source.\n- **38 listings** were extracted — all events shown for the current day (\"vandaag\").\n- The **date `2026-04-05`** (Easter Sunday) was inferred from the page's calendar widget (showing April 2026) and the heavy Easter-themed content (Paasvuren, Paasfeesten, Paasstaakslepen, etc.).\n- **`description`** fields are `null` throughout: the listing page only shows title, time, and venue per card — descriptions are only available on individual detail pages (not loaded here).\n- All URLs are absolute and point directly to each event's detail page on visittwente.nl.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_013Y8r4uc7PyuCLz63PhXCme",
+      "processed_at": "2026-06-01T08:54:15.809931Z",
+      "type": "agent.message"
+    },
+    {
+      "id": "sevt_01WcdCZfF4VP87VaWByHTMWM",
+      "is_error": false,
+      "model_request_start_id": "sevt_016ZdsCnWzVVrYkHYdxuN9Qy",
+      "model_usage": {
+        "cache_creation_input_tokens": 7847,
+        "cache_read_input_tokens": 21736,
+        "input_tokens": 1,
+        "output_tokens": 6474
+      },
+      "processed_at": "2026-06-01T08:54:15.809932Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01AtcqZ9qaCSisC5ELteNaGs",
+      "processed_at": "2026-06-01T08:54:16.014861Z",
+      "session_thread_id": "sthr_01Hj4sc2EGW1dDLzzMgkkK5g",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.thread_status_idle"
+    },
+    {
+      "id": "sevt_019U6GCnV5BReSLswbHd9Gwr",
+      "processed_at": "2026-06-01T08:54:16.014862Z",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.status_idle"
+    }
+  ],
+  "elapsedSec": 129.384,
+  "sessionId": "sesn_0198EVb1CPoB5JZ9VJjfxQbE",
+  "finishedReason": "idle",
+  "modelUsage": {
+    "input_tokens": 8,
+    "output_tokens": 7229,
+    "cache_creation_input_tokens": 32125,
+    "cache_read_input_tokens": 48498
+  }
+}

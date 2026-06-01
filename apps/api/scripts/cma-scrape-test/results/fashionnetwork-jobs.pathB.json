@@ -1,0 +1,221 @@
+{
+  "scenarioId": "fashionnetwork-jobs",
+  "itemCount": 0,
+  "sampleTitles": [],
+  "rawFinalText": "```json\n{\n  \"items\": []\n}\n```\n\n**Why this returned empty results:**\n\nAll three fetch attempts to `fashionnetwork.com/jobs/` (with and without `www`, and with a `/list/` sub-route) returned `url_not_accessible` errors. This is most likely due to one or more of the following reasons:\n\n1. **Bot/scraper blocking** — FashionNetwork.com actively blocks automated HTTP clients (the site is known to use Cloudflare or similar protection).\n2. **JavaScript-rendered SPA** — The jobs section may require JavaScript execution to render listings, which a static fetcher cannot handle.\n3. **Geo-restrictions or authentication walls** — The jobs section may require login or be restricted to certain regions.\n\nNo listings could be extracted. To scrape this site you would need a headless browser (e.g. Playwright or Puppeteer) with proper browser fingerprinting, or access via an authenticated session.",
+  "toolUses": 3,
+  "events": [
+    {
+      "id": "sevt_01GaQ6VZu8jG46Q1phmin9XA",
+      "processed_at": "2026-06-01T08:58:12.658361Z",
+      "type": "session.status_running"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_016nQwzEdHpe3CdqFxxLtAYS",
+      "processed_at": "2026-06-01T08:58:12.658362Z",
+      "session_thread_id": "sthr_01JbHCashJwrrADNX7emfaV2",
+      "type": "session.thread_status_running"
+    },
+    {
+      "content": [
+        {
+          "text": "URL: https://www.fashionnetwork.com/jobs/\n\nSchema (emit fenced JSON exactly like this):\n\n```json\n{\n  \"items\": [\n    { \"title\": \"...\", \"url\": \"...\", \"companyName\": \"...\", \"location\": \"...\", \"postedAt\": \"ISO-8601 or null\", \"description\": \"...\" }\n  ]\n}\n```\n\nExtract every job listing on this page. For each: title, absolute URL to detail page, companyName if visible, location if present, postedAt as ISO-8601 if present, description if present.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_011JD7i1dYvPcvdJ4Dwm7hTA",
+      "processed_at": "2026-06-01T08:58:14.667213Z",
+      "type": "user.message"
+    },
+    {
+      "id": "sevt_01XFJqCw2cqUXWPxLkh9c8Qg",
+      "processed_at": "2026-06-01T08:58:14.667214Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01JabCcZqU1h7tAhBYfUVkut",
+      "processed_at": "2026-06-01T08:58:14.667215Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01XXQkUtFFTk5cXS8ukQNBdE",
+      "input": {
+        "url": "https://www.fashionnetwork.com/jobs/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:58:14.667217Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01KKwStGcVp4mY4q3jxwaWN3",
+      "is_error": false,
+      "model_request_start_id": "sevt_01XFJqCw2cqUXWPxLkh9c8Qg",
+      "model_usage": {
+        "cache_creation_input_tokens": 530,
+        "cache_read_input_tokens": 5167,
+        "input_tokens": 3,
+        "output_tokens": 91
+      },
+      "processed_at": "2026-06-01T08:58:14.667218Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01XxQgokKXgDMGSkNVKsStYS",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:58:15.078349Z",
+      "tool_use_id": "sevt_01XXQkUtFFTk5cXS8ukQNBdE",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01LJtFidpP9hmpw1rnUVbiXP",
+      "processed_at": "2026-06-01T08:58:17.161162Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_019hMh6tSzC9L9jVchSh3M81",
+      "processed_at": "2026-06-01T08:58:17.161163Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_014Co2zqNKoM1NX81ofc9wLa",
+      "input": {
+        "url": "https://fashionnetwork.com/jobs/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:58:17.161165Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_011SK6fNCyiKZoRFx1LVTtjs",
+      "is_error": false,
+      "model_request_start_id": "sevt_01LJtFidpP9hmpw1rnUVbiXP",
+      "model_usage": {
+        "cache_creation_input_tokens": 122,
+        "cache_read_input_tokens": 5697,
+        "input_tokens": 1,
+        "output_tokens": 86
+      },
+      "processed_at": "2026-06-01T08:58:17.161166Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01DEN9zBnq1ySvxGgbycgkSh",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:58:17.431111Z",
+      "tool_use_id": "sevt_014Co2zqNKoM1NX81ofc9wLa",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01XNsrm47tNDKREiJtTPqEsr",
+      "processed_at": "2026-06-01T08:58:19.278479Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01F4ztiENrJ4M7HmYcXqN98W",
+      "input": {
+        "url": "https://www.fashionnetwork.com/jobs/list/"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:58:19.278480Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01WCUZz4QcBxZvRdAJ36Z7aL",
+      "is_error": false,
+      "model_request_start_id": "sevt_01XNsrm47tNDKREiJtTPqEsr",
+      "model_usage": {
+        "cache_creation_input_tokens": 115,
+        "cache_read_input_tokens": 5819,
+        "input_tokens": 1,
+        "output_tokens": 67
+      },
+      "processed_at": "2026-06-01T08:58:19.278481Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "text": "Web fetch error: url_not_accessible",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01X7NWqf957Eooa6EnoBpLYM",
+      "is_error": true,
+      "processed_at": "2026-06-01T08:58:19.866063Z",
+      "tool_use_id": "sevt_01F4ztiENrJ4M7HmYcXqN98W",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_013ASqzXNFZ4QrnZkBT8ozHD",
+      "processed_at": "2026-06-01T08:58:26.794370Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "content": [
+        {
+          "text": "```json\n{\n  \"items\": []\n}\n```\n\n**Why this returned empty results:**\n\nAll three fetch attempts to `fashionnetwork.com/jobs/` (with and without `www`, and with a `/list/` sub-route) returned `url_not_accessible` errors. This is most likely due to one or more of the following reasons:\n\n1. **Bot/scraper blocking** — FashionNetwork.com actively blocks automated HTTP clients (the site is known to use Cloudflare or similar protection).\n2. **JavaScript-rendered SPA** — The jobs section may require JavaScript execution to render listings, which a static fetcher cannot handle.\n3. **Geo-restrictions or authentication walls** — The jobs section may require login or be restricted to certain regions.\n\nNo listings could be extracted. To scrape this site you would need a headless browser (e.g. Playwright or Puppeteer) with proper browser fingerprinting, or access via an authenticated session.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01KydtHhcy6Xt8zdJk8JJhFJ",
+      "processed_at": "2026-06-01T08:58:26.794371Z",
+      "type": "agent.message"
+    },
+    {
+      "id": "sevt_01C7e9bGioHr8cvF42h8x4vs",
+      "is_error": false,
+      "model_request_start_id": "sevt_013ASqzXNFZ4QrnZkBT8ozHD",
+      "model_usage": {
+        "cache_creation_input_tokens": 96,
+        "cache_read_input_tokens": 5934,
+        "input_tokens": 1,
+        "output_tokens": 223
+      },
+      "processed_at": "2026-06-01T08:58:26.794372Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01Gt4YP8yJZvo8zhNwKqVgFt",
+      "processed_at": "2026-06-01T08:58:27.003570Z",
+      "session_thread_id": "sthr_01JbHCashJwrrADNX7emfaV2",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.thread_status_idle"
+    },
+    {
+      "id": "sevt_01EUjtPSFvE5okPCEJja6e8n",
+      "processed_at": "2026-06-01T08:58:27.003571Z",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.status_idle"
+    }
+  ],
+  "elapsedSec": 16.109,
+  "sessionId": "sesn_01VWj2oiLiDLp11z1xkVZLJm",
+  "finishedReason": "idle",
+  "modelUsage": {
+    "input_tokens": 6,
+    "output_tokens": 467,
+    "cache_creation_input_tokens": 863,
+    "cache_read_input_tokens": 22617
+  }
+}

@@ -7,6 +7,7 @@ declare namespace Cloudflare {
     ADMIN_SECRET: string
     PARSEW_API_KEY: string
     OPENROUTER_API_KEY: string
+    ANTHROPIC_API_KEY: string
     AUTOSEND_API_KEY: string
     AUTOSEND_DEFAULT_FROM_EMAIL: string
     AUTOSEND_DEFAULT_FROM_NAME: string

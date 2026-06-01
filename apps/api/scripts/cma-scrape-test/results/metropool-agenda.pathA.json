@@ -1,0 +1,14 @@
+{
+  "scenarioId": "metropool-agenda",
+  "itemCount": 10,
+  "sampleTitles": [
+    "Monkeyjam",
+    "Frisse Blik & Esca$h",
+    "Oogst Live: Primaat + FOEK!",
+    "QRUSH",
+    "Bonkers Bingo"
+  ],
+  "elapsedSec": 13.055,
+  "parsewCalls": 1,
+  "parsewCostUSDEstimate": 0.025
+}

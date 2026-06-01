@@ -1,0 +1,1 @@
+ALTER TYPE "public"."api_provider" ADD VALUE 'anthropic';

@@ -15,6 +15,13 @@
       "when": 1777830036950,
       "tag": "0001_lumpy_black_knight",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1780303323253,
+      "tag": "0002_chief_quasar",
+      "breakpoints": true
     }
   ]
 }

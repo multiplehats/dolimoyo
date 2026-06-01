@@ -1,0 +1,150 @@
+{
+  "scenarioId": "fashionworkplace-jobs",
+  "itemCount": 20,
+  "sampleTitles": [
+    "Creatieve Vormgever / Content Creator",
+    "Project Manager, Generative AI",
+    "Fashion & Marketing Intern",
+    "Marketer (Creative & Performance)",
+    "Stage Creative Production"
+  ],
+  "rawFinalText": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Creatieve Vormgever / Content Creator\",\n      \"url\": \"https://www.fashionworkplace.com/companies/imbarro/jobs/creatieve-vormgever-content-creator\",\n      \"companyName\": \"Imbarro\",\n      \"location\": \"Zutphen, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Mid-level\"\n    },\n    {\n      \"title\": \"Project Manager, Generative AI\",\n      \"url\": \"https://www.fashionworkplace.com/companies/hearst-agency/jobs/project-manager-generative-ai\",\n      \"companyName\": \"Hearst Agency\",\n      \"location\": \"New York, US\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Fashion & Marketing Intern\",\n      \"url\": \"https://www.fashionworkplace.com/companies/pienpino-jewellery/jobs/fashion-marketing-intern\",\n      \"companyName\": \"Pienpino Jewellery\",\n      \"location\": \"Almelo, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Entry-level\"\n    },\n    {\n      \"title\": \"Marketer (Creative & Performance)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/pavo-couture/jobs/marketer-creative-performance\",\n      \"companyName\": \"Pavo Couture\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Entry-level · Mid-level\"\n    },\n    {\n      \"title\": \"Stage Creative Production\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-creative-production\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Allround E-commerce\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-allround-e-commerce\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Development & Production\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-development-production\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stagiair(e) Retail Marketing & Inside Sales\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stagiair-e-retail-marketing-inside-sales\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Social Media Creative\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-social-media-creative\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Senior Mode Designer (m/w/d)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/ernsting-s-family/jobs/senior-mode-designer-m-w-d\",\n      \"companyName\": \"Ernsting's family\",\n      \"location\": \"Coesfeld, DE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Senior Fashion Designer\",\n      \"url\": \"https://www.fashionworkplace.com/companies/open32/jobs/senior-fashion-designer\",\n      \"companyName\": \"Open32\",\n      \"location\": \"Arnhem, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Stage Social Media (HBO)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/jollein/jobs/stage-social-media-hbo\",\n      \"companyName\": \"Jollein\",\n      \"location\": \"Assen, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Assistant Product Development\",\n      \"url\": \"https://www.fashionworkplace.com/companies/kjelvik/jobs/assistant-product-development\",\n      \"companyName\": \"Kjelvik\",\n      \"location\": \"Wijhe, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Head of Design\",\n      \"url\": \"https://www.fashionworkplace.com/companies/garcia-b-v/jobs/head-of-design\",\n      \"companyName\": \"Garcia B.V.\",\n      \"location\": \"Alblasserdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior · Manager\"\n    },\n    {\n      \"title\": \"Production Intern\",\n      \"url\": \"https://www.fashionworkplace.com/companies/refined-department/jobs/production-intern\",\n      \"companyName\": \"Refined Department\",\n      \"location\": \"Waardenburg, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Fabric Developer\",\n      \"url\": \"https://www.fashionworkplace.com/companies/dries-van-noten/jobs/fabric-developer\",\n      \"companyName\": \"Dries Van Noten\",\n      \"location\": \"Antwerp, BE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Mid-level\"\n    },\n    {\n      \"title\": \"Technical Patternmaker\",\n      \"url\": \"https://www.fashionworkplace.com/companies/dries-van-noten/jobs/technical-patternmaker\",\n      \"companyName\": \"Dries Van Noten\",\n      \"location\": \"Antwerp, BE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Mid-level\"\n    },\n    {\n      \"title\": \"Marketing Stagiair(e)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/marketing-stagiair-e\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stagiair Graphic Design\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/stagiair-graphic-design\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Recruiter\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/recruiter\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Mid-level\"\n    }\n  ]\n}\n```\n\n---\n\n**Notes:**\n\n- **20 of 84 listings extracted** — the page renders the first 20 jobs and then shows a \"Load More Jobs\" button. The remaining 64 require JavaScript-driven pagination (a client-side `Load More` action), which is not accessible via static fetch.\n- **`postedAt`** — no publication dates are exposed on the listing cards; all are `null`.\n- **`description`** — no free-text descriptions appear on the listing page; the `description` field has been populated with the employment type and seniority level tags shown on each card (e.g., `\"Full Time · Senior\"`), which is the only supplementary detail available without visiting individual detail pages.\n- **Geography skew**: The majority of roles are based in the Netherlands (NL), with a few in Belgium (BE), Germany (DE), and the US.",
+  "toolUses": 1,
+  "events": [
+    {
+      "id": "sevt_01GghM7TGzFkCy3FoEj7qqzU",
+      "processed_at": "2026-06-01T08:56:52.765563Z",
+      "type": "session.status_running"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01AdLibETTJtiSiVfQmiwvAN",
+      "processed_at": "2026-06-01T08:56:52.765564Z",
+      "session_thread_id": "sthr_01FQkQ6hdaULDACN5SyN8NZ9",
+      "type": "session.thread_status_running"
+    },
+    {
+      "content": [
+        {
+          "text": "URL: https://www.fashionworkplace.com/jobs\n\nSchema (emit fenced JSON exactly like this):\n\n```json\n{\n  \"items\": [\n    { \"title\": \"...\", \"url\": \"...\", \"companyName\": \"...\", \"location\": \"...\", \"postedAt\": \"ISO-8601 or null\", \"description\": \"...\" }\n  ]\n}\n```\n\nExtract every job listing on this page. For each: title, absolute URL to detail page, companyName if visible, location if present, postedAt as ISO-8601 if present, description if present.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01DrJ2ppexftLFStNCyNUD8j",
+      "processed_at": "2026-06-01T08:56:54.774708Z",
+      "type": "user.message"
+    },
+    {
+      "id": "sevt_01KWwzFoSwQG9Nu3iVWwREvA",
+      "processed_at": "2026-06-01T08:56:54.774709Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01TqpiiY6zpnFbrZzsPD63mk",
+      "processed_at": "2026-06-01T08:56:54.774710Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01PVQKcvyLJtsAjnnUNMs8Rq",
+      "input": {
+        "url": "https://www.fashionworkplace.com/jobs"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:56:54.774712Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_01W9CkEoguGiQA9K9Pmr8ZaD",
+      "is_error": false,
+      "model_request_start_id": "sevt_01KWwzFoSwQG9Nu3iVWwREvA",
+      "model_usage": {
+        "cache_creation_input_tokens": 529,
+        "cache_read_input_tokens": 5167,
+        "input_tokens": 3,
+        "output_tokens": 89
+      },
+      "processed_at": "2026-06-01T08:56:54.774713Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "source": {
+            "data": "---\ncanonical: https://www.fashionworkplace.com/jobs\nmeta-description: Browse 84 fashion job opportunities on Fashion Workplace. Browse open roles, salaries, and apply directly.\nmeta-googlebot: index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1\nmeta-msvalidate.01: EF4AAEAC29358028B8DFCE7759C1CF70\nmeta-og:description: Browse 84 fashion job opportunities on Fashion Workplace. Browse open roles, salaries, and apply directly.\nmeta-og:image: https://www.fashionworkplace.com/opengraph.jpg\nmeta-og:image:alt: Fashion Workplace - Europe's Leading Fashion Job Board\nmeta-og:image:height: 630\nmeta-og:image:secure_url: https://www.fashionworkplace.com/opengraph.jpg\nmeta-og:image:type: image/jpeg\nmeta-og:image:width: 1200\nmeta-og:locale: en_GB\nmeta-og:site_name: Fashion Workplace\nmeta-og:title: Fashion Jobs\nmeta-og:type: website\nmeta-og:url: https://www.fashionworkplace.com/jobs\nmeta-robots: index,follow\nmeta-twitter:card: summary_large_image\nmeta-twitter:creator: @fashionworkplace\nmeta-twitter:description: Browse 84 fashion job opportunities on Fashion Workplace. Browse open roles, salaries, and apply directly.\nmeta-twitter:site: @fashionworkplace\nmeta-twitter:title: Fashion Jobs\nmeta-viewport: width=device-width, initial-scale=1\ntitle: Fashion Jobs | Fashion Workplace\n---\n\n\n\n\n[logo-b-05](https://www.fashionworkplace.com/)\n\n\n\n\n\nGet alerts\n\n\n\n# Browse All Jobs\n\n\n\nBrowse all available job opportunities\n\n Filters\n\n\n\n\n\n\n\n![Imbarro logo](https://logo.parsew.com/imbarro.nl?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Imbarro](https://www.fashionworkplace.com/companies/imbarro)\n\n [Creatieve Vormgever / Content Creator](https://www.fashionworkplace.com/companies/imbarro/jobs/creatieve-vormgever-content-creator)\n\n Part Time Mid-level 📍 Zutphen, NL\n\n\n\n![](https://imagedelivery.net/JG2b3u-FulEpwbFCirpjnw/upload_eo5wa5rnuvelrrvx76druu6h/width=800,quality=85,format=auto)\n\n\n\n![Hearst Agency logo](https://imagedelivery.net/JG2b3u-FulEpwbFCirpjnw/upload_bsx8y0aw5j52ny0kd0l0s31v/width=96,quality=85,format=auto)\n\n[Hearst Agency](https://www.fashionworkplace.com/companies/hearst-agency)\n\n [Project Manager, Generative AI](https://www.fashionworkplace.com/companies/hearst-agency/jobs/project-manager-generative-ai)\n\n Full Time Senior 📍 New York, US\n\n\n\n\n\n\n\n[Pienpino Jewellery](https://www.fashionworkplace.com/companies/pienpino-jewellery)\n\n [Fashion & Marketing Intern](https://www.fashionworkplace.com/companies/pienpino-jewellery/jobs/fashion-marketing-intern)\n\n Part Time Entry-level 📍 Almelo, NL\n\n\n\n\n\n![Pavo Couture logo](https://logo.parsew.com/pavocouture.nl?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Pavo Couture](https://www.fashionworkplace.com/companies/pavo-couture)\n\n [Marketer (Creative & Performance)](https://www.fashionworkplace.com/companies/pavo-couture/jobs/marketer-creative-performance)\n\n Part Time Entry-level Mid-level 📍 Amsterdam, NL\n\n\n\n\n\n![Josh V logo](https://logo.parsew.com/joshv.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Josh V](https://www.fashionworkplace.com/companies/josh-v)\n\n [Stage Creative Production](https://www.fashionworkplace.com/companies/josh-v/jobs/stage-creative-production)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Josh V logo](https://logo.parsew.com/joshv.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Josh V](https://www.fashionworkplace.com/companies/josh-v)\n\n [Stage Allround E-commerce](https://www.fashionworkplace.com/companies/josh-v/jobs/stage-allround-e-commerce)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Josh V logo](https://logo.parsew.com/joshv.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Josh V](https://www.fashionworkplace.com/companies/josh-v)\n\n [Stage Development & Production](https://www.fashionworkplace.com/companies/josh-v/jobs/stage-development-production)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Josh V logo](https://logo.parsew.com/joshv.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Josh V](https://www.fashionworkplace.com/companies/josh-v)\n\n [Stagiair(e) Retail Marketing & Inside Sales](https://www.fashionworkplace.com/companies/josh-v/jobs/stagiair-e-retail-marketing-inside-sales)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Josh V logo](https://logo.parsew.com/joshv.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Josh V](https://www.fashionworkplace.com/companies/josh-v)\n\n [Stage Social Media Creative](https://www.fashionworkplace.com/companies/josh-v/jobs/stage-social-media-creative)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Ernsting’s family logo](https://logo.parsew.com/stepstone.de?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Ernsting’s family](https://www.fashionworkplace.com/companies/ernsting-s-family)\n\n [Senior Mode Designer (m/w/d)](https://www.fashionworkplace.com/companies/ernsting-s-family/jobs/senior-mode-designer-m-w-d)\n\n Full Time Senior 📍 Coesfeld, DE\n\n\n\n![](https://imagedelivery.net/JG2b3u-FulEpwbFCirpjnw/f7f1133b-c5b7-4fe2-78fa-d4dd82e2c600/width=800,quality=85,format=auto)\n\n\n\n![Open32 logo](https://logo.parsew.com/open32.nl?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Open32](https://www.fashionworkplace.com/companies/open32)\n\n [Senior Fashion Designer](https://www.fashionworkplace.com/companies/open32/jobs/senior-fashion-designer)\n\n Full Time Senior 📍 Arnhem, NL\n\n\n\n\n\n![Jollein logo](https://logo.parsew.com/jollein.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Jollein](https://www.fashionworkplace.com/companies/jollein)\n\n [Stage Social Media (HBO)](https://www.fashionworkplace.com/companies/jollein/jobs/stage-social-media-hbo)\n\n Full Time Entry-level 📍 Assen, NL\n\n\n\n![](https://imagedelivery.net/JG2b3u-FulEpwbFCirpjnw/d012387c-1df5-45cb-fa0a-e3b18c994800/width=800,quality=85,format=auto)\n\n\n\n![Kjelvik logo](https://logo.parsew.com/kjelvik.nl?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Kjelvik](https://www.fashionworkplace.com/companies/kjelvik)\n\n [Assistant Product Development](https://www.fashionworkplace.com/companies/kjelvik/jobs/assistant-product-development)\n\n Full Time Entry-level 📍 Wijhe, NL\n\n\n\n\n\n![Garcia B.V. logo](https://careers.recruiteecdn.com/image/upload/q_auto,f_auto,w_400,c_limit/production/images/AwSq/8kSnoSrAETYa.png)\n\n[Garcia B.V.](https://www.fashionworkplace.com/companies/garcia-b-v)\n\n [Head of Design](https://www.fashionworkplace.com/companies/garcia-b-v/jobs/head-of-design)\n\n Full Time Senior Manager 📍 Alblasserdam, NL\n\n\n\n![](https://imagedelivery.net/JG2b3u-FulEpwbFCirpjnw/16b7fd4a-2ef7-4792-198f-214c878ee400/width=800,quality=85,format=auto)\n\n\n\n![Refined Department logo](https://logo.parsew.com/refineddepartment.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Refined Department](https://www.fashionworkplace.com/companies/refined-department)\n\n [Production Intern](https://www.fashionworkplace.com/companies/refined-department/jobs/production-intern)\n\n Full Time Entry-level 📍 Waardenburg, NL\n\n\n\n\n\n![Dries Van Noten logo](https://logo.parsew.com/driesvannoten.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=256&amp;format=webp)\n\n[Dries Van Noten](https://www.fashionworkplace.com/companies/dries-van-noten)\n\n [Fabric Developer](https://www.fashionworkplace.com/companies/dries-van-noten/jobs/fabric-developer)\n\n Full Time Mid-level 📍 Antwerp, BE\n\n\n\n\n\n![Dries Van Noten logo](https://logo.parsew.com/driesvannoten.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=256&amp;format=webp)\n\n[Dries Van Noten](https://www.fashionworkplace.com/companies/dries-van-noten)\n\n [Technical Patternmaker](https://www.fashionworkplace.com/companies/dries-van-noten/jobs/technical-patternmaker)\n\n Full Time Mid-level 📍 Antwerp, BE\n\n\n\n\n\n![Summum logo](https://logo.parsew.com/summumwoman.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Summum](https://www.fashionworkplace.com/companies/summum)\n\n [Marketing Stagiair(e)](https://www.fashionworkplace.com/companies/summum/jobs/marketing-stagiair-e)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Summum logo](https://logo.parsew.com/summumwoman.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Summum](https://www.fashionworkplace.com/companies/summum)\n\n [Stagiair Graphic Design](https://www.fashionworkplace.com/companies/summum/jobs/stagiair-graphic-design)\n\n Full Time Entry-level 📍 Amsterdam, NL\n\n\n\n\n\n![Summum logo](https://logo.parsew.com/summumwoman.com?token=pk_MQkPqELmoVZIiQrDTXPavZbFUGQxQdPSjMgynlVTYSYzHGqcaNeYJyxLTTckxLsi&amp;size=128&amp;format=png)\n\n[Summum](https://www.fashionworkplace.com/companies/summum)\n\n [Recruiter](https://www.fashionworkplace.com/companies/summum/jobs/recruiter)\n\n Part Time Mid-level 📍 Amsterdam, NL\n\n\n\nLoad More Jobs\n\n\n\nShowing 20 of 84 jobs\n\n\n\n\n\n## Fashion Workplace\n\n\n\nFind your next career opportunity or hire top talent. The modern job board\n connecting employers with qualified candidates.\n\n\n\n[https://www.instagram.com/fashion.workplace/](https://www.instagram.com/fashion.workplace/)[https://www.linkedin.com/company/fashion-workplace/](https://www.linkedin.com/company/fashion-workplace/)\n\n\n\n### For Job Seekers\n\n\n\n[Browse Jobs](https://www.fashionworkplace.com/) [Companies](https://www.fashionworkplace.com/companies)\n\n\n\n### For Employers\n\n\n\n[Post a Job](https://www.fashionworkplace.com/app/recruiter/jobs/new)\n\n\n\n© 2026 Fashion Workplace. All rights reserved.\n\n\n\nPowered by [JobBoardStarter.com](https://jobboardstarter.com)",
+            "media_type": "text/plain",
+            "type": "text"
+          },
+          "title": "Fashion Jobs",
+          "type": "document"
+        }
+      ],
+      "id": "sevt_014fZ7jCh97oF2kTZgD3pheX",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:56:55.810639Z",
+      "tool_use_id": "sevt_01PVQKcvyLJtsAjnnUNMs8Rq",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01MVfYMDtTU9Ew2rAh4yffTA",
+      "processed_at": "2026-06-01T08:57:24.708699Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_01E8Zy9Hh1WqLxCifshjQjLd",
+      "processed_at": "2026-06-01T08:57:24.708700Z",
+      "type": "agent.thinking"
+    },
+    {
+      "content": [
+        {
+          "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Creatieve Vormgever / Content Creator\",\n      \"url\": \"https://www.fashionworkplace.com/companies/imbarro/jobs/creatieve-vormgever-content-creator\",\n      \"companyName\": \"Imbarro\",\n      \"location\": \"Zutphen, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Mid-level\"\n    },\n    {\n      \"title\": \"Project Manager, Generative AI\",\n      \"url\": \"https://www.fashionworkplace.com/companies/hearst-agency/jobs/project-manager-generative-ai\",\n      \"companyName\": \"Hearst Agency\",\n      \"location\": \"New York, US\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Fashion & Marketing Intern\",\n      \"url\": \"https://www.fashionworkplace.com/companies/pienpino-jewellery/jobs/fashion-marketing-intern\",\n      \"companyName\": \"Pienpino Jewellery\",\n      \"location\": \"Almelo, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Entry-level\"\n    },\n    {\n      \"title\": \"Marketer (Creative & Performance)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/pavo-couture/jobs/marketer-creative-performance\",\n      \"companyName\": \"Pavo Couture\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Entry-level · Mid-level\"\n    },\n    {\n      \"title\": \"Stage Creative Production\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-creative-production\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Allround E-commerce\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-allround-e-commerce\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Development & Production\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-development-production\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stagiair(e) Retail Marketing & Inside Sales\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stagiair-e-retail-marketing-inside-sales\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stage Social Media Creative\",\n      \"url\": \"https://www.fashionworkplace.com/companies/josh-v/jobs/stage-social-media-creative\",\n      \"companyName\": \"Josh V\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Senior Mode Designer (m/w/d)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/ernsting-s-family/jobs/senior-mode-designer-m-w-d\",\n      \"companyName\": \"Ernsting's family\",\n      \"location\": \"Coesfeld, DE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Senior Fashion Designer\",\n      \"url\": \"https://www.fashionworkplace.com/companies/open32/jobs/senior-fashion-designer\",\n      \"companyName\": \"Open32\",\n      \"location\": \"Arnhem, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior\"\n    },\n    {\n      \"title\": \"Stage Social Media (HBO)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/jollein/jobs/stage-social-media-hbo\",\n      \"companyName\": \"Jollein\",\n      \"location\": \"Assen, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Assistant Product Development\",\n      \"url\": \"https://www.fashionworkplace.com/companies/kjelvik/jobs/assistant-product-development\",\n      \"companyName\": \"Kjelvik\",\n      \"location\": \"Wijhe, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Head of Design\",\n      \"url\": \"https://www.fashionworkplace.com/companies/garcia-b-v/jobs/head-of-design\",\n      \"companyName\": \"Garcia B.V.\",\n      \"location\": \"Alblasserdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Senior · Manager\"\n    },\n    {\n      \"title\": \"Production Intern\",\n      \"url\": \"https://www.fashionworkplace.com/companies/refined-department/jobs/production-intern\",\n      \"companyName\": \"Refined Department\",\n      \"location\": \"Waardenburg, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Fabric Developer\",\n      \"url\": \"https://www.fashionworkplace.com/companies/dries-van-noten/jobs/fabric-developer\",\n      \"companyName\": \"Dries Van Noten\",\n      \"location\": \"Antwerp, BE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Mid-level\"\n    },\n    {\n      \"title\": \"Technical Patternmaker\",\n      \"url\": \"https://www.fashionworkplace.com/companies/dries-van-noten/jobs/technical-patternmaker\",\n      \"companyName\": \"Dries Van Noten\",\n      \"location\": \"Antwerp, BE\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Mid-level\"\n    },\n    {\n      \"title\": \"Marketing Stagiair(e)\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/marketing-stagiair-e\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Stagiair Graphic Design\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/stagiair-graphic-design\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Full Time · Entry-level\"\n    },\n    {\n      \"title\": \"Recruiter\",\n      \"url\": \"https://www.fashionworkplace.com/companies/summum/jobs/recruiter\",\n      \"companyName\": \"Summum\",\n      \"location\": \"Amsterdam, NL\",\n      \"postedAt\": null,\n      \"description\": \"Part Time · Mid-level\"\n    }\n  ]\n}\n```\n\n---\n\n**Notes:**\n\n- **20 of 84 listings extracted** — the page renders the first 20 jobs and then shows a \"Load More Jobs\" button. The remaining 64 require JavaScript-driven pagination (a client-side `Load More` action), which is not accessible via static fetch.\n- **`postedAt`** — no publication dates are exposed on the listing cards; all are `null`.\n- **`description`** — no free-text descriptions appear on the listing page; the `description` field has been populated with the employment type and seniority level tags shown on each card (e.g., `\"Full Time · Senior\"`), which is the only supplementary detail available without visiting individual detail pages.\n- **Geography skew**: The majority of roles are based in the Netherlands (NL), with a few in Belgium (BE), Germany (DE), and the US.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_017cdA4SRZjKnxUs5k2KHPY5",
+      "processed_at": "2026-06-01T08:57:24.708702Z",
+      "type": "agent.message"
+    },
+    {
+      "id": "sevt_01S1TfHR1Lt6hgvwYarwERHG",
+      "is_error": false,
+      "model_request_start_id": "sevt_01MVfYMDtTU9Ew2rAh4yffTA",
+      "model_usage": {
+        "cache_creation_input_tokens": 4425,
+        "cache_read_input_tokens": 5696,
+        "input_tokens": 1,
+        "output_tokens": 2268
+      },
+      "processed_at": "2026-06-01T08:57:24.708703Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01JJxSVFH334qFz4BZk7PCEJ",
+      "processed_at": "2026-06-01T08:57:24.909225Z",
+      "session_thread_id": "sthr_01FQkQ6hdaULDACN5SyN8NZ9",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.thread_status_idle"
+    },
+    {
+      "id": "sevt_01975JSmiFHoHiUkL7urc6vE",
+      "processed_at": "2026-06-01T08:57:24.909226Z",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.status_idle"
+    }
+  ],
+  "elapsedSec": 33.758,
+  "sessionId": "sesn_01VttiN759sVvtqHaq1MR6Ls",
+  "finishedReason": "idle",
+  "modelUsage": {
+    "input_tokens": 4,
+    "output_tokens": 2357,
+    "cache_creation_input_tokens": 4954,
+    "cache_read_input_tokens": 10863
+  }
+}

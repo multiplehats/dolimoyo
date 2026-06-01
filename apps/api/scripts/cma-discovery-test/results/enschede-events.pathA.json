@@ -1,0 +1,82 @@
+{
+  "scenarioId": "enschede-events",
+  "sources": [
+    {
+      "listingUrl": "https://www.uitinenschede.nl/agenda",
+      "domain": "uitinenschede.nl",
+      "title": "Uit in Enschede | Dé agenda van Enschede",
+      "score": 9
+    },
+    {
+      "listingUrl": "https://www.visittwente.nl/uitagenda/enschede/",
+      "domain": "visittwente.nl",
+      "title": "Uit in Twente: Alle evenementen op één plek - Visit Twente",
+      "score": 8
+    },
+    {
+      "listingUrl": "https://www.wilminktheater.nl/nl/agenda",
+      "domain": "wilminktheater.nl",
+      "title": "Agenda | Wilminktheater en Muziekcentrum Enschede",
+      "score": 8
+    },
+    {
+      "listingUrl": "https://www.uitzinnig.nl/uitagenda.aspx?g=315",
+      "domain": "uitzinnig.nl",
+      "title": "Uitagenda regio Enschede - Uitzinnig.nl",
+      "score": 7
+    },
+    {
+      "listingUrl": "https://deenschedegids.nl/evenementenkalender-enschede/",
+      "domain": "deenschedegids.nl",
+      "title": "Evenementenkalender Enschede - voor alle komende evenementen",
+      "score": 7
+    },
+    {
+      "listingUrl": "https://www.visit-enschede.com/events/",
+      "domain": "visit-enschede.com",
+      "title": "Events - Visit Enschede",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.podiuminfo.nl/concertagenda/overijssel/enschede/",
+      "domain": "podiuminfo.nl",
+      "title": "Concertagenda Enschede (Overijssel) - Podiuminfo",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.phion.nl/agenda/",
+      "domain": "phion.nl",
+      "title": "Agenda - Orkest Phion",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.concordia.nl/nl/agenda",
+      "domain": "concordia.nl",
+      "title": "Agenda | Website - Concordia",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://visitenschede.nl/events/art",
+      "domain": "visitenschede.nl",
+      "title": "Art events in Enschede: contemporary and creative",
+      "score": 6
+    }
+  ],
+  "parsewCalls": 45,
+  "parsewBreakdown": {
+    "search": 10,
+    "map": 35
+  },
+  "llmCalls": [
+    {
+      "task": "scoring",
+      "model": "openai/gpt-5-nano",
+      "inputTokens": 633,
+      "outputTokens": 370,
+      "costUSD": 0.00017965
+    }
+  ],
+  "llmCostUSD": 0.00017965,
+  "parsewCostUSDEstimate": 0.4000000000000002,
+  "elapsedSec": 382.592
+}

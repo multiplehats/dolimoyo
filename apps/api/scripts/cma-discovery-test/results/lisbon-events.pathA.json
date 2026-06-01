@@ -1,0 +1,58 @@
+{
+  "scenarioId": "lisbon-events",
+  "sources": [
+    {
+      "listingUrl": "https://www.visitlisboa.com/en/p/whats-on",
+      "domain": "visitlisboa.com",
+      "title": "What's On | Visit Lisboa",
+      "score": 7
+    },
+    {
+      "listingUrl": "https://arena.meo.pt/agenda-completa",
+      "domain": "arena.meo.pt",
+      "title": "Agenda Completa | MEO Arena",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.aml.pt/agenda/",
+      "domain": "aml.pt",
+      "title": "Agenda de eventos na Área Metropolitana de Lisboa",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.ccb.pt/eventos/",
+      "domain": "ccb.pt",
+      "title": "Eventos - Centro Cultural de Belém",
+      "score": 6
+    },
+    {
+      "listingUrl": "https://www.lisboa-live.com/en/whats-on.html",
+      "domain": "lisboa-live.com",
+      "title": "What's On in Lisbon - Lisbon Events - lisboa-live.com",
+      "score": 5
+    },
+    {
+      "listingUrl": "https://lisboacomvida.scml.pt/agenda/",
+      "domain": "lisboacomvida.scml.pt",
+      "title": "Agenda - Lisboa, Cidade COM VIDA Para Todas as Idades",
+      "score": 5
+    }
+  ],
+  "parsewCalls": 54,
+  "parsewBreakdown": {
+    "search": 10,
+    "map": 44
+  },
+  "llmCalls": [
+    {
+      "task": "scoring",
+      "model": "openai/gpt-5-nano",
+      "inputTokens": 384,
+      "outputTokens": 196,
+      "costUSD": 0.0000976
+    }
+  ],
+  "llmCostUSD": 0.0000976,
+  "parsewCostUSDEstimate": 0.49000000000000027,
+  "elapsedSec": 699.251
+}

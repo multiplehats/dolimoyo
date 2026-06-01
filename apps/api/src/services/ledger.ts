@@ -1,7 +1,7 @@
 import { schema, type Database } from '@dolimoyo/db'
 
 export interface LedgerEntry {
-  provider: 'parsew' | 'openrouter' | 'autosend'
+  provider: 'parsew' | 'openrouter' | 'autosend' | 'anthropic'
   endpoint: string
   costUnits: number | string
   sourceId?: string | null

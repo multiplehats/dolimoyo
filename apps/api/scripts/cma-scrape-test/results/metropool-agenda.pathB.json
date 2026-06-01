@@ -1,0 +1,150 @@
+{
+  "scenarioId": "metropool-agenda",
+  "itemCount": 10,
+  "sampleTitles": [
+    "Monkeyjam",
+    "Frisse Blik & Esca$h",
+    "Oogst Live: Primaat + FOEK!",
+    "QRUSH",
+    "Bonkers Bingo"
+  ],
+  "rawFinalText": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Monkeyjam\",\n      \"url\": \"https://metropool.nl/agenda/monkeyjam-3-jun\",\n      \"startsAt\": \"2026-06-03T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"De gezelligste jamsessie van heel Twente\"\n    },\n    {\n      \"title\": \"Frisse Blik & Esca$h\",\n      \"url\": \"https://metropool.nl/agenda/frisse-blik-escah\",\n      \"startsAt\": \"2026-06-04T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"Van kwetsbare pop tot explosieve chaos\"\n    },\n    {\n      \"title\": \"Oogst Live: Primaat + FOEK!\",\n      \"url\": \"https://metropool.nl/agenda/oogst-live-primaat-foek\",\n      \"startsAt\": \"2026-06-05T19:00:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"Nacht van Hengelo-editie\"\n    },\n    {\n      \"title\": \"QRUSH\",\n      \"url\": \"https://metropool.nl/agenda/qrush\",\n      \"startsAt\": \"2026-06-05T22:00:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Fairytale-editie\"\n    },\n    {\n      \"title\": \"Bonkers Bingo\",\n      \"url\": \"https://metropool.nl/agenda/bonkers-bingo\",\n      \"startsAt\": \"2026-06-06T20:15:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Een bingo-clubnacht met keiharde meezingers, hilarische dance-offs en te gekke prijzen\"\n    },\n    {\n      \"title\": \"The Fundogs - 40 jaar\",\n      \"url\": \"https://metropool.nl/agenda/the-fundogs-40-jaar\",\n      \"startsAt\": \"2026-06-06T21:00:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"Een gratis jubileumshow van de Hengelose garagerockband\"\n    },\n    {\n      \"title\": \"Jack\",\n      \"url\": \"https://metropool.nl/agenda/jack\",\n      \"startsAt\": \"2026-06-06T21:00:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Bekend om zijn rauwe flows, melodieuze hooks, voetbalreferenties en streetwise teksten\"\n    },\n    {\n      \"title\": \"Sayas EP Release: Life's Confinement\",\n      \"url\": \"https://metropool.nl/agenda/sayas-ep-release-lifes-confinement\",\n      \"startsAt\": \"2026-06-12T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"Een nieuwe golf progressieve deathmetal uit Enschede breekt los\"\n    },\n    {\n      \"title\": \"SaRon Crenshaw\",\n      \"url\": \"https://metropool.nl/agenda/saron-crenshaw\",\n      \"startsAt\": \"2026-06-12T20:30:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"PopEye Recordstore haalt de ziel van de blues naar Hengelo\"\n    },\n    {\n      \"title\": \"I Am Oak\",\n      \"url\": \"https://metropool.nl/agenda/i-am-oak\",\n      \"startsAt\": \"2026-06-12T20:30:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Een intiem seated concert van de bekroonde Nederlandse indie-folkband rond Thijs Kuijken\"\n    }\n  ]\n}\n```\n\n**Notes:**\n- **10 events** were extracted in total, all server-rendered — no JS rendering issues.\n- **Dates** are in Dutch (`wo`=Wednesday, `do`=Thursday, `vr`=Friday, `za`=Saturday); the year **2026** is inferred from the site footer copyright \"© 2026 Metropool\". Timezone set to **+02:00** (CEST, Netherlands summer time).\n- **venueName** reflects the location badge shown per listing. \"The Works\" is a sub-venue tag displayed alongside Enschede for three events; the remaining Enschede/Hengelo events are labelled as the main Metropool venue in that city.\n- **\"Metropool Presents\"** (shown on I Am Oak) is a series/programming label, not a separate venue, so venueName remains Metropool Enschede.\n- The agenda appeared to show only the **next ~2 weeks** of events; no further pages were indicated in the rendered output.",
+  "toolUses": 1,
+  "events": [
+    {
+      "id": "sevt_01YELVZWaKBXR1YWSAL3Y4Pm",
+      "processed_at": "2026-06-01T08:54:30.674523Z",
+      "type": "session.status_running"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_0123QGZhKuNov9Vb7KpCvnj2",
+      "processed_at": "2026-06-01T08:54:30.674524Z",
+      "session_thread_id": "sthr_01MEgDbr8mm8aikJhK9vr5Jg",
+      "type": "session.thread_status_running"
+    },
+    {
+      "content": [
+        {
+          "text": "URL: https://www.metropool.nl/agenda\n\nSchema (emit fenced JSON exactly like this):\n\n```json\n{\n  \"items\": [\n    { \"title\": \"...\", \"url\": \"...\", \"startsAt\": \"ISO-8601 or null\", \"venueName\": \"...\", \"description\": \"...\" }\n  ]\n}\n```\n\nExtract every event listing on this page. For each: title, absolute URL to detail page, ISO-8601 startsAt if visible, venueName if present, description if present.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01VfQ2cBu1xrz1FVSM3xL3jW",
+      "processed_at": "2026-06-01T08:54:32.984415Z",
+      "type": "user.message"
+    },
+    {
+      "id": "sevt_01CAfhKi274U6vq1jgSzzD79",
+      "processed_at": "2026-06-01T08:54:32.984416Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_019EDf7Nmwcrgx3gWb8gtgku",
+      "processed_at": "2026-06-01T08:54:32.984417Z",
+      "type": "agent.thinking"
+    },
+    {
+      "evaluated_permission": "allow",
+      "id": "sevt_01TDMGfozsxKuweeP85XxN77",
+      "input": {
+        "url": "https://www.metropool.nl/agenda"
+      },
+      "name": "web_fetch",
+      "processed_at": "2026-06-01T08:54:32.984419Z",
+      "type": "agent.tool_use"
+    },
+    {
+      "id": "sevt_019JmD3fMjqq83ZScc18ZAJP",
+      "is_error": false,
+      "model_request_start_id": "sevt_01CAfhKi274U6vq1jgSzzD79",
+      "model_usage": {
+        "cache_creation_input_tokens": 516,
+        "cache_read_input_tokens": 5167,
+        "input_tokens": 3,
+        "output_tokens": 88
+      },
+      "processed_at": "2026-06-01T08:54:32.984420Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "content": [
+        {
+          "source": {
+            "data": "---\ncanonical: https://metropool.nl/agenda\nmeta-apple-mobile-web-app-status-bar-style: default\nmeta-author: Metropool\nmeta-googlebot: index, follow\nmeta-mobile-web-app-capable: yes\nmeta-msapplication-TileColor: #9f00a7\nmeta-msapplication-config: /Images/favicon/browserconfig.xml\nmeta-og:locale: nl\nmeta-og:site_name: Metropool\nmeta-og:title: Agenda\nmeta-og:type: website\nmeta-revisit-after: 6 days\nmeta-robots: index, follow\nmeta-theme-color: #ffffff\nmeta-viewport: width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=0, maximum-scale=2\ntitle: Agenda | Metropool\n---\n[https://www.googletagmanager.com/ns.html?id=GTM-P5SCJ8](https://www.googletagmanager.com/ns.html?id=GTM-P5SCJ8)\n\n- [Door naar de hoofd inhoud](#main)\n- [Spring naar de voettekst](#footer)\n- [Naar navigatie](#top)\n\n\n[![Bedrijfs logo](https://metropool.nl/images/logo.svg)](https://metropool.nl \"Naar de homepage\")\n\n[Agenda](https://metropool.nl/agenda)\n\n-\n-\n-\n\n- [Agenda](https://metropool.nl/agenda)\n- [FAQ](https://metropool.nl/faq)\n- [Contact](https://metropool.nl/contact)\n\n\n- [Over Metropool](https://metropool.nl/over-metropool)\n- [Onze muziekcafés](https://metropool.nl/onze-muziekcafes)\n- [Foto's & Video's](https://metropool.nl/fotos-videos)\n- [Werken bij Metropool](https://metropool.nl/werken-bij-metropool)\n- [Zakelijke verhuur](https://metropool.nl/zakelijke-verhuur)\n- [Talent & educatie](https://metropool.nl/talent-educatie)\n\n- Hoog contrast\n\n- Vergroot tekst\n\n- Prikkelarm\n\n- Vertaal\n\n- Hoog contrast\n\n- Vergroot tekst\n\n- Prikkelarm\n\n- Vertaal\n\n- [Agenda](https://metropool.nl/agenda)\n- [FAQ](https://metropool.nl/faq)\n- [Contact](https://metropool.nl/contact)\n\n- [Over Metropool](https://metropool.nl/over-metropool)\n- [Onze muziekcafés](https://metropool.nl/onze-muziekcafes)\n- [Foto's & Video's](https://metropool.nl/fotos-videos)\n- [Werken bij Metropool](https://metropool.nl/werken-bij-metropool)\n- [Zakelijke verhuur](https://metropool.nl/zakelijke-verhuur)\n- [Talent & educatie](https://metropool.nl/talent-educatie)\n\n- [Agenda](https://metropool.nl/agenda)\n- [FAQ](https://metropool.nl/faq)\n- Zoeken\n\n  \n  \n  \n  \n\nZoeken\n\n- Menu\n\n## Agenda\n\n[Nieuw aangekondigd](https://metropool.nl/agenda?nieuwaangekondigd)\n\n#### Kies datum\n\n#### Type Event\n\n- Concert\n\n- Clubnacht\n\n- Festival\n\n#### Locatie\n\n- Enschede\n\n- Hengelo\n\n- Almelo\n\n- Hertme\n\n#### Genres\n\n- Pop\n\n- Overig\n\n- Rock\n\n- Hiphop/R&B\n\n- Metal\n\n-\n-\n-\n-\n-\n-\n-\n-\n-\n\nFilter resultaten\n\n- [](https://metropool.nl/agenda/monkeyjam-3-jun)\n  \n  \n      wo 03 jun\n\n      20:00\n\n    Enschede\n\n  \n  \n\n![Monkeyjam](https://metropool.nl/cache/monkeyjam.25278/monkeyjam-s500x500.jpg)\n\n  \n  \n  \n  PopThe Works Gratis\n    #### [Monkeyjam](https://metropool.nl/agenda/monkeyjam-3-jun)De gezelligste jamsessie van heel Twente\n[Meer info](https://metropool.nl/agenda/monkeyjam-3-jun)\n\n- [](https://metropool.nl/agenda/frisse-blik-escah)\n  \n  \n      do 04 jun\n\n      20:00\n\n    Enschede\n\n  \n  \n\n![Frisse Blik &amp; Esca$h](https://metropool.nl/cache/frisse-blik-escah.25276/frisse-blik-escah-s500x500.jpg)\n\n  \n  \n  \n  PopThe Works Gratis\n    #### [Frisse Blik & Esca$h](https://metropool.nl/agenda/frisse-blik-escah)Van kwetsbare pop tot explosieve chaos\n[Meer info](https://metropool.nl/agenda/frisse-blik-escah)\n\n- [](https://metropool.nl/agenda/oogst-live-primaat-foek)\n  \n  \n      vr 05 jun\n\n      19:00\n\n    Hengelo\n\n  \n  \n\n![Oogst Live: Primaat + FOEK!](https://metropool.nl/cache/oogst-live-primaat-foek.24196/oogst-live-primaat-foek-s500x500.png)\n\n  \n  \n  \n  PopGratis\n    #### [Oogst Live: Primaat + FOEK!](https://metropool.nl/agenda/oogst-live-primaat-foek)Nacht van Hengelo-editie\n[Meer info](https://metropool.nl/agenda/oogst-live-primaat-foek)\n\n- [](https://metropool.nl/agenda/qrush)\n  \n  \n      vr 05 jun\n\n      22:00\n\n    Enschede\n\n  \n  \n\n![QRUSH](https://metropool.nl/cache/qrush.24206/qrush-s500x500.png)\n\n  \n  \n  \n  Pop\n    #### [QRUSH](https://metropool.nl/agenda/qrush)Fairytale-editie\n[Tickets](https://www.ticketmaster.nl/event/448903837?CAMEFROM=METROPOOL&brand=nl_metropool)\n\n- [](https://metropool.nl/agenda/bonkers-bingo)\n  \n  \n      za 06 jun\n\n      20:15\n\n    Enschede\n\n  \n  \n\n![Bonkers Bingo](https://metropool.nl/cache/bonkers-bingo.23543/bonkers-bingo-s500x500.jpg)\n\n  \n  \n  \n  Overig\n    #### [Bonkers Bingo](https://metropool.nl/agenda/bonkers-bingo)Een bingo-clubnacht met keiharde meezingers, hilarische dance-offs en te gekke prijzen\n[Tickets](https://www.ticketmaster.nl/event/1796038789?CAMEFROM=METROPOOL&brand=nl_metropool)\n\n- [](https://metropool.nl/agenda/the-fundogs-40-jaar)\n  \n  \n      za 06 jun\n\n      21:00\n\n    Hengelo\n\n  \n  \n\n![The Fundogs - 40 jaar](https://metropool.nl/cache/the-fundogs-40-jaar.25024/the-fundogs-40-jaar-s500x500.jpg)\n\n  \n  \n  \n  RockGratis\n    #### [The Fundogs - 40 jaar](https://metropool.nl/agenda/the-fundogs-40-jaar)Een gratis jubileumshow van de Hengelose garagerockband\n[Meer info](https://metropool.nl/agenda/the-fundogs-40-jaar)\n\n- [](https://metropool.nl/agenda/jack)\n  \n  \n      za 06 jun\n\n      21:00\n\n    Enschede\n\n  \n  \n\n![Jack](https://metropool.nl/cache/jack.22595/jack-s500x500.jpg)\n\n  \n  \n  \n  Hiphop/R&B\n    #### [Jack](https://metropool.nl/agenda/jack)Bekend om zijn rauwe flows, melodieuze hooks, voetbalreferenties en streetwise teksten\n[Tickets](https://www.ticketmaster.nl/event/1244375559?CAMEFROM=METROPOOL&brand=nl_metropool)\n\n- [](https://metropool.nl/agenda/sayas-ep-release-lifes-confinement)\n  \n  \n      vr 12 jun\n\n      20:00\n\n    Enschede\n\n  \n  \n\n![Sayas EP Release: Life's Confinement](https://metropool.nl/cache/sayas-ep-release-lifes-confinement.23003/sayas-ep-release-lifes-confinement-s500x500.jpg)\n\n  \n  \n  \n  MetalThe Works\n    #### [Sayas EP Release: Life's Confinement](https://metropool.nl/agenda/sayas-ep-release-lifes-confinement)Een nieuwe golf progressieve deathmetal uit Enschede breekt los\n[Tickets](https://www.ticketmaster.nl/event/sayas-ep-release-lifes-confinement-tickets/1381643890)\n\n- [](https://metropool.nl/agenda/saron-crenshaw)\n  \n  \n      vr 12 jun\n\n      20:30\n\n    Hengelo\n\n  \n  \n\n![SaRon Crenshaw](https://metropool.nl/cache/saron-crenshaw.19581/saron-crenshaw-s500x500.jpg)\n\n  \n  \n  \n  Blues\n    #### [SaRon Crenshaw](https://metropool.nl/agenda/saron-crenshaw)PopEye Recordstore haalt de ziel van de blues naar Hengelo\n[Tickets](https://www.ticketmaster.nl/event/694599457?CAMEFROM=METROPOOL&brand=nl_metropool)\n\n- [](https://metropool.nl/agenda/i-am-oak)\n  \n  \n      vr 12 jun\n\n      20:30\n\n    Enschede\n\n  \n  \n\n![I Am Oak](https://metropool.nl/cache/i-am-oak.23495/i-am-oak-s500x500.jpg)\n\n  \n  \n  \n  Folk/CountryMetropool Presents\n    #### [I Am Oak](https://metropool.nl/agenda/i-am-oak)Een intiem seated concert van de bekroonde Nederlandse indie-folkband rond Thijs Kuijken\n[Tickets](https://www.ticketmaster.nl/event/658395183?CAMEFROM=METROPOOL&brand=nl_metropool)\n\n### Schrijf je in voor onze nieuwsbrief!\n\nWil jij op de hoogte zijn van nieuwe aankondigingen en profiteren van exclusieve pre-sales? Schrijf je dan in voor onze gratis nieuwsbrief.\n\nVoornaam\n\nAchternaam\n\nE-mailadres\n\nIk schrijf mij in voor de reguliere nieuwsbrief\n\nIk schrijf mij in voor de By Night-nieuwsbrief\n\nJe moet ten minste één nieuwsbrief selecteren.\n\nInschrijven\n\nGa snel naar\n\n- [Home](https://metropool.nl)\n- [Agenda](https://metropool.nl/agenda)\n- [FAQ](https://metropool.nl/faq)\n- [Contact](https://metropool.nl/contact)\n- [Over Metropool](https://metropool.nl/over-metropool)\n\n\n- [Onze muziekcafés](https://metropool.nl/onze-muziekcafes)\n- [Foto's & Video's](https://metropool.nl/fotos-videos)\n- [Werken bij Metropool](https://metropool.nl/werken-bij-metropool)\n- [Zakelijke verhuur](https://metropool.nl/zakelijke-verhuur)\n- [Talent & educatie](https://metropool.nl/talent-educatie)\n\nWaar kun je ons vinden? Metropool Hengelo Industrieplein 10 7553 LL Hengelo\n\nMetropool Enschede Willem Wilminkplein 2 7511 PG Enschede\n\nMetropool Almelo Kolthofsingel 15 7602 EM Almelo\n\nHoe kun je ons bereiken? [+31(0)74 - 243 80 00](tel:00310742438000) <kassa@metropool.nl>\n\n- [https://www.facebook.com/PoppodiumMetropool/](https://www.facebook.com/PoppodiumMetropool/)\n- [https://www.instagram.com/m_metropool/](https://www.instagram.com/m_metropool/)\n- [https://www.linkedin.com/company/metropoolhengeloenschede/](https://www.linkedin.com/company/metropoolhengeloenschede/)\n- [https://www.tiktok.com/@m_metropool](https://www.tiktok.com/@m_metropool)\n- [https://wa.me/31627557855](https://wa.me/31627557855)\n\n\n- © 2026 Metropool Poppodia van Twente\n- [Algemene voorwaarden](https://metropool.nl/legal/algemene-voorwaarden)\n- [Privacyverklaring](https://metropool.nl/legal/privacyverklaring)\n- [Cookiestatement](https://metropool.nl/legal/cookiestatement)\n- [Huisregels](https://metropool.nl/huisregels)\n\nSelecteer taal",
+            "media_type": "text/plain",
+            "type": "text"
+          },
+          "title": "Agenda",
+          "type": "document"
+        }
+      ],
+      "id": "sevt_01LXDiAzzjZ8eib6BmFXzhP9",
+      "is_error": false,
+      "processed_at": "2026-06-01T08:54:35.408075Z",
+      "tool_use_id": "sevt_01TDMGfozsxKuweeP85XxN77",
+      "type": "agent.tool_result"
+    },
+    {
+      "id": "sevt_01GLExnQUMWVMwq7LpiKjn1f",
+      "processed_at": "2026-06-01T08:55:09.446527Z",
+      "type": "span.model_request_start"
+    },
+    {
+      "id": "sevt_016uFzZgNQHUkyRka9L7NQoM",
+      "processed_at": "2026-06-01T08:55:09.446528Z",
+      "type": "agent.thinking"
+    },
+    {
+      "content": [
+        {
+          "text": "```json\n{\n  \"items\": [\n    {\n      \"title\": \"Monkeyjam\",\n      \"url\": \"https://metropool.nl/agenda/monkeyjam-3-jun\",\n      \"startsAt\": \"2026-06-03T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"De gezelligste jamsessie van heel Twente\"\n    },\n    {\n      \"title\": \"Frisse Blik & Esca$h\",\n      \"url\": \"https://metropool.nl/agenda/frisse-blik-escah\",\n      \"startsAt\": \"2026-06-04T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"Van kwetsbare pop tot explosieve chaos\"\n    },\n    {\n      \"title\": \"Oogst Live: Primaat + FOEK!\",\n      \"url\": \"https://metropool.nl/agenda/oogst-live-primaat-foek\",\n      \"startsAt\": \"2026-06-05T19:00:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"Nacht van Hengelo-editie\"\n    },\n    {\n      \"title\": \"QRUSH\",\n      \"url\": \"https://metropool.nl/agenda/qrush\",\n      \"startsAt\": \"2026-06-05T22:00:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Fairytale-editie\"\n    },\n    {\n      \"title\": \"Bonkers Bingo\",\n      \"url\": \"https://metropool.nl/agenda/bonkers-bingo\",\n      \"startsAt\": \"2026-06-06T20:15:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Een bingo-clubnacht met keiharde meezingers, hilarische dance-offs en te gekke prijzen\"\n    },\n    {\n      \"title\": \"The Fundogs - 40 jaar\",\n      \"url\": \"https://metropool.nl/agenda/the-fundogs-40-jaar\",\n      \"startsAt\": \"2026-06-06T21:00:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"Een gratis jubileumshow van de Hengelose garagerockband\"\n    },\n    {\n      \"title\": \"Jack\",\n      \"url\": \"https://metropool.nl/agenda/jack\",\n      \"startsAt\": \"2026-06-06T21:00:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Bekend om zijn rauwe flows, melodieuze hooks, voetbalreferenties en streetwise teksten\"\n    },\n    {\n      \"title\": \"Sayas EP Release: Life's Confinement\",\n      \"url\": \"https://metropool.nl/agenda/sayas-ep-release-lifes-confinement\",\n      \"startsAt\": \"2026-06-12T20:00:00+02:00\",\n      \"venueName\": \"The Works, Enschede\",\n      \"description\": \"Een nieuwe golf progressieve deathmetal uit Enschede breekt los\"\n    },\n    {\n      \"title\": \"SaRon Crenshaw\",\n      \"url\": \"https://metropool.nl/agenda/saron-crenshaw\",\n      \"startsAt\": \"2026-06-12T20:30:00+02:00\",\n      \"venueName\": \"Metropool Hengelo\",\n      \"description\": \"PopEye Recordstore haalt de ziel van de blues naar Hengelo\"\n    },\n    {\n      \"title\": \"I Am Oak\",\n      \"url\": \"https://metropool.nl/agenda/i-am-oak\",\n      \"startsAt\": \"2026-06-12T20:30:00+02:00\",\n      \"venueName\": \"Metropool Enschede\",\n      \"description\": \"Een intiem seated concert van de bekroonde Nederlandse indie-folkband rond Thijs Kuijken\"\n    }\n  ]\n}\n```\n\n**Notes:**\n- **10 events** were extracted in total, all server-rendered — no JS rendering issues.\n- **Dates** are in Dutch (`wo`=Wednesday, `do`=Thursday, `vr`=Friday, `za`=Saturday); the year **2026** is inferred from the site footer copyright \"© 2026 Metropool\". Timezone set to **+02:00** (CEST, Netherlands summer time).\n- **venueName** reflects the location badge shown per listing. \"The Works\" is a sub-venue tag displayed alongside Enschede for three events; the remaining Enschede/Hengelo events are labelled as the main Metropool venue in that city.\n- **\"Metropool Presents\"** (shown on I Am Oak) is a series/programming label, not a separate venue, so venueName remains Metropool Enschede.\n- The agenda appeared to show only the **next ~2 weeks** of events; no further pages were indicated in the rendered output.",
+          "type": "text"
+        }
+      ],
+      "id": "sevt_01DekpVVvfydUbwVUttX4sBG",
+      "processed_at": "2026-06-01T08:55:09.446530Z",
+      "type": "agent.message"
+    },
+    {
+      "id": "sevt_014AmnJNS4me3ydjGrzASxro",
+      "is_error": false,
+      "model_request_start_id": "sevt_01GLExnQUMWVMwq7LpiKjn1f",
+      "model_usage": {
+        "cache_creation_input_tokens": 3688,
+        "cache_read_input_tokens": 5683,
+        "input_tokens": 1,
+        "output_tokens": 2139
+      },
+      "processed_at": "2026-06-01T08:55:09.446531Z",
+      "type": "span.model_request_end"
+    },
+    {
+      "agent_name": "dolimoyo-scrape-test",
+      "id": "sevt_01J4iBhJGaf91E7JJLonFSMQ",
+      "processed_at": "2026-06-01T08:55:09.656168Z",
+      "session_thread_id": "sthr_01MEgDbr8mm8aikJhK9vr5Jg",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.thread_status_idle"
+    },
+    {
+      "id": "sevt_01Ma2BVgwFvUKytSqbxjmp1x",
+      "processed_at": "2026-06-01T08:55:09.656169Z",
+      "stop_reason": {
+        "type": "end_turn"
+      },
+      "type": "session.status_idle"
+    }
+  ],
+  "elapsedSec": 40.589,
+  "sessionId": "sesn_012YDBnrMRMoF3QDgtNpBQwa",
+  "finishedReason": "idle",
+  "modelUsage": {
+    "input_tokens": 4,
+    "output_tokens": 2227,
+    "cache_creation_input_tokens": 4204,
+    "cache_read_input_tokens": 10850
+  }
+}
